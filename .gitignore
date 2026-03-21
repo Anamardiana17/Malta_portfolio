@@ -1,0 +1,25 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+.env
+
+# Python caches
+*.pyo
+*.pyd
+
+# VS Code local settings (optional)
+.vscode/
+
+# Build/output/cache
+output/
+data_processed/spa_research/page_cache/
+data_processed/spa_research/page_cache_manual_v2/
+data_processed/spa_research/page_cache_v3/
+data_processed/spa_research/page_cache_v4/
+data_processed/spa_research/page_cache_v5/
+data_processed/spa_research/page_cache_v6/
+
+# Temporary files
+tempCodeRunnerFile.py
