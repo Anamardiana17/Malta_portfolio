@@ -1,0 +1,11 @@
+conflict_pattern_code,conflict_pattern_group,definition,trigger_rule_summary,primary_tradeoff_dimension,default_manager_action,escalation_rule,status
+HIGH_DEMAND_LOW_YIELD,commercial_tradeoff,strong demand but weak monetization,high bookings with low yield,pricing,review pricing and upsell discipline,escalate if persists 2+ periods,active
+HIGH_UTIL_LOW_REVPATH,capacity_tradeoff,capacity busy but low value creation,high utilization with weak revpath,capacity_vs_price,review mix pricing and schedule quality,escalate if persists 2+ periods,active
+HIGH_REV_BURNOUT_RISK,sustainability_tradeoff,revenue achieved with team strain,revenue strong with burnout indicators,revenue_vs_team,review staffing load and roster sustainability,escalate immediately if severe,active
+STRONG_TOPLINE_WEAK_RETENTION,retention_tradeoff,revenue acceptable but retention weak,strong revenue with weak rebooking,retention,review guest journey and follow-up discipline,escalate if persists 3+ periods,active
+HIGH_BOOKING_HIGH_CANCELLATION,leakage_tradeoff,demand exists but leakage high,high bookings with high cancellation,leakage,review booking confirmation and cancellation control,escalate if persists 2+ periods,active
+GOOD_SALES_WEAK_EXECUTION,execution_tradeoff,sales okay but operational quality weak,commercial okay with service issues,execution,review SOP coaching and floor discipline,escalate if complaints rise,active
+PRICE_ABOVE_MARKET_WEAK_CONVERSION,pricing_tradeoff,price premium not supported by conversion,price above market with weak conversion,pricing_vs_value,review value proposition and price architecture,escalate before launch,active
+LOW_DEMAND_EXTERNAL_PRESSURE,demand_context,performance weak primarily due to external pressure,weak demand with weak external context,market,adjust targets and protect base demand,review monthly,active
+LOW_DEMAND_INTERNAL_EXECUTION,execution_context,performance weak primarily due to internal execution,weak demand without severe external pressure,execution,review local marketing booking discipline and service execution,escalate if persists 2+ periods,active
+THERAPIST_INSTABILITY_RISK,team_tradeoff,therapist volatility creates service risk,low consistency and unstable delivery,team_stability,coach therapist and monitor schedule consistency,escalate if linked to complaints,active

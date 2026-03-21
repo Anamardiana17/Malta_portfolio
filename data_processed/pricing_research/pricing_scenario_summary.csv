@@ -1,0 +1,4 @@
+scenario_name,treatment_count,price_range_note,avg_price_point,total_net_profit_proxy,avg_net_profit_proxy,min_net_profit_proxy,max_net_profit_proxy,avg_net_margin_proxy_percent
+base,10,69-109,88.0,384.71,38.47,30.36,44.69,43.9
+conservative,10,59-99,78.0,340.81,34.08,25.96,40.59,43.9
+premium_upside,10,79-119,98.0,428.61,42.86,34.76,48.79,43.9

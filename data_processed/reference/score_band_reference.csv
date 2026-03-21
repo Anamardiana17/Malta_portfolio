@@ -1,0 +1,13 @@
+score_type,lower_bound,upper_bound,band_label,status
+treatment_health_score,85.00,100.00,strong,active
+treatment_health_score,70.00,84.99,healthy,active
+treatment_health_score,50.00,69.99,watchlist,active
+treatment_health_score,0.00,49.99,critical,active
+therapist_consistency_score,85.00,100.00,highly_consistent,active
+therapist_consistency_score,70.00,84.99,stable,active
+therapist_consistency_score,50.00,69.99,watchlist,active
+therapist_consistency_score,0.00,49.99,unstable,active
+overall_management_signal_score,85.00,100.00,leading,active
+overall_management_signal_score,70.00,84.99,stable,active
+overall_management_signal_score,50.00,69.99,watchlist,active
+overall_management_signal_score,0.00,49.99,critical,active

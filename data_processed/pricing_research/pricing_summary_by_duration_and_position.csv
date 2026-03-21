@@ -1,0 +1,5 @@
+session_duration_min,pricing_position_label,treatment_count,avg_price_point,avg_net_margin_proxy_percent
+45,entry,2,69,46.0
+60,core,6,87,44.0
+60,premium,1,99,42.0
+75,premium,1,99,41.0

@@ -1,0 +1,7 @@
+dictionary_id,file_name,field_name,field_definition,field_type,notes
+DICT_001,treatment_economics_v1_basecase_clean.csv,gross_profit_pre_overhead_basecase,Proxy gross profit before overhead deduction in economics v1.,numeric,Derived from locked proxy structure; validated against source menu logic.
+DICT_002,treatment_economics_v1_basecase_clean.csv,net_profit_post_overhead_basecase,Proxy net profit after overhead deduction in economics v1.,numeric,Validated against locked proxy structure.
+DICT_003,treatment_economics_v1_executive_summary.csv,executive_rank_by_net_profit,Descending rank of treatments by proxy net profit in v1.,integer,Rank 1 = highest proxy net profit.
+DICT_004,economics_v1_validation_check.csv,validation_summary,Overall pass/review status for gross and net profit consistency checks.,text,Current project state = all pass.
+DICT_005,economics_v1_key_findings.csv,finding_text,Human-readable summary insight derived from economics v1 summary outputs.,text,Used for documentation and summary layer.
+DICT_006,economics_v1_summary_pack.csv,section_content,"Short-form summary statement for model scope, validation, findings, or upgrade path.",text,Acts as compact narrative layer for backend documentation.

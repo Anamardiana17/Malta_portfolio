@@ -1,0 +1,18 @@
+outlet_name_final,matched_rows,source_files_hit,source_url_1,source_url_2
+66 Saint Paul's & Spa,3,,,
+AX Odycy Spa,6,,,
+Carisma Spa & Wellness,87,malta_spa_outlet_master.csv | malta_spa_outlet_master_clean.csv | malta_spa_outlet_master_clean_v2.csv | malta_spa_outlets_raw.csv,https://malta.intercontinental.com/spa,https://www.carismaspa.com/
+Carisma Spa Malta,87,malta_spa_outlet_master.csv | malta_spa_outlet_master_clean.csv | malta_spa_outlet_master_clean_v2.csv | malta_spa_outlets_raw.csv,https://malta.intercontinental.com/spa,https://www.carismaspa.com/
+DoubleTree by Hilton Malta,6,,,
+Essensi Spa,4,malta_spa_outlet_master.csv | malta_spa_outlet_master_clean.csv | malta_spa_outlet_master_clean_v2.csv | malta_spa_outlets_raw.csv,https://inialamalta.com/spa/,
+Grand Hotel Excelsior Spa,5,,,
+Hilton Malta,11,,,
+Hugo's H Hotel Spa,7,,,
+Hyatt Regency Malta Spa,6,,,
+InterContinental Malta,6,malta_spa_outlet_master.csv | malta_spa_outlets_raw.csv,https://malta.intercontinental.com/spa,
+Malta Marriott Resort & Spa,6,,,
+Novotel Malta Sliema Spa,6,,,
+"Radisson Blu Resort & Spa, Malta Golden Sands",7,,,
+Ramla Bay Resort Spa,6,,,
+Riviera Spa Resort,6,,,
+Salini Resort Spa,4,,,

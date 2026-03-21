@@ -1,0 +1,11 @@
+treatment_category,treatment_variant,session_duration_min,component_count,total_cost_low,total_cost_mid,total_cost_high
+aromatherapy,standard,60,2,0.801,1.356,1.952
+body_treatment,standard,60,2,0.882,1.5876,2.205
+deep_tissue,standard,60,1,0.41,0.615,0.902
+facial,basic,60,5,1.4699,2.4712,3.6847
+hot_stone,standard,75,1,0.41,0.615,0.82
+massage,standard,60,1,0.492,0.738,1.025
+reflexology,standard,45,1,0.1332,0.2331,0.333
+scrub,standard,45,1,1.158,2.0265,2.895
+swedish,standard,60,1,0.492,0.738,1.025
+wrap,standard,60,2,2.8595,4.3312,6.4968

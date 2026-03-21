@@ -1,0 +1,9 @@
+sample_outlet_count,diversified_coverage_score,archetype_coverage_ratio,complexity_penalty,final_network_score
+3,242.15,0.3,0,278.15
+4,316.25,0.4,4,360.25
+5,386.4,0.5,8,438.4
+6,456.35,0.6,12,516.35
+7,523.75,0.7,16,591.75
+8,572.3,0.8,26,642.3
+9,618.3,0.9,36,690.3
+10,663.9,1.0,46,737.9

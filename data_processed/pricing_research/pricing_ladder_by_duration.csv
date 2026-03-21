@@ -1,0 +1,4 @@
+session_duration_min,treatment_count,min_price_point,median_price_point,max_price_point,min_net_margin_proxy_percent,avg_net_margin_proxy_percent,max_net_margin_proxy_percent,pricing_ladder_note
+45,2,69,69,69,44.0,46.0,48.0,69-69-69
+60,7,79,89,99,42.0,43.71,46.0,79-89-99
+75,1,99,99,99,41.0,41.0,41.0,99-99-99

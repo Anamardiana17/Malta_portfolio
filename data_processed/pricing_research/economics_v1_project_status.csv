@@ -1,0 +1,6 @@
+status_id,project_phase,status_title,status_value,notes
+V1STAT_001,economics_v1,Model status,closed_clean,"Economics v1 proxy-first base-case model has been built, validated, summarized, and documented."
+V1STAT_002,economics_v1,Validation result,all_pass,Gross and net profit proxy checks passed for all treatment rows.
+V1STAT_003,economics_v1,Modeling mode,proxy_first_v1_base_case_only,No assumption-driven hourly wage engine or full cost decomposition yet.
+V1STAT_004,economics_v1,Known limitation,benchmark_and_classifier_refinement_pending,Benchmark layer is still draft-ready and executive cost-profile classifier may need refinement.
+V1STAT_005,economics_v2,Next recommended move,prepare_upgrade_backlog,Next logical step is to define v2 upgrade backlog before building assumption-driven economics.

@@ -1,0 +1,31 @@
+scenario_name,scenario_multiplier,menu_label,treatment_category,treatment_variant,session_duration_min,pricing_position_label,recommended_reference_band,menu_recommended_price,scenario_candidate_price,scenario_price_point,cost_structure_note,material_cost_ratio,labor_cost_ratio,overhead_cost_ratio,scenario_material_cost_proxy,scenario_labor_cost_proxy,scenario_overhead_cost_proxy,scenario_gross_profit_proxy_per_treatment,scenario_gross_margin_proxy_percent,scenario_net_profit_proxy_per_treatment,scenario_net_margin_proxy_percent
+base,1.0,Reflexology - 45 min,reflexology,standard,45,entry,60-80,69,69.0,69,labor-led cost profile,0.1,0.3,0.12,6.9,20.7,8.28,41.4,60.0,33.12,48.0
+base,1.0,Scrub - 45 min,scrub,standard,45,entry,60-80,69,69.0,69,material-led cost profile,0.18,0.26,0.12,12.42,17.94,8.28,38.64,56.0,30.36,44.0
+base,1.0,Aromatherapy - 60 min,aromatherapy,standard,60,core,80-100,89,89.0,89,material-led cost profile,0.18,0.26,0.14,16.02,23.14,12.46,49.84,56.0,37.38,42.0
+base,1.0,Body Treatment - 60 min,body_treatment,standard,60,core,80-100,89,89.0,89,material-led cost profile,0.18,0.26,0.14,16.02,23.14,12.46,49.84,56.0,37.38,42.0
+base,1.0,Deep Tissue - 60 min,deep_tissue,standard,60,core,70-90,89,89.0,89,labor-led cost profile,0.1,0.3,0.14,8.9,26.7,12.46,53.4,60.0,40.94,46.0
+base,1.0,Facial - 60 min,facial,basic,60,core,80-100,89,89.0,89,material-led cost profile,0.18,0.26,0.14,16.02,23.14,12.46,49.84,56.0,37.38,42.0
+base,1.0,Massage - 60 min,massage,standard,60,core,80-100,89,89.0,89,labor-led cost profile,0.1,0.3,0.14,8.9,26.7,12.46,53.4,60.0,40.94,46.0
+base,1.0,Swedish - 60 min,swedish,standard,60,core,80-100,89,89.0,89,labor-led cost profile,0.1,0.3,0.14,8.9,26.7,12.46,53.4,60.0,40.94,46.0
+base,1.0,Wrap - 60 min,wrap,standard,60,premium,90-110,99,99.0,99,material-led cost profile,0.18,0.26,0.14,17.82,25.74,13.86,55.44,56.0,41.58,42.0
+base,1.0,Hot Stone - 75 min,hot_stone,standard,75,premium,90-110,109,109.0,109,labor-led cost profile,0.1,0.3299999999999999,0.16,10.9,35.97,17.44,62.13,57.0,44.69,41.0
+conservative,0.9,Reflexology - 45 min,reflexology,standard,45,entry,60-80,69,62.1,59,labor-led cost profile,0.1,0.3,0.12,5.9,17.7,7.08,35.4,60.0,28.32,48.0
+conservative,0.9,Scrub - 45 min,scrub,standard,45,entry,60-80,69,62.1,59,material-led cost profile,0.18,0.26,0.12,10.62,15.34,7.08,33.04,56.0,25.96,44.0
+conservative,0.9,Aromatherapy - 60 min,aromatherapy,standard,60,core,80-100,89,80.1,79,material-led cost profile,0.18,0.26,0.14,14.22,20.54,11.06,44.24,56.0,33.18,42.0
+conservative,0.9,Body Treatment - 60 min,body_treatment,standard,60,core,80-100,89,80.1,79,material-led cost profile,0.18,0.26,0.14,14.22,20.54,11.06,44.24,56.0,33.18,42.0
+conservative,0.9,Deep Tissue - 60 min,deep_tissue,standard,60,core,70-90,89,80.1,79,labor-led cost profile,0.1,0.3,0.14,7.9,23.7,11.06,47.4,60.0,36.34,46.0
+conservative,0.9,Facial - 60 min,facial,basic,60,core,80-100,89,80.1,79,material-led cost profile,0.18,0.26,0.14,14.22,20.54,11.06,44.24,56.0,33.18,42.0
+conservative,0.9,Massage - 60 min,massage,standard,60,core,80-100,89,80.1,79,labor-led cost profile,0.1,0.3,0.14,7.9,23.7,11.06,47.4,60.0,36.34,46.0
+conservative,0.9,Swedish - 60 min,swedish,standard,60,core,80-100,89,80.1,79,labor-led cost profile,0.1,0.3,0.14,7.9,23.7,11.06,47.4,60.0,36.34,46.0
+conservative,0.9,Wrap - 60 min,wrap,standard,60,premium,90-110,99,89.1,89,material-led cost profile,0.18,0.26,0.14,16.02,23.14,12.46,49.84,56.0,37.38,42.0
+conservative,0.9,Hot Stone - 75 min,hot_stone,standard,75,premium,90-110,109,98.1,99,labor-led cost profile,0.1,0.3299999999999999,0.16,9.9,32.67,15.84,56.43,57.0,40.59,41.0
+premium_upside,1.1,Reflexology - 45 min,reflexology,standard,45,entry,60-80,69,75.9,79,labor-led cost profile,0.1,0.3,0.12,7.9,23.7,9.48,47.4,60.0,37.92,48.0
+premium_upside,1.1,Scrub - 45 min,scrub,standard,45,entry,60-80,69,75.9,79,material-led cost profile,0.18,0.26,0.12,14.22,20.54,9.48,44.24,56.0,34.76,44.0
+premium_upside,1.1,Aromatherapy - 60 min,aromatherapy,standard,60,core,80-100,89,97.9,99,material-led cost profile,0.18,0.26,0.14,17.82,25.74,13.86,55.44,56.0,41.58,42.0
+premium_upside,1.1,Body Treatment - 60 min,body_treatment,standard,60,core,80-100,89,97.9,99,material-led cost profile,0.18,0.26,0.14,17.82,25.74,13.86,55.44,56.0,41.58,42.0
+premium_upside,1.1,Deep Tissue - 60 min,deep_tissue,standard,60,core,70-90,89,97.9,99,labor-led cost profile,0.1,0.3,0.14,9.9,29.7,13.86,59.4,60.0,45.54,46.0
+premium_upside,1.1,Facial - 60 min,facial,basic,60,core,80-100,89,97.9,99,material-led cost profile,0.18,0.26,0.14,17.82,25.74,13.86,55.44,56.0,41.58,42.0
+premium_upside,1.1,Massage - 60 min,massage,standard,60,core,80-100,89,97.9,99,labor-led cost profile,0.1,0.3,0.14,9.9,29.7,13.86,59.4,60.0,45.54,46.0
+premium_upside,1.1,Swedish - 60 min,swedish,standard,60,core,80-100,89,97.9,99,labor-led cost profile,0.1,0.3,0.14,9.9,29.7,13.86,59.4,60.0,45.54,46.0
+premium_upside,1.1,Wrap - 60 min,wrap,standard,60,premium,90-110,99,108.9,109,material-led cost profile,0.18,0.26,0.14,19.62,28.34,15.26,61.04,56.0,45.78,42.0
+premium_upside,1.1,Hot Stone - 75 min,hot_stone,standard,75,premium,90-110,109,119.9,119,labor-led cost profile,0.1,0.3299999999999999,0.16,11.9,39.27,19.04,67.83,57.0,48.79,41.0

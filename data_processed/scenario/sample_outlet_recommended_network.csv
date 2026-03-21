@@ -1,0 +1,11 @@
+outlet_name,zone_name,demand_weight,yield_potential,seasonality,operational_uniqueness,portfolio_necessity,archetype,base_score,adjusted_pick_score
+St Julian's / Paceville Spa,St Julian's / Paceville,98,78,55,82,95,urban_high_demand,88.05,88.05
+Qawra / St Paul's Bay Spa,Qawra / St Paul's Bay,88,68,70,72,86,resort_volume,79.5,77.3
+Valletta Spa,Valletta,74,92,30,84,82,heritage_boutique,79.0,76.8
+Gozo Spa,Gozo,58,84,60,90,91,retreat_destination,76.3,74.1
+Central Malta Spa,Central Malta,70,72,25,78,83,local_business_stable,72.35,70.15
+Sliema / Balluta Spa,Sliema / Balluta,92,85,45,76,88,urban_premium,84.25,69.95
+Mellieha Spa,Mellieha,76,74,82,80,79,seasonal_beach,77.3,67.4
+Gzira / Ta' Xbiex Spa,Gzira / Ta' Xbiex,68,70,35,60,51,urban_secondary,61.75,48.55
+Birgu / Senglea Spa,Birgu / Senglea,52,80,28,73,56,heritage_secondary,61.4,46.0
+Bugibba Spa,Bugibba,72,54,72,58,49,budget_volume_secondary,61.0,45.6

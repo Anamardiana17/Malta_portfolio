@@ -1,0 +1,9 @@
+section_id,section_group,section_title,section_content,status
+README_001,model_scope,Economics v1 model scope,Economics v1 is a proxy-first treatment pricing economics layer built from the locked treatment menu and approved source spine.,active
+README_002,included_logic,What v1 includes,"Includes locked menu price, proxy material cost, proxy labor cost, proxy overhead cost, pre-overhead gross profit proxy, and post-overhead net profit proxy at treatment level.",active
+README_003,excluded_logic,What v1 excludes,"Does not yet include explicit hourly loaded therapist wage engine, SSC breakout formula by category, rent absorption engine, utilization-driven labor absorption, or true material BOM costing.",active
+README_004,profit_definition,Profit definition used in v1,"In v1 proxy logic, gross profit is pre-overhead and net profit is post-overhead. This has been validated against the locked treatment menu proxy structure.",active
+README_005,official_inputs,Official inputs used,"Official statutory references used in the broader model foundation are Malta minimum wage 2026, employer SSC 2026, and Malta VAT rate, all documented as verified-ready source snapshots.",active
+README_006,benchmark_status,Benchmark caveat status,"Salary and rent benchmarks are provisionally accepted and draft-ready, but not yet fully final. Salary remains role-adjacent and rent remains listing-derived.",active
+README_007,validation_status,Validation result,Economics v1 validation checks passed for all current treatment rows under the confirmed locked-sheet proxy definitions.,active
+README_008,upgrade_path,Upgrade path to v2,"V2 should replace proxy-first logic with assumption-driven economics: hourly loaded labor cost, SSC decomposition, rent absorption by sqm and capacity, utilization logic, material true cost, and explicit VAT basis handling.",active

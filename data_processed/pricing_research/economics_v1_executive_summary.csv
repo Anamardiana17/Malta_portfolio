@@ -1,0 +1,11 @@
+treatment_id,treatment_name,treatment_variant,session_duration_min,menu_reference_band,menu_price_basecase,material_cost_basecase,labor_cost_basecase,overhead_cost_basecase,gross_profit_pre_overhead_basecase,gross_margin_pre_overhead_basecase_percent,net_profit_post_overhead_basecase,net_margin_post_overhead_basecase_percent,cost_profile_class,net_margin_strength,executive_rank_by_net_profit
+TSPINE_010,hot_stone,standard,75,90-110,109,10.9,35.97,17.44,62.13,57,44.69,41,labor-led,moderate,1
+TSPINE_009,wrap,standard,60,90-110,99,17.82,25.74,13.86,55.44,56,41.58,42,labor-led,strong,2
+TSPINE_005,deep_tissue,standard,60,70-90,89,8.9,26.7,12.46,53.4,60,40.94,46,labor-led,very_strong,3
+TSPINE_007,massage,standard,60,80-100,89,8.9,26.7,12.46,53.4,60,40.94,46,labor-led,very_strong,4
+TSPINE_008,swedish,standard,60,80-100,89,8.9,26.7,12.46,53.4,60,40.94,46,labor-led,very_strong,5
+TSPINE_003,aromatherapy,standard,60,80-100,89,16.02,23.14,12.46,49.84,56,37.38,42,labor-led,strong,6
+TSPINE_004,body_treatment,standard,60,80-100,89,16.02,23.14,12.46,49.84,56,37.38,42,labor-led,strong,7
+TSPINE_006,facial,basic,60,80-100,89,16.02,23.14,12.46,49.84,56,37.38,42,labor-led,strong,8
+TSPINE_001,reflexology,standard,45,60-80,69,6.9,20.7,8.28,41.4,60,33.12,48,labor-led,very_strong,9
+TSPINE_002,scrub,standard,45,60-80,69,12.42,17.94,8.28,38.64,56,30.36,44,labor-led,strong,10

@@ -1,0 +1,13 @@
+policy_id,policy_group,policy_title,policy_description,parameter_value,parameter_unit,status
+ROSTER_001,schedule_rule,standard_shift_hours,Standard scheduled therapist shift length,8,hours,active
+ROSTER_002,schedule_rule,standard_break_hours,Standard recovery / break allocation per full shift,1,hours,active
+ROSTER_003,schedule_rule,max_safe_daily_scheduled_hours,Upper safe daily scheduled hours before overtime strain,9,hours,active
+ROSTER_004,schedule_rule,max_safe_weekly_scheduled_hours,Upper safe weekly scheduled hours before sustained fatigue,48,hours,active
+ROSTER_005,schedule_rule,max_safe_consecutive_workdays,Max consecutive working days before elevated burnout risk,6,days,active
+ROSTER_006,schedule_rule,minimum_recovery_gap_hours,Minimum recovery / break gap considered healthy in a shift,0.75,hours,active
+ROSTER_007,schedule_rule,split_shift_flag_threshold,Number of separated work blocks in a day to classify split shift,2,blocks,active
+ROSTER_008,capacity_rule,productive_capacity_factor,Share of scheduled hours realistically usable for sellable therapist capacity,0.82,ratio,active
+ROSTER_009,capacity_rule,coverage_gap_trigger_ratio,Capacity coverage ratio below this signals staffing pressure,0.90,ratio,active
+ROSTER_010,burnout_rule,overtime_burnout_trigger_hours,Monthly overtime level that materially increases burnout exposure,12,hours,active
+ROSTER_011,burnout_rule,high_density_trigger_ratio,Booked / productive capacity ratio considered overload pressure,0.88,ratio,active
+ROSTER_012,burnout_rule,dayoff_instability_trigger_ratio,Low day-off regularity threshold,0.70,ratio,active

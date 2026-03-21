@@ -1,0 +1,4 @@
+source_group,source_status,source_count,readiness_rank
+market_benchmark,benchmark_optional_for_later,1,0
+market_benchmark,localized_pending_verification,2,3
+official_reference,verified_ready_for_modeling,3,4

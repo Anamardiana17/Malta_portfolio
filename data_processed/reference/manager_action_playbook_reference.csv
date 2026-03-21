@@ -1,0 +1,8 @@
+action_code,signal_or_pattern,probable_cause,recommended_action,priority_horizon,owner_function,status
+ACT_001,HIGH_DEMAND_LOW_YIELD,strong demand but under-monetized slots,review pricing ladder upsell and add-on discipline,immediate,spa_manager,active
+ACT_002,HIGH_UTIL_LOW_REVPATH,capacity full but value creation weak,review treatment mix and premium conversion,immediate,spa_manager,active
+ACT_003,HIGH_REV_BURNOUT_RISK,team overload risk,rebalance roster and protect recovery time,immediate,spa_manager,active
+ACT_004,HIGH_BOOKING_HIGH_CANCELLATION,booking leakage,reinforce confirmation deposits and cancellation policy,immediate,spa_manager,active
+ACT_005,LOW_DEMAND_EXTERNAL_PRESSURE,market softness,protect base business and push retention/rebooking,short_term,spa_manager,active
+ACT_006,LOW_DEMAND_INTERNAL_EXECUTION,local execution weakness,review sales discipline marketing activation and conversion,immediate,spa_manager,active
+ACT_007,THERAPIST_INSTABILITY_RISK,volatile therapist delivery,coach therapist and review schedule/training support,short_term,spa_manager,active

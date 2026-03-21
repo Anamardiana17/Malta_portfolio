@@ -1,0 +1,21 @@
+outlet_name_final,matched_source_count,need_price,need_rating,need_review_count,need_capacity,missing_priority_score,enrich_source_urls
+DoubleTree by Hilton Malta,0,True,True,True,True,4,
+Hilton Malta,0,True,True,True,True,4,
+Malta Marriott Resort & Spa,0,True,True,True,True,4,
+66 Saint Paul's & Spa,1,True,True,True,True,4,https://myoka.com/contact-us
+AX Odycy Spa,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+Carisma Spa & Wellness,1,True,True,True,True,4,https://malta.intercontinental.com/spa
+Essensi Spa,1,True,True,True,True,4,https://inialamalta.com/spa/
+Grand Hotel Excelsior Spa,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+Hugo's H Hotel Spa,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+Hyatt Regency Malta Spa,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+InterContinental Malta,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+Novotel Malta Sliema Spa,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+"Portomaso, Saint Julian's, Malta",1,True,True,True,True,4,https://myoka.com/contact-us
+"Radisson Blu Resort & Spa, Malta Golden Sands",1,True,True,True,True,4,https://myoka.com/locations
+Ramla Bay Resort Spa,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+Riviera Spa Resort,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+Salini Resort Spa,1,True,True,True,True,4,https://myoka.com/contact-us
+Triq Ir-Ramla,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+carisma_locations,1,True,True,True,True,4,https://www.carismaspa.com/carisma-spa-locations-in-malta
+Carisma Spa Malta,1,False,True,False,True,2,https://www.carismaspa.com/

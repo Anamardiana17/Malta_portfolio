@@ -1,0 +1,8 @@
+finding_id,finding_group,finding_title,finding_text,priority_level
+KF_001,top_absolute_profit,Highest proxy net profit treatment,hot_stone ranks #1 by proxy net profit at EUR 44.69 per treatment.,high
+KF_002,lowest_absolute_profit,Lowest proxy net profit treatment,scrub has the lowest proxy net profit at EUR 30.36 per treatment in the current v1 structure.,high
+KF_003,top_margin,Highest proxy net margin treatment,reflexology shows the highest proxy net margin at 48.00%.,high
+KF_004,lowest_margin,Lowest proxy net margin treatment,hot_stone shows the lowest proxy net margin at 41.00% in the current v1 structure.,medium
+KF_005,cost_profile,Current cost profile pattern,"All current treatments classify as labor-led under the locked proxy structure, indicating labor remains the dominant direct cost driver versus material cost.",high
+KF_006,pricing_tier_pattern,Higher-priced tier supports stronger absolute profit,"Premium-priced treatments tend to lead in absolute proxy net profit, while some core treatments remain stronger on margin percentage efficiency.",medium
+KF_007,model_caveat,Interpretation caveat for v1,"These findings come from proxy-first economics v1 and should be read as structured directional signals, not final assumption-driven unit economics.",high

@@ -1,0 +1,8 @@
+section_id,section_group,section_title,section_content,status
+ESUM_001,model_identity,Model identity,"Malta treatment pricing economics v1 is a proxy-first, base-case-only treatment economics layer built from the locked treatment menu and approved source spine.",active
+ESUM_002,definition_lock,Profit definition lock,Gross profit in v1 is defined as pre-overhead. Net profit in v1 is defined as post-overhead.,active
+ESUM_003,validation,Validation status,All current treatment rows passed economics v1 validation under the confirmed locked-sheet proxy logic.,active
+ESUM_004,top3,Top 3 treatments by proxy net profit,"1. hot_stone (standard, 75 min) | price EUR 109.00 | net profit EUR 44.69 | net margin 41.00% || 2. wrap (standard, 60 min) | price EUR 99.00 | net profit EUR 41.58 | net margin 42.00% || 3. deep_tissue (standard, 60 min) | price EUR 89.00 | net profit EUR 40.94 | net margin 46.00%",active
+ESUM_005,key_pattern,Observed pattern,"Current treatment set is uniformly labor-led under the locked proxy structure. Premium treatments lead in absolute proxy net profit, while selected core treatments remain stronger on net margin efficiency.",active
+ESUM_006,caveat,Interpretation caveat,"Economics v1 should be interpreted as a structured directional model, not a final assumption-driven unit economics engine.",active
+ESUM_007,upgrade_path,Next upgrade path,"Next upgrade should move from proxy-first v1 to assumption-driven v2 by introducing hourly loaded labor cost, SSC decomposition, rent absorption, utilization logic, material true cost, and explicit VAT basis handling.",active

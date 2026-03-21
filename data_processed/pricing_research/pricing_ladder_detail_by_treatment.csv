@@ -1,0 +1,11 @@
+session_duration_min,treatment_category,treatment_variant,recommended_reference_band,final_recommended_price_point,pricing_position_label,gross_profit_proxy_per_treatment,gross_margin_proxy_percent,net_profit_proxy_per_treatment,net_margin_proxy_percent,cost_structure_note
+45,reflexology,standard,60-80,69,entry,41.4,60.0,33.12,48.0,labor-led cost profile
+45,scrub,standard,60-80,69,entry,38.64,56.0,30.36,44.0,material-led cost profile
+60,deep_tissue,standard,70-90,79,core,47.4,60.0,36.34,46.0,labor-led cost profile
+60,aromatherapy,standard,80-100,89,core,49.84,56.0,37.38,42.0,material-led cost profile
+60,body_treatment,standard,80-100,89,core,49.84,56.0,37.38,42.0,material-led cost profile
+60,facial,basic,80-100,89,core,49.84,56.0,37.38,42.0,material-led cost profile
+60,massage,standard,80-100,89,core,53.4,60.0,40.94,46.0,labor-led cost profile
+60,swedish,standard,80-100,89,core,53.4,60.0,40.94,46.0,labor-led cost profile
+60,wrap,standard,90-110,99,premium,55.44,56.0,41.58,42.0,material-led cost profile
+75,hot_stone,standard,90-110,99,premium,56.43,57.0,40.59,41.0,labor-led cost profile

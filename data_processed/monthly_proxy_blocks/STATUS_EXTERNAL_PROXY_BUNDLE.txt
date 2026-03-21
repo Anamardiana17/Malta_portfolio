@@ -1,0 +1,16 @@
+Malta external proxy bundle - current status
+
+USABLE
+- monthly_spine_2017_2025.csv
+- proxy_airport_monthly_2017_2025.csv
+- proxy_tourism_monthly_2017_2025.csv
+
+NOT USABLE / MISSING SOURCE
+- proxy_accommodation_monthly_2017_2025.csv -> NSO source blocked by Cloudflare
+- proxy_cpi_monthly_2017_2025.csv -> ECB source saved as HTML block page, removed
+- proxy_labour_monthly_2017_2025.csv -> no raw files in nso_labour folder
+
+NOTES
+- airport proxy coverage currently available only for 2024-09 to 2025-09
+- tourism proxy currently uses Eurostat monthly international air passengers proxy
+- tourism proxy should be replaced later if official inbound tourism arrivals source becomes available
