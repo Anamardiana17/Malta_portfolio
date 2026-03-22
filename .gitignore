@@ -23,3 +23,9 @@ data_processed/spa_research/page_cache_v6/
 
 # Temporary files
 tempCodeRunnerFile.py
+
+# local audit files
+project_audit.txt
+tree_clean.txt
+tree_l3.txt
+versioned_files.txt
