@@ -1,0 +1,10 @@
+policy_id,policy_group,policy_title,formula_expression,management_reasoning,status
+OCAP_001,definition_rule,Theoretical room-hour capacity,treatment_room_count * operating_hours_per_day,Daily room-hour capacity before staffing realism and commercial productivity assumptions are applied.,policy_defined
+OCAP_002,definition_rule,Productive therapist day,paid_shift_hours - non_sellable_hours,"Converts paid shift time into realistic productive therapist hours after breaks, setup, turnover, and admin.",policy_defined
+OCAP_003,scenario_rule,Minimum productive capacity,theoretical_room_hours_per_day * minimum_coverage_ratio,Represents minimum credible operating coverage rather than full commercial utilization.,policy_defined
+OCAP_004,scenario_rule,Safe productive capacity,theoretical_room_hours_per_day * safe_productive_ratio,Represents healthy operating level for normal service continuity and commercial discipline.,policy_defined
+OCAP_005,scenario_rule,Peak productive capacity,theoretical_room_hours_per_day * peak_productive_ratio,Represents peak-season or compression-window capacity requirement.,policy_defined
+OCAP_006,staffing_rule,Daily therapist requirement,ceil(productive_hours_scenario / productive_hours_per_therapist_day),Translates room-hour demand into active daily therapist requirement.,policy_defined
+OCAP_007,staffing_rule,Opening team floor,"max(calculated_therapists, minimum_opening_team)",Prevents unrealistic opening teams that would weaken service continuity and break coverage.,policy_defined
+OCAP_008,staffing_rule,Roster conversion factor,open_days_per_week / therapist_work_days_per_week,Converts active daily need into weekly roster headcount requirement.,policy_defined
+OCAP_009,staffing_rule,Roster headcount with resilience buffer,ceil(active_therapists_per_day * roster_conversion_factor * relief_buffer),"Adds workforce resilience for day off coverage, leave, sick risk, and demand variability.",policy_defined

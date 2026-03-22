@@ -1,0 +1,8 @@
+outlet_name,base_productive_hours_per_therapist_day,treatment_complexity_factor,quality_adjusted_productive_hours_per_therapist_day,service_consistency_buffer,minimum_opening_team,minimum_opening_team_revised,minimum_therapists_active_per_day,safe_therapists_active_per_day,peak_therapists_active_per_day,revised_minimum_therapists_active_per_day,revised_safe_therapists_active_per_day,revised_peak_therapists_active_per_day,minimum_roster_headcount,safe_roster_headcount,peak_roster_headcount,revised_minimum_roster_headcount,revised_safe_roster_headcount,revised_peak_roster_headcount,roster_quality_positioning_summary
+Central Malta Spa,6.5,0.95,6.18,1,3,3,6,8,10,6,9,11,9,13,17,9,14,18,balanced_commercial_pacing | quality_adj_hours=6.18 | safe_roster=14 | peak_roster=18
+Gozo Spa,6.5,0.91,5.92,1,2,2,4,5,7,4,6,7,6,8,12,6,10,12,leisure_longer_journey | quality_adj_hours=5.92 | safe_roster=10 | peak_roster=12
+Sliema / Balluta Spa,6.5,0.9,5.85,2,3,3,5,7,9,5,8,10,8,11,15,8,13,17,premium_consistency_protected | quality_adj_hours=5.85 | safe_roster=13 | peak_roster=17
+Valletta Spa,6.5,0.88,5.72,2,2,2,4,5,6,4,6,7,6,8,10,6,10,12,curated_premium_protected | quality_adj_hours=5.72 | safe_roster=10 | peak_roster=12
+Mellieha Spa,6.5,0.92,5.98,1,3,4,4,6,8,5,7,9,6,10,13,8,11,15,resort_peak_protected | quality_adj_hours=5.98 | safe_roster=11 | peak_roster=15
+Qawra / St Paul’s Bay Spa,6.5,0.96,6.24,1,3,3,5,7,9,5,7,10,8,11,15,8,11,17,throughput_standardized_control | quality_adj_hours=6.24 | safe_roster=11 | peak_roster=17
+St Julian’s / Paceville Spa,6.5,0.94,6.11,2,4,4,7,10,12,7,10,13,11,16,20,11,16,21,high_compression_protected | quality_adj_hours=6.11 | safe_roster=16 | peak_roster=21

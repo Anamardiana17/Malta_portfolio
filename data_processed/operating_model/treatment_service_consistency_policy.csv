@@ -1,0 +1,5 @@
+policy_id,policy_group,policy_title,formula_expression,management_reasoning,status
+TSVC_001,quality_rule,Quality-adjusted therapist day,productive_hours_per_therapist_day * treatment_complexity_factor,"Therapist usable capacity must be discounted when treatment style is longer, more curated, or more consistency-sensitive.",policy_defined
+TSVC_002,service_rule,Consistency-protected safe staffing,"max(ceil(safe_productive_hours_per_day / quality_adjusted_productive_hours_per_therapist_day), revised_minimum_therapists_active_per_day + service_consistency_buffer)",Safe staffing should reflect both demand coverage and service consistency protection.,policy_defined
+TSVC_003,fatigue_rule,Daily treatment intensity guardrail,"max_treatment_hours_per_therapist_day, max_long_treatments_per_therapist_day, max_consecutive_treatment_blocks",Therapist load must be managed to protect treatment quality and repeatable guest experience.,policy_defined
+TSVC_004,service_rule,Recovery reset allowance,recovery_reset_minutes_per_block,Short recovery/reset windows reduce service deterioration and therapist fatigue accumulation.,policy_defined

@@ -1,0 +1,86 @@
+therapist_id,home_outlet_name,assigned_service_model,therapist_archetype,treatment_mix_fit_score_0_100,service_consistency_fit_score_0_100,fatigue_exposure_risk_score_0_100,premium_delivery_readiness_score_0_100,throughput_delivery_readiness_score_0_100,outlet_model_fit_score_0_100,coaching_need_score_0_100,coaching_priority,deployment_recommendation
+CEN_TH_001,Central Malta Spa,balanced_commercial_pacing,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+CEN_TH_002,Central Malta Spa,balanced_commercial_pacing,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+CEN_TH_003,Central Malta Spa,balanced_commercial_pacing,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+CEN_TH_004,Central Malta Spa,balanced_commercial_pacing,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+CEN_TH_005,Central Malta Spa,balanced_commercial_pacing,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+CEN_TH_006,Central Malta Spa,balanced_commercial_pacing,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+CEN_TH_007,Central Malta Spa,balanced_commercial_pacing,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+CEN_TH_008,Central Malta Spa,balanced_commercial_pacing,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+CEN_TH_009,Central Malta Spa,balanced_commercial_pacing,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+CEN_TH_010,Central Malta Spa,balanced_commercial_pacing,throughput_capable,70.0,73.8,24.2,70.7,85.7,76.7,40,medium,use_in_balanced_or_supported_schedule
+CEN_TH_011,Central Malta Spa,balanced_commercial_pacing,throughput_capable,70.0,73.8,24.2,70.7,85.7,76.7,40,medium,use_in_balanced_or_supported_schedule
+CEN_TH_012,Central Malta Spa,balanced_commercial_pacing,throughput_capable,70.0,73.8,24.2,70.7,85.7,76.7,40,medium,use_in_balanced_or_supported_schedule
+CEN_TH_013,Central Malta Spa,balanced_commercial_pacing,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.7,48,high,coach_before_peak_or_sensitive_deployment
+CEN_TH_014,Central Malta Spa,balanced_commercial_pacing,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.7,48,high,coach_before_peak_or_sensitive_deployment
+GOZ_TH_001,Gozo Spa,leisure_longer_journey,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+GOZ_TH_002,Gozo Spa,leisure_longer_journey,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+GOZ_TH_003,Gozo Spa,leisure_longer_journey,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+GOZ_TH_004,Gozo Spa,leisure_longer_journey,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+GOZ_TH_005,Gozo Spa,leisure_longer_journey,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+GOZ_TH_006,Gozo Spa,leisure_longer_journey,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+GOZ_TH_007,Gozo Spa,leisure_longer_journey,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+GOZ_TH_008,Gozo Spa,leisure_longer_journey,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+GOZ_TH_009,Gozo Spa,leisure_longer_journey,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+GOZ_TH_010,Gozo Spa,leisure_longer_journey,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.7,48,high,coach_before_peak_or_sensitive_deployment
+SLI_TH_001,Sliema / Balluta Spa,premium_consistency_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+SLI_TH_002,Sliema / Balluta Spa,premium_consistency_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+SLI_TH_003,Sliema / Balluta Spa,premium_consistency_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+SLI_TH_004,Sliema / Balluta Spa,premium_consistency_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+SLI_TH_005,Sliema / Balluta Spa,premium_consistency_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+SLI_TH_006,Sliema / Balluta Spa,premium_consistency_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+SLI_TH_007,Sliema / Balluta Spa,premium_consistency_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,78.1,36,medium,retain_in_core_outlet_model
+SLI_TH_008,Sliema / Balluta Spa,premium_consistency_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,78.1,36,medium,retain_in_core_outlet_model
+SLI_TH_009,Sliema / Balluta Spa,premium_consistency_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,78.1,36,medium,retain_in_core_outlet_model
+SLI_TH_010,Sliema / Balluta Spa,premium_consistency_protected,leisure_specialist,85.7,84.5,25.6,84.3,67.1,84.6,30,low,retain_in_core_outlet_model
+SLI_TH_011,Sliema / Balluta Spa,premium_consistency_protected,leisure_specialist,85.7,84.5,25.6,84.3,67.1,84.6,30,low,retain_in_core_outlet_model
+SLI_TH_012,Sliema / Balluta Spa,premium_consistency_protected,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.5,48,high,coach_before_peak_or_sensitive_deployment
+SLI_TH_013,Sliema / Balluta Spa,premium_consistency_protected,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.5,48,high,coach_before_peak_or_sensitive_deployment
+VAL_TH_001,Valletta Spa,curated_premium_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+VAL_TH_002,Valletta Spa,curated_premium_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+VAL_TH_003,Valletta Spa,curated_premium_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+VAL_TH_004,Valletta Spa,curated_premium_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+VAL_TH_005,Valletta Spa,curated_premium_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,89.1,28,low,deploy_to_premium_curated_service
+VAL_TH_006,Valletta Spa,curated_premium_protected,curated_specialist,91.5,91.8,22.7,93.2,65.1,92.4,24,low,deploy_to_premium_curated_service
+VAL_TH_007,Valletta Spa,curated_premium_protected,curated_specialist,91.5,91.8,22.7,93.2,65.1,92.4,24,low,deploy_to_premium_curated_service
+VAL_TH_008,Valletta Spa,curated_premium_protected,curated_specialist,91.5,91.8,22.7,93.2,65.1,92.4,24,low,deploy_to_premium_curated_service
+VAL_TH_009,Valletta Spa,curated_premium_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,78.1,36,medium,retain_in_core_outlet_model
+VAL_TH_010,Valletta Spa,curated_premium_protected,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.5,48,high,coach_before_peak_or_sensitive_deployment
+MEL_TH_001,Mellieha Spa,resort_peak_protected,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+MEL_TH_002,Mellieha Spa,resort_peak_protected,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+MEL_TH_003,Mellieha Spa,resort_peak_protected,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+MEL_TH_004,Mellieha Spa,resort_peak_protected,leisure_specialist,85.7,84.5,25.6,84.3,67.1,78.7,30,low,retain_in_core_outlet_model
+MEL_TH_005,Mellieha Spa,resort_peak_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+MEL_TH_006,Mellieha Spa,resort_peak_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+MEL_TH_007,Mellieha Spa,resort_peak_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,77.8,36,medium,use_in_balanced_or_supported_schedule
+MEL_TH_008,Mellieha Spa,resort_peak_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+MEL_TH_009,Mellieha Spa,resort_peak_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,83.3,28,low,deploy_to_premium_curated_service
+MEL_TH_010,Mellieha Spa,resort_peak_protected,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.7,48,high,coach_before_peak_or_sensitive_deployment
+MEL_TH_011,Mellieha Spa,resort_peak_protected,flex_generalist,71.5,73.0,32.0,70.5,71.7,71.7,48,high,coach_before_peak_or_sensitive_deployment
+QAW_TH_001,Qawra / St Paul’s Bay Spa,throughput_standardized_control,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+QAW_TH_002,Qawra / St Paul’s Bay Spa,throughput_standardized_control,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+QAW_TH_003,Qawra / St Paul’s Bay Spa,throughput_standardized_control,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+QAW_TH_004,Qawra / St Paul’s Bay Spa,throughput_standardized_control,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+QAW_TH_005,Qawra / St Paul’s Bay Spa,throughput_standardized_control,balanced_core,77.1,79.5,25.3,77.7,76.1,77.4,36,medium,use_in_balanced_or_supported_schedule
+QAW_TH_006,Qawra / St Paul’s Bay Spa,throughput_standardized_control,balanced_core,77.1,79.5,25.3,77.7,76.1,77.4,36,medium,use_in_balanced_or_supported_schedule
+QAW_TH_007,Qawra / St Paul’s Bay Spa,throughput_standardized_control,balanced_core,77.1,79.5,25.3,77.7,76.1,77.4,36,medium,use_in_balanced_or_supported_schedule
+QAW_TH_008,Qawra / St Paul’s Bay Spa,throughput_standardized_control,flex_generalist,71.5,73.0,32.0,70.5,71.7,72.0,48,high,coach_before_peak_or_sensitive_deployment
+QAW_TH_009,Qawra / St Paul’s Bay Spa,throughput_standardized_control,flex_generalist,71.5,73.0,32.0,70.5,71.7,72.0,48,high,coach_before_peak_or_sensitive_deployment
+QAW_TH_010,Qawra / St Paul’s Bay Spa,throughput_standardized_control,premium_capable,87.8,88.6,22.8,90.0,71.1,80.5,28,low,deploy_to_premium_curated_service
+QAW_TH_011,Qawra / St Paul’s Bay Spa,throughput_standardized_control,premium_capable,87.8,88.6,22.8,90.0,71.1,80.5,28,low,deploy_to_premium_curated_service
+STJ_TH_001,St Julian’s / Paceville Spa,high_compression_protected,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+STJ_TH_002,St Julian’s / Paceville Spa,high_compression_protected,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+STJ_TH_003,St Julian’s / Paceville Spa,high_compression_protected,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+STJ_TH_004,St Julian’s / Paceville Spa,high_compression_protected,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+STJ_TH_005,St Julian’s / Paceville Spa,high_compression_protected,throughput_capable,70.0,73.8,24.2,70.7,85.7,78.2,40,medium,retain_in_core_outlet_model
+STJ_TH_006,St Julian’s / Paceville Spa,high_compression_protected,compression_specialist,72.3,76.9,20.8,73.0,88.8,81.1,38,medium,deploy_to_high_throughput_or_compression_windows
+STJ_TH_007,St Julian’s / Paceville Spa,high_compression_protected,compression_specialist,72.3,76.9,20.8,73.0,88.8,81.1,38,medium,deploy_to_high_throughput_or_compression_windows
+STJ_TH_008,St Julian’s / Paceville Spa,high_compression_protected,compression_specialist,72.3,76.9,20.8,73.0,88.8,81.1,38,medium,deploy_to_high_throughput_or_compression_windows
+STJ_TH_009,St Julian’s / Paceville Spa,high_compression_protected,compression_specialist,72.3,76.9,20.8,73.0,88.8,81.1,38,medium,deploy_to_high_throughput_or_compression_windows
+STJ_TH_010,St Julian’s / Paceville Spa,high_compression_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,77.4,36,medium,use_in_balanced_or_supported_schedule
+STJ_TH_011,St Julian’s / Paceville Spa,high_compression_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,77.4,36,medium,use_in_balanced_or_supported_schedule
+STJ_TH_012,St Julian’s / Paceville Spa,high_compression_protected,balanced_core,77.1,79.5,25.3,77.7,76.1,77.4,36,medium,use_in_balanced_or_supported_schedule
+STJ_TH_013,St Julian’s / Paceville Spa,high_compression_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,80.5,28,low,deploy_to_premium_curated_service
+STJ_TH_014,St Julian’s / Paceville Spa,high_compression_protected,premium_capable,87.8,88.6,22.8,90.0,71.1,80.5,28,low,deploy_to_premium_curated_service
+STJ_TH_015,St Julian’s / Paceville Spa,high_compression_protected,flex_generalist,71.5,73.0,32.0,70.5,71.7,72.0,48,high,coach_before_peak_or_sensitive_deployment
+STJ_TH_016,St Julian’s / Paceville Spa,high_compression_protected,flex_generalist,71.5,73.0,32.0,70.5,71.7,72.0,48,high,coach_before_peak_or_sensitive_deployment

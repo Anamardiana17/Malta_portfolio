@@ -1,0 +1,8 @@
+outlet_name,service_style,pricing_posture,treatment_pacing_model,treatment_complexity_factor,premium_consistency_requirement,max_treatment_hours_per_therapist_day,max_long_treatments_per_therapist_day,max_consecutive_treatment_blocks,recovery_reset_minutes_per_block,service_consistency_buffer,managerial_quality_note
+Central Malta Spa,mixed_short_medium_long,upper_mid_premium,balanced_commercial_pacing,0.95,medium,5.8,3,4,15,1,Balanced commercial outlet; protect pacing and therapist reset discipline.
+Gozo Spa,medium_long_experience,premium_leisure,leisure_longer_journey,0.91,medium_high,5.4,3,3,20,1,Leisure-led experience; do not overload long-treatment therapist pacing.
+Sliema / Balluta Spa,medium_long_premium,premium_high,premium_consistency_protected,0.9,high,5.2,3,3,20,2,Premium urban outlet; consistency matters more than aggressive room utilization.
+Valletta Spa,long_curated_premium,high,curated_premium_protected,0.88,very_high,5.0,2,3,20,2,Curated premium site; deliberately protect therapist pacing and treatment quality.
+Mellieha Spa,medium_long_resort,upper_mid_premium,resort_peak_protected,0.92,high,5.4,3,3,20,1,Resort outlet needs a stronger minimum floor so peak compression does not damage service quality.
+Qawra / St Paul’s Bay Spa,short_medium_mixed,commercial_premium,throughput_standardized_control,0.96,medium,5.9,3,4,15,1,Volume-oriented tourism site; prioritize standardization and therapist rhythm control.
+St Julian’s / Paceville Spa,short_medium_faster_mix,strong_commercial,high_compression_protected,0.94,high,5.6,3,4,15,2,Hotspot site needs stronger therapist protection so revenue capture does not erode consistency.

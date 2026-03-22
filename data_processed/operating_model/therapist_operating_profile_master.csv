@@ -1,0 +1,86 @@
+therapist_id,home_outlet_name,therapist_archetype,treatment_precision_score_0_100,service_consistency_score_0_100,long_treatment_suitability_score_0_100,premium_delivery_score_0_100,throughput_delivery_score_0_100,compression_resilience_score_0_100,recovery_discipline_score_0_100,cross_sell_maturity_score_0_100,coaching_need_score_0_100
+CEN_TH_001,Central Malta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+CEN_TH_002,Central Malta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+CEN_TH_003,Central Malta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+CEN_TH_004,Central Malta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+CEN_TH_005,Central Malta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+CEN_TH_006,Central Malta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+CEN_TH_007,Central Malta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+CEN_TH_008,Central Malta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+CEN_TH_009,Central Malta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+CEN_TH_010,Central Malta Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+CEN_TH_011,Central Malta Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+CEN_TH_012,Central Malta Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+CEN_TH_013,Central Malta Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+CEN_TH_014,Central Malta Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+GOZ_TH_001,Gozo Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+GOZ_TH_002,Gozo Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+GOZ_TH_003,Gozo Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+GOZ_TH_004,Gozo Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+GOZ_TH_005,Gozo Spa,premium_capable,88,90,86,91,68,66,87,80,28
+GOZ_TH_006,Gozo Spa,premium_capable,88,90,86,91,68,66,87,80,28
+GOZ_TH_007,Gozo Spa,premium_capable,88,90,86,91,68,66,87,80,28
+GOZ_TH_008,Gozo Spa,balanced_core,78,80,74,76,76,74,80,72,36
+GOZ_TH_009,Gozo Spa,balanced_core,78,80,74,76,76,74,80,72,36
+GOZ_TH_010,Gozo Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+SLI_TH_001,Sliema / Balluta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+SLI_TH_002,Sliema / Balluta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+SLI_TH_003,Sliema / Balluta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+SLI_TH_004,Sliema / Balluta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+SLI_TH_005,Sliema / Balluta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+SLI_TH_006,Sliema / Balluta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+SLI_TH_007,Sliema / Balluta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+SLI_TH_008,Sliema / Balluta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+SLI_TH_009,Sliema / Balluta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+SLI_TH_010,Sliema / Balluta Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+SLI_TH_011,Sliema / Balluta Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+SLI_TH_012,Sliema / Balluta Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+SLI_TH_013,Sliema / Balluta Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+VAL_TH_001,Valletta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+VAL_TH_002,Valletta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+VAL_TH_003,Valletta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+VAL_TH_004,Valletta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+VAL_TH_005,Valletta Spa,premium_capable,88,90,86,91,68,66,87,80,28
+VAL_TH_006,Valletta Spa,curated_specialist,92,93,90,94,58,60,90,82,24
+VAL_TH_007,Valletta Spa,curated_specialist,92,93,90,94,58,60,90,82,24
+VAL_TH_008,Valletta Spa,curated_specialist,92,93,90,94,58,60,90,82,24
+VAL_TH_009,Valletta Spa,balanced_core,78,80,74,76,76,74,80,72,36
+VAL_TH_010,Valletta Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+MEL_TH_001,Mellieha Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+MEL_TH_002,Mellieha Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+MEL_TH_003,Mellieha Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+MEL_TH_004,Mellieha Spa,leisure_specialist,84,85,88,84,62,64,84,74,30
+MEL_TH_005,Mellieha Spa,balanced_core,78,80,74,76,76,74,80,72,36
+MEL_TH_006,Mellieha Spa,balanced_core,78,80,74,76,76,74,80,72,36
+MEL_TH_007,Mellieha Spa,balanced_core,78,80,74,76,76,74,80,72,36
+MEL_TH_008,Mellieha Spa,premium_capable,88,90,86,91,68,66,87,80,28
+MEL_TH_009,Mellieha Spa,premium_capable,88,90,86,91,68,66,87,80,28
+MEL_TH_010,Mellieha Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+MEL_TH_011,Mellieha Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+QAW_TH_001,Qawra / St Paul’s Bay Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+QAW_TH_002,Qawra / St Paul’s Bay Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+QAW_TH_003,Qawra / St Paul’s Bay Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+QAW_TH_004,Qawra / St Paul’s Bay Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+QAW_TH_005,Qawra / St Paul’s Bay Spa,balanced_core,78,80,74,76,76,74,80,72,36
+QAW_TH_006,Qawra / St Paul’s Bay Spa,balanced_core,78,80,74,76,76,74,80,72,36
+QAW_TH_007,Qawra / St Paul’s Bay Spa,balanced_core,78,80,74,76,76,74,80,72,36
+QAW_TH_008,Qawra / St Paul’s Bay Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+QAW_TH_009,Qawra / St Paul’s Bay Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+QAW_TH_010,Qawra / St Paul’s Bay Spa,premium_capable,88,90,86,91,68,66,87,80,28
+QAW_TH_011,Qawra / St Paul’s Bay Spa,premium_capable,88,90,86,91,68,66,87,80,28
+STJ_TH_001,St Julian’s / Paceville Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+STJ_TH_002,St Julian’s / Paceville Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+STJ_TH_003,St Julian’s / Paceville Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+STJ_TH_004,St Julian’s / Paceville Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+STJ_TH_005,St Julian’s / Paceville Spa,throughput_capable,74,75,62,66,90,88,72,70,40
+STJ_TH_006,St Julian’s / Paceville Spa,compression_specialist,76,78,64,68,92,92,76,72,38
+STJ_TH_007,St Julian’s / Paceville Spa,compression_specialist,76,78,64,68,92,92,76,72,38
+STJ_TH_008,St Julian’s / Paceville Spa,compression_specialist,76,78,64,68,92,92,76,72,38
+STJ_TH_009,St Julian’s / Paceville Spa,compression_specialist,76,78,64,68,92,92,76,72,38
+STJ_TH_010,St Julian’s / Paceville Spa,balanced_core,78,80,74,76,76,74,80,72,36
+STJ_TH_011,St Julian’s / Paceville Spa,balanced_core,78,80,74,76,76,74,80,72,36
+STJ_TH_012,St Julian’s / Paceville Spa,balanced_core,78,80,74,76,76,74,80,72,36
+STJ_TH_013,St Julian’s / Paceville Spa,premium_capable,88,90,86,91,68,66,87,80,28
+STJ_TH_014,St Julian’s / Paceville Spa,premium_capable,88,90,86,91,68,66,87,80,28
+STJ_TH_015,St Julian’s / Paceville Spa,flex_generalist,72,73,70,68,72,70,74,68,48
+STJ_TH_016,St Julian’s / Paceville Spa,flex_generalist,72,73,70,68,72,70,74,68,48

@@ -1,0 +1,86 @@
+outlet_name,therapist_id,therapist_name,therapist_archetype,service_consistency_score_0_100,coaching_need_score_0_100,therapist_segment_v2,therapist_segment_action_v2,model_basis_period_start,model_basis_period_end,model_layer_type
+Central Malta Spa,CEN_TH_001,CEN Therapist 001,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_002,CEN Therapist 002,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_003,CEN Therapist 003,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_004,CEN Therapist 004,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_005,CEN Therapist 005,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_006,CEN Therapist 006,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_007,CEN Therapist 007,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_008,CEN Therapist 008,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_009,CEN Therapist 009,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_010,CEN Therapist 010,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_011,CEN Therapist 011,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_012,CEN Therapist 012,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_013,CEN Therapist 013,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Central Malta Spa,CEN_TH_014,CEN Therapist 014,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_001,GOZ Therapist 001,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_002,GOZ Therapist 002,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_003,GOZ Therapist 003,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_004,GOZ Therapist 004,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_005,GOZ Therapist 005,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_006,GOZ Therapist 006,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_007,GOZ Therapist 007,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_008,GOZ Therapist 008,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_009,GOZ Therapist 009,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Gozo Spa,GOZ_TH_010,GOZ Therapist 010,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_001,MEL Therapist 001,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_002,MEL Therapist 002,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_003,MEL Therapist 003,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_004,MEL Therapist 004,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_005,MEL Therapist 005,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_006,MEL Therapist 006,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_007,MEL Therapist 007,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_008,MEL Therapist 008,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_009,MEL Therapist 009,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_010,MEL Therapist 010,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Mellieha Spa,MEL_TH_011,MEL Therapist 011,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_001,QAW Therapist 001,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_002,QAW Therapist 002,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_003,QAW Therapist 003,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_004,QAW Therapist 004,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_005,QAW Therapist 005,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_006,QAW Therapist 006,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_007,QAW Therapist 007,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_008,QAW Therapist 008,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_009,QAW Therapist 009,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_010,QAW Therapist 010,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Qawra / St Paul’s Bay Spa,QAW_TH_011,QAW Therapist 011,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_001,SLI Therapist 001,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_002,SLI Therapist 002,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_003,SLI Therapist 003,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_004,SLI Therapist 004,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_005,SLI Therapist 005,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_006,SLI Therapist 006,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_007,SLI Therapist 007,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_008,SLI Therapist 008,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_009,SLI Therapist 009,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_010,SLI Therapist 010,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_011,SLI Therapist 011,leisure_specialist,85,30,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_012,SLI Therapist 012,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Sliema / Balluta Spa,SLI_TH_013,SLI Therapist 013,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_001,STJ Therapist 001,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_002,STJ Therapist 002,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_003,STJ Therapist 003,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_004,STJ Therapist 004,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_005,STJ Therapist 005,throughput_capable,75,40,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_006,STJ Therapist 006,compression_specialist,78,38,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_007,STJ Therapist 007,compression_specialist,78,38,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_008,STJ Therapist 008,compression_specialist,78,38,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_009,STJ Therapist 009,compression_specialist,78,38,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_010,STJ Therapist 010,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_011,STJ Therapist 011,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_012,STJ Therapist 012,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_013,STJ Therapist 013,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_014,STJ Therapist 014,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_015,STJ Therapist 015,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+St Julian’s / Paceville Spa,STJ_TH_016,STJ Therapist 016,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_001,VAL Therapist 001,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_002,VAL Therapist 002,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_003,VAL Therapist 003,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_004,VAL Therapist 004,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_005,VAL Therapist 005,premium_capable,90,28,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_006,VAL Therapist 006,curated_specialist,93,24,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_007,VAL Therapist 007,curated_specialist,93,24,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_008,VAL Therapist 008,curated_specialist,93,24,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_009,VAL Therapist 009,balanced_core,80,36,balanced core,Maintain balanced deployment and flexible outlet coverage.,2017-01,2025-12,therapist_structural_coaching_layer
+Valletta Spa,VAL_TH_010,VAL Therapist 010,flex_generalist,73,48,coaching priority,"Prioritize coaching plan, guided deployment, and tighter consistency follow-up.",2017-01,2025-12,therapist_structural_coaching_layer

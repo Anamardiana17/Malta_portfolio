@@ -1,0 +1,6 @@
+policy_id,policy_group,policy_title,formula_expression,management_reasoning,status
+THSC_001,definition_rule,Therapist operating profile baseline,"Therapist archetype mapped to treatment precision, consistency, premium, throughput, resilience, and coaching need",Creates a managerially usable therapist profile layer when live therapist operating data is not yet available.,policy_defined
+THSC_002,fit_rule,Treatment mix fit score,"Weighted score using treatment_precision, long_treatment_suitability, service_consistency",Measures how well a therapist fits the treatment rhythm and complexity expected by the outlet model.,policy_defined
+THSC_003,fit_rule,Service consistency fit score,"Weighted score using service_consistency, recovery_discipline, treatment_precision",Measures how reliably a therapist can deliver repeatable service quality.,policy_defined
+THSC_004,risk_rule,Fatigue exposure risk score,Inverse resilience + inverse recovery discipline + coaching need + inverse service consistency,"Flags therapists more likely to lose quality under pressure, fatigue, or schedule compression.",policy_defined
+THSC_005,deployment_rule,Deployment recommendation,"Recommendation based on premium readiness, throughput readiness, outlet-model fit, and coaching priority","Translates score logic into management action for deployment, protection, or coaching.",policy_defined
