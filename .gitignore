@@ -31,3 +31,27 @@ tree_l3.txt
 versioned_files.txt
 
 tree_latest.txt
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# virtual env
+.venv/
+
+# editor
+.vscode/
+
+# logs
+logs/
+*.log
+
+# temporary output
+output/
+
+# notebook / temp
+.ipynb_checkpoints/
