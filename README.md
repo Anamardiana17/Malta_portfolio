@@ -1,56 +1,93 @@
 # Malta Spa Portfolio
 
-A management-oriented portfolio project that models a Malta spa network through pricing, staffing, therapist segmentation, and operating-model decision layers.
+A management-focused portfolio project showing how a Malta spa network can be evaluated through pricing, staffing, therapist structure, and executive decision support.
 
-## Project intent
-This portfolio is designed to demonstrate how a spa manager can combine operational thinking, commercial logic, and structured analytics into a recruiter-facing management narrative.
+## What this project demonstrates
+This repository shows how a spa manager can combine commercial thinking, operational control, and structured analytics into a recruiter-facing management portfolio.
+
+Rather than stopping at descriptive analysis, the project translates network conditions into practical management outputs such as outlet positioning, staffing interpretation, therapist coaching priorities, treatment opportunity signals, and executive operating readouts.
 
 ## Portfolio scope
-- outlet operating model
-- staffing management layer
-- therapist segmentation layer
-- people-management action queue
-- executive operating readout
+This portfolio is built to demonstrate a structured management lens across:
+- outlet strategy and network positioning
+- pricing and treatment economics
+- staffing and roster control layers
+- therapist segmentation and coaching logic
+- management KPI signal layer
+- treatment health and management exception views
+- executive operating readout and manager action queue
 
-# Malta Portfolio — Operating Model Layer
+## Key management outputs
+This repository is designed to produce reviewer-friendly outputs, including:
+- executive portfolio readouts
+- outlet-level management summaries
+- therapist coaching summaries
+- treatment opportunity summaries
+- staffing management views
+- manager action queues
 
-## What this layer does
-This operating-model layer translates a modeled Malta spa network into a management-facing portfolio narrative.
-It connects outlet staffing position, therapist structural segmentation, and outlet-level people-management priorities into one executive read.
+## Why Malta
+Malta provides a compact but commercially meaningful spa-market context shaped by tourism exposure, premium positioning, locality differences, staffing pressure, and service-demand variation across outlets.
 
-This layer is designed for portfolio storytelling across 2017-01 to 2025-12.
-It should be read as a structural management model, not as a raw monthly operating fact table.
+That makes it a strong setting for demonstrating how a spa network can be interpreted through a structured management and operating model.
 
-## Why it matters
-- Shows that the portfolio is not limited to descriptive output, but can be read through a managerial decision lens.
-- Demonstrates outlet-level differentiation instead of treating the network as operationally uniform.
-- Converts therapist structure into actionable management priorities that are easy for recruiters and reviewers to interpret.
+## Repository structure
+- `docs/` -> recruiter-facing project narrative and README support sections
+- `deliverables/` -> presentation-ready outputs for portfolio review
+- `scripts/build/` -> main build pipeline for management, pricing, and operating-model layers
+- `scripts/patch/` -> controlled patch logic used to refine selected decision layers
+- `scripts/qa/` -> validation checks for management, pricing, roster, and governance outputs
+- `scripts/research/` -> Malta spa market and outlet research build steps
+- `scripts/transform/` -> external proxy preparation and transformation logic
+- `data_raw/` -> source inputs and external reference captures
+- `data_processed/` -> processed analytical outputs and management-facing layers
+- `backups/` -> archived work, versioned variants, and recovery artifacts
+- `snapshots/` -> preserved stable project snapshots
 
-## Portfolio highlights
-- Built a structural operating-model narrative linking outlet staffing position, therapist segmentation, and people-management priorities across seven Malta spa locations.
-- Distinguished premium-led outlets, operating-backbone outlets, commercial-uplift outlets, and people-risk watchlist outlets through management-oriented classification logic.
-- Translated modeled therapist mix into recruiter-friendly executive readouts and quick-scan management strips for portfolio presentation.
+## Build flow
+`research inputs / source captures` -> `transformation and proxy preparation` -> `build pipelines` -> `patch logic where needed` -> `QA / validation checks` -> `management-facing deliverables`
 
-## Outlet-by-outlet executive scan
-- **Central Malta Spa** → staffing: **efficient / balanced** | people priority: **develop_commercial_uplift**
-- **Gozo Spa** → staffing: **buffered growth-ready** | people priority: **protect_operating_backbone**
-- **Mellieha Spa** → staffing: **efficient / balanced** | people priority: **protect_operating_backbone**
-- **Qawra / St Paul’s Bay Spa** → staffing: **tight watchlist** | people priority: **stabilize_people_risk**
-- **Sliema / Balluta Spa** → staffing: **buffered growth-ready** | people priority: **protect_premium_core**
-- **St Julian’s / Paceville Spa** → staffing: **tight watchlist** | people priority: **stabilize_people_risk**
-- **Valletta Spa** → staffing: **buffered growth-ready** | people priority: **protect_premium_core**
+## Project basis
+This project is a management portfolio and decision-support model built to translate structured analysis into practical operating decisions.
 
-## Management interpretation
-- Premium-core outlets strengthen flagship-quality positioning and premium-service credibility.
-- Operating-backbone outlets support flow stability, roster resilience, and continuity.
-- Commercial-uplift outlets offer development upside through stronger conversion and guest-retention discipline.
-- People-risk outlets require tighter coaching discipline before harder growth expectations are pushed.
+It is based on market research, operating assumptions, modeled management logic, and management-facing outputs rather than on a live production system or a direct internal export from one spa operator.
+
+## Operating model / management layer
+The operating-model layer translates the Malta spa network into a management-facing decision framework.
+
+It connects outlet staffing position, therapist structural segmentation, and outlet-level people-management priorities into one executive read. The aim is to show how a multi-outlet spa network can be interpreted through pricing, staffing, service mix, control discipline, and operating risk.
+
+### Why it matters
+- shows outlet-level differentiation instead of treating the network as operationally uniform
+- converts therapist structure into actionable management priorities
+- demonstrates that the portfolio can be read through a decision lens, not only a reporting lens
+
+### Sample executive scan
+Illustrative management reads from the portfolio include:
+- **Central Malta Spa** -> efficient / balanced | develop commercial uplift
+- **Gozo Spa** -> buffered growth-ready | protect operating backbone
+- **Qawra / St Paul’s Bay Spa** -> tight watchlist | stabilize people risk
+- **Sliema / Balluta Spa** -> buffered growth-ready | protect premium core
+- **Valletta Spa** -> buffered growth-ready | protect premium core
+
+## How to read this repo
+
+### For recruiters and non-technical reviewers
+1. Start with `README.md`
+2. Review `deliverables/executive_readout/`
+3. Review `deliverables/operating_model/`
+4. Use `docs/` for additional project framing
+
+### For technical reviewers
+1. Review `scripts/build/`, `scripts/patch/`, and `scripts/qa/`
+2. Trace outputs through `data_processed/`
+3. Inspect validation and governance logic around pricing, roster realism, and management interpretation
 
 ## Core supporting files
 - `deliverables/executive_readout/malta_operating_model_executive_readout.md`
 - `deliverables/executive_readout/malta_operating_model_headline_strip.md`
 - `deliverables/executive_readout/malta_operating_model_quick_scan.csv`
 - `deliverables/operating_model/outlet_manager_action_queue_enriched.csv`
-- `deliverables/operating_model/therapist_structural_segmentation_summary.csv`
 - `deliverables/operating_model/outlet_staffing_management_view.csv`
 - `deliverables/operating_model/therapist_segmentation_management_pack.xlsx`
+- `deliverables/operating_model/therapist_structural_segmentation_summary.csv`
