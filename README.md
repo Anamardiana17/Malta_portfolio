@@ -1,6 +1,6 @@
 # Malta Spa Portfolio
 
-A management-focused portfolio project showing how a Malta spa network can be evaluated through pricing, staffing, therapist structure, and executive decision support.
+A management-focused portfolio project for evaluating a Malta spa network through pricing, staffing, therapist structure, and executive decision support.
 
 ## What this project demonstrates
 This repository shows how a spa manager can combine commercial thinking, operational control, and structured analytics into a recruiter-facing management portfolio.
