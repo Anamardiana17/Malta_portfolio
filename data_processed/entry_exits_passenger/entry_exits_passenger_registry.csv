@@ -1,0 +1,2 @@
+dataset_name,project_scope,dataset_stage,intended_use,methodology_note,status
+entry_exits_passenger,Malta,seed_dataset,contextual passenger and service-access layer for daypart decision-support,official page-level metrics only; not direct hourly spa demand,usable_seed

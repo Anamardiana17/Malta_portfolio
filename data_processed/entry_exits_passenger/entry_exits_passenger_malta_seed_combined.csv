@@ -1,0 +1,6 @@
+source_group,period_label,metric_scope,mia_total_passengers,italy_passenger_movements,uk_passenger_movements,source_note,dataset_block,total_trips,total_passengers,mgarr_cirkewwa_passengers,mgarr_cirkewwa_vehicles,mgarr_valletta_passengers,total_cruise_passengers,cruise_liner_calls,transit_passengers,bus_passenger_count_available_flag,bus_routes_timetables_context_available_flag,bus_monitoring_context_available_flag
+air,2024,annual,8968286.0,2048407.0,1742321.0,official NSO Malta air transport page metrics,air,,,,,,,,,,,
+sea,2025Q4,quarterly,,,,official NSO Malta sea transport between Malta and Gozo Q4 2025 metrics,sea,11829.0,1839008.0,1526411.0,529930.0,312597.0,,,,,,
+cruise,2025Q4,quarterly,,,,official NSO Malta cruise passengers Q4 2025 metrics,cruise,,,,,,179299.0,93.0,169152.0,,,
+cruise,2025,annual,,,,official NSO Malta cruise passengers full year 2025 metrics,cruise,,,,,,870560.0,387.0,,,,
+bus,current_context,service_context,,,,"bus included as service/access context, not passenger count dataset",bus,,,,,,,,,0.0,1.0,1.0

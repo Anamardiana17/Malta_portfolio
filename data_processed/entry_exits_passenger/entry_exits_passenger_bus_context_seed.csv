@@ -1,0 +1,2 @@
+source_group,period_label,metric_scope,bus_passenger_count_available_flag,bus_routes_timetables_context_available_flag,bus_monitoring_context_available_flag,source_note
+bus,current_context,service_context,0,1,1,"bus included as service/access context, not passenger count dataset"
