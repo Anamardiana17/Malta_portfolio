@@ -132,9 +132,9 @@ def reason_text(row):
 def priority_bucket(x):
     if pd.isna(x):
         return "unclassified"
-    if x >= 75:
+    if x >= 45:
         return "high"
-    if x >= 55:
+    if x >= 35:
         return "medium"
     return "low"
 
