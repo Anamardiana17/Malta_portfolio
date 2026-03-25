@@ -89,7 +89,7 @@ def classify_management_focus(band: str, coverage_pressure: float, burnout: floa
 def build_boundary_note() -> str:
     return (
         "Monthly management interpretation only; external context is supportive regime context, "
-        "not direct hourly spa demand or observed daypart traffic. Actionability should remain anchored "
+        "not direct hourly spa demand and not observed daypart traffic. Actionability should remain anchored "
         "to internal operating proxies."
     )
 
