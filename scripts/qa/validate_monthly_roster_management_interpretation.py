@@ -105,9 +105,20 @@ def main() -> None:
         s = df[c].astype(str).str.lower()
         for phrase in RISKY_PHRASES:
             hits = s.str.contains(phrase, na=False)
+
+            if phrase == "observed daypart traffic":
+                hits = hits & ~s.str.contains("not observed daypart traffic", na=False)
+
+            if phrase == "direct demand":
+                hits = hits & ~s.str.contains("not direct demand", na=False)
+
+            if phrase == "hourly demand":
+                hits = hits & ~s.str.contains("not direct hourly spa demand", na=False)
+
             if hits.any():
                 found_risk = True
                 warn(f'Risky phrase "{phrase}" found in {c}: {int(hits.sum())} rows')
+
     if not found_risk:
         ok("No obvious pseudo-daypart / hourly overclaim wording found")
 
