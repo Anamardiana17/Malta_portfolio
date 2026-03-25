@@ -4,10 +4,10 @@ import numpy as np
 
 BASE = Path("/Users/ambakinanti/Desktop/Malta_portfolio")
 
-IN_OUTLET = BASE / "data_processed/insight_mart/outlet_management_summary.csv"
-IN_TREAT = BASE / "data_processed/insight_mart/treatment_opportunity_summary.csv"
-IN_COACH = BASE / "data_processed/insight_mart/therapist_coaching_summary.csv"
-IN_QUEUE = BASE / "data_processed/insight_mart/manager_action_queue.csv"
+IN_OUTLET = BASE / "data_processed/management/outlet_management_summary.csv"
+IN_TREAT = BASE / "data_processed/management/treatment_opportunity_summary.csv"
+IN_COACH = BASE / "data_processed/management/therapist_coaching_summary.csv"
+IN_QUEUE = BASE / "data_processed/management/manager_action_queue.csv"
 IN_EXT = BASE / "data_processed/internal_proxy/external_demand_proxy_index.csv"
 
 OUT_EXEC = BASE / "data_processed/dashboard_export/dashboard_exec_overview.csv"

@@ -6,7 +6,7 @@ import numpy as np
 
 BASE = Path(__file__).resolve().parents[2]
 
-TARGET_FP = BASE / "data_processed" / "insight_mart" / "management_kpi_signal_layer.csv"
+TARGET_FP = BASE / "data_processed" / "management" / "management_kpi_signal_layer.csv"
 ROSTER_OUTLET_FP = BASE / "data_processed" / "internal_proxy" / "internal_proxy_roster_outlet_monthly_bridge.csv"
 
 

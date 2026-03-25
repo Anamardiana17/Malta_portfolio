@@ -4,10 +4,10 @@ import pandas as pd
 BASE = Path("/Users/ambakinanti/Desktop/Malta_portfolio")
 
 files = {
-    "outlet_management_summary": BASE / "data_processed/insight_mart/outlet_management_summary.csv",
-    "treatment_opportunity_summary": BASE / "data_processed/insight_mart/treatment_opportunity_summary.csv",
-    "therapist_coaching_summary": BASE / "data_processed/insight_mart/therapist_coaching_summary.csv",
-    "manager_action_queue": BASE / "data_processed/insight_mart/manager_action_queue.csv",
+    "outlet_management_summary": BASE / "data_processed/management/outlet_management_summary.csv",
+    "treatment_opportunity_summary": BASE / "data_processed/management/treatment_opportunity_summary.csv",
+    "therapist_coaching_summary": BASE / "data_processed/management/therapist_coaching_summary.csv",
+    "manager_action_queue": BASE / "data_processed/management/manager_action_queue.csv",
 }
 
 required = {
