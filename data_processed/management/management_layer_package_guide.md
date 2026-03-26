@@ -4,19 +4,32 @@
 
 This document summarizes the tracked management-layer package for packaging, governance, and reviewer readability. It helps explain what each artifact contributes without introducing new modelling logic.
 
-## Method Boundary
 
-- External proxies are retained as contextual regime and market-pressure inputs only.
+## Artifact Coverage
+- `monthly_roster_management_interpretation.csv`: decision interpretation dataset anchored to internal operating proxies with contextual external regime support.
+- `monthly_roster_management_readout.md`: local-only markdown management readout derived from the interpretation layer.
+- `management_layer_registry.csv`: tracked artifact registry for governance, packaging control, and reviewer traceability.
+- `management_layer_index.md`: navigation-first documentation index for reviewer usability.
+- `management_layer_reviewer_checklist.md`: reviewer-facing governance checklist for package integrity and methodological defensibility.
+## Method Boundary
+External proxies are retained as contextual regime and market-pressure inputs only.
+Internal operating proxies remain the primary anchor for actionable management interpretation.
+No pseudo-daypart logic is introduced in this package guide.
+External proxies are retained as contextual regime and market-pressure inputs only.
+Internal operating proxies remain the primary anchor for actionable management interpretation.
+
+- External proxies remain contextual regime and market-pressure inputs only.
 - Internal operating proxies remain the anchor for actionable management decisions.
-- No pseudo-daypart logic is introduced in this package guide.
+- No pseudo-daypart logic is introduced in this guide.
 - No roster-by-hour inference is introduced without valid granular source support.
 - This guide is documentation only and does not extend the modelling layer.
 
-## Artifact Coverage
+## Tracked Artifact Coverage
 
 | Artifact Key | Type | Role | Tracked | QA | Path |
 |---|---|---|---:|---:|---|
 | monthly_roster_management_interpretation | dataset | decision_interpretation | 1 | 1 | `data_processed/management/monthly_roster_management_interpretation.csv` |
+| management_layer_reviewer_checklist | documentation | review_governance | 1 | 1 | `data_processed/management/management_layer_reviewer_checklist.md` |
 | management_layer_index | documentation_index | documentation_index | 1 | 1 | `data_processed/management/management_layer_index.md` |
 | management_layer_qa_aggregator | qa_orchestration | governance_control | 1 | 0 | `scripts/qa/run_management_layer_qa.py` |
 | monthly_roster_management_readout | markdown_readout | manager_readout | 0 | 1 | `output/management/monthly_roster_management_readout.md` |
@@ -29,6 +42,13 @@ This document summarizes the tracked management-layer package for packaging, gov
 - Source dependency class: internal_anchor_plus_contextual_external_regime
 - QA script: scripts/qa/validate_monthly_roster_management_interpretation.py
 - Boundary note: Uses internal operating proxies as primary decision anchor. External proxies remain contextual regime inputs only. No synthetic intra-day staffing segmentation. No hour-level roster inference without valid granular source.
+
+### management_layer_reviewer_checklist
+
+- Role: review_governance
+- Source dependency class: repo_governance
+- QA script: scripts/qa/validate_management_layer_reviewer_checklist.py
+- Boundary note: Reviewer governance artifact only. Supports package integrity, reviewer usability, and methodological defensibility without adding modelling logic or unsupported staffing inference.
 
 ### management_layer_index
 
@@ -59,8 +79,7 @@ This document summarizes the tracked management-layer package for packaging, gov
 4. Run the QA aggregator before packaging or presenting the stack.
 
 ## Governance Notes
-
-- Output artifacts under `output/` remain local-only and are not part of the tracked management-layer package.
+Output artifacts under `output/` remain local-only and are not part of the tracked management-layer package.
 
 - output/ remains local-only and should not be tracked.
 - This package guide should be refreshed when tracked management-layer artifacts change.

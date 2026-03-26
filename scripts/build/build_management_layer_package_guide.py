@@ -44,7 +44,24 @@ def main() -> None:
         "It helps explain what each artifact contributes without introducing new modelling logic."
     )
     lines.append("")
+    lines.append("")
+    lines.append("## Artifact Coverage")
+    lines.append("- `monthly_roster_management_interpretation.csv`: decision interpretation dataset anchored to internal operating proxies with contextual external regime support.")
+    lines.append("- `monthly_roster_management_readout.md`: local-only markdown management readout derived from the interpretation layer.")
+    lines.append("- `management_layer_registry.csv`: tracked artifact registry for governance, packaging control, and reviewer traceability.")
+    lines.append("- `management_layer_index.md`: navigation-first documentation index for reviewer usability.")
+    lines.append("- `management_layer_reviewer_checklist.md`: reviewer-facing governance checklist for package integrity and methodological defensibility.")
+
     lines.append("## Method Boundary")
+
+    lines.append("External proxies are retained as contextual regime and market-pressure inputs only.")
+    lines.append("Internal operating proxies remain the primary anchor for actionable management interpretation.")
+    lines.append("No pseudo-daypart logic is introduced in this package guide.")
+
+
+    lines.append("External proxies are retained as contextual regime and market-pressure inputs only.")
+    lines.append("Internal operating proxies remain the primary anchor for actionable management interpretation.")
+
     lines.append("")
     lines.append("- External proxies remain contextual regime and market-pressure inputs only.")
     lines.append("- Internal operating proxies remain the anchor for actionable management decisions.")
@@ -93,6 +110,9 @@ def main() -> None:
     lines.append("4. Run the QA aggregator before packaging or presenting the stack.")
     lines.append("")
     lines.append("## Governance Notes")
+
+    lines.append("Output artifacts under `output/` remain local-only and are not part of the tracked management-layer package.")
+
     lines.append("")
     lines.append("- output/ remains local-only and should not be tracked.")
     lines.append("- This package guide should be refreshed when tracked management-layer artifacts change.")
