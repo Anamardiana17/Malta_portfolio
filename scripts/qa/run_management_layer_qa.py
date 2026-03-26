@@ -1,60 +1,43 @@
-from __future__ import annotations
-
+from pathlib import Path
 import subprocess
 import sys
-from pathlib import Path
 
-
-ROOT = Path(__file__).resolve().parents[2]
-QA_DIR = ROOT / "scripts" / "qa"
+REPO_ROOT = Path(__file__).resolve().parents[2]
+QA_DIR = REPO_ROOT / "scripts" / "qa"
 
 VALIDATORS = [
-    QA_DIR / "validate_monthly_roster_management_interpretation.py",
-    QA_DIR / "validate_monthly_roster_management_markdown_readout.py",
-    QA_DIR / "validate_management_layer_registry.py",
-    QA_DIR / "validate_management_layer_index.py",
-    QA_DIR / "validate_management_layer_package_guide.py",
-    QA_DIR / "validate_management_layer_reviewer_checklist.py",
-    QA_DIR / "validate_management_layer_traceability_matrix.py",
+    "validate_monthly_roster_management_interpretation.py",
+    "validate_monthly_roster_management_markdown_readout.py",
+    "validate_management_layer_registry.py",
+    "validate_management_layer_index.py",
+    "validate_management_layer_package_guide.py",
+    "validate_management_layer_reviewer_checklist.py",
+    "validate_management_layer_traceability_matrix.py",
+    "validate_management_layer_release_readiness_note.py",
 ]
 
-
-def run_validator(script_path: Path) -> int:
-    print(f"\n[RUN] {script_path.name}")
-    result = subprocess.run([sys.executable, str(script_path)], cwd=ROOT)
-    if result.returncode == 0:
-        print(f"[PASS] {script_path.name}")
-    else:
-        print(f"[FAIL] {script_path.name} (exit_code={result.returncode})")
-    return result.returncode
-
-
-def main() -> int:
+def main():
     print("=== MANAGEMENT LAYER QA ===")
-    print(f"[INFO] repo_root={ROOT}")
+    print(f"[INFO] repo_root={REPO_ROOT}")
 
     passed = 0
-    total = len(VALIDATORS)
+    failed = 0
 
-    for script_path in VALIDATORS:
-        if not script_path.exists():
-            print(f"[FAIL] Missing validator: {script_path}")
-            return 1
+    for script_name in VALIDATORS:
+        fp = QA_DIR / script_name
+        print(f"\n--- RUN {script_name} ---")
+        result = subprocess.run([sys.executable, str(fp)])
+        if result.returncode == 0:
+            passed += 1
+        else:
+            failed += 1
 
-        exit_code = run_validator(script_path)
-        if exit_code != 0:
-            print("\n=== MANAGEMENT LAYER QA SUMMARY ===")
-            print(f"[RESULT] FAILED at {script_path.name}")
-            print(f"[SUMMARY] passed={passed} failed=1 total={total}")
-            return exit_code
-
-        passed += 1
-
+    total = passed + failed
     print("\n=== MANAGEMENT LAYER QA SUMMARY ===")
-    print("[RESULT] ALL CHECKS PASSED")
-    print(f"[SUMMARY] passed={passed} failed=0 total={total}")
-    return 0
+    print(f"passed={passed} failed={failed} total={total}")
 
+    if failed:
+        sys.exit(1)
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()

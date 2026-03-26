@@ -1,90 +1,69 @@
 # Management Layer Index
 
-This index documents the current management-layer artifacts used for interpretation, packaging, and governance.
+## Purpose
+This index provides a reviewer-facing navigation layer for the management package.
+It is designed to improve governance readability, package traceability, and handoff usability without introducing any new modelling logic.
 
 ## Boundary framing
-
-- Internal operating proxies remain the primary anchor for actionable decisions.
 - External proxies remain contextual regime or market-pressure inputs only.
+- Internal operating proxies remain the primary anchor for actionable decisions.
 - No synthetic intra-day staffing segmentation is introduced.
 - No hour-level roster inference is introduced without valid granular source support.
+- `output/` remains local-only and should not be tracked.
+
+## Reviewer Reading Order
+1. `monthly_roster_management_interpretation.csv`
+2. `management_layer_registry.csv`
+3. `management_layer_index.md`
+4. `management_layer_package_guide.md`
+5. `management_layer_reviewer_checklist.md`
+6. `management_layer_traceability_matrix.csv`
+7. `management_layer_release_readiness_note.md`
 
 ## Artifact register
 
 ### monthly_roster_management_interpretation
+- File: `data_processed/management/monthly_roster_management_interpretation.csv`
+- Role: Core management interpretation layer
+- Reviewer use: Read the core management-facing interpretation output first
+- QA: `scripts/qa/validate_monthly_roster_management_interpretation.py`
 
-- Path: `data_processed/management/monthly_roster_management_interpretation.csv`
-- Type: `dataset`
-- Role: Decision interpretation
-- Tracked in repo: yes
-- Local-only output: no
-- QA-covered: yes
-- QA script: `scripts/qa/validate_monthly_roster_management_interpretation.py`
-- Dependency class: `internal_anchor_plus_contextual_external_regime`
-- Boundary note: Uses internal operating proxies as primary decision anchor. External proxies remain contextual regime inputs only. No synthetic intra-day staffing segmentation. No hour-level roster inference without valid granular source.
+### management_layer_registry
+- File: `data_processed/management/management_layer_registry.csv`
+- Role: Governance artifact inventory
+- Reviewer use: Confirm tracked artifact coverage and package composition
+- QA: `scripts/qa/validate_management_layer_registry.py`
 
 ### management_layer_index
+- File: `data_processed/management/management_layer_index.md`
+- Role: Reviewer navigation layer
+- Reviewer use: Navigate package structure and reading order
+- QA: `scripts/qa/validate_management_layer_index.py`
 
-- Path: `data_processed/management/management_layer_index.md`
-- Type: `documentation_index`
-- Role: Documentation index
-- Tracked in repo: yes
-- Local-only output: no
-- QA-covered: yes
-- QA script: `scripts/qa/validate_management_layer_index.py`
-- Dependency class: `registry_derived_documentation`
-- Boundary note: Tracked readability and packaging layer derived from the management registry. Documents artifact scope and governance boundaries without adding new modelling logic.
-
-### management_layer_qa_aggregator
-
-- Path: `scripts/qa/run_management_layer_qa.py`
-- Type: `qa_orchestration`
-- Role: Governance control
-- Tracked in repo: yes
-- Local-only output: no
-- QA-covered: no
-- QA script: `nan`
-- Dependency class: `repo_governance`
-- Boundary note: QA orchestration layer for management artifacts. Supports governance, packaging discipline, and methodological defensibility.
-
-### monthly_roster_management_readout
-
-- Path: `output/management/monthly_roster_management_readout.md`
-- Type: `markdown_readout`
-- Role: Manager readout
-- Tracked in repo: no
-- Local-only output: yes
-- QA-covered: yes
-- QA script: `scripts/qa/validate_monthly_roster_management_markdown_readout.py`
-- Dependency class: `derived_readout_from_management_interpretation`
-- Boundary note: Local packaging artifact only. Derived from management interpretation layer. Must preserve methodological guardrails and avoid unsupported hour-level staffing claims.
+### management_layer_package_guide
+- File: `data_processed/management/management_layer_package_guide.md`
+- Role: Package handoff guidance
+- Reviewer use: Understand package scope, boundaries, and review posture
+- QA: `scripts/qa/validate_management_layer_package_guide.py`
 
 ### management_layer_reviewer_checklist
-
-- Path: `data_processed/management/management_layer_reviewer_checklist.md`
-- Type: `documentation`
-- Role: review_governance
-- Tracked in repo: yes
-- Local-only output: no
-- QA-covered: yes
-- QA script: `scripts/qa/validate_management_layer_reviewer_checklist.py`
-- Dependency class: `repo_governance`
-- Boundary note: Reviewer governance artifact only. Supports package integrity, reviewer usability, and methodological defensibility without adding modelling logic or unsupported staffing inference.
+- File: `data_processed/management/management_layer_reviewer_checklist.md`
+- Role: Reviewer control checklist
+- Reviewer use: Apply structured review and governance checks
+- QA: `scripts/qa/validate_management_layer_reviewer_checklist.py`
 
 ### management_layer_traceability_matrix
+- File: `data_processed/management/management_layer_traceability_matrix.csv`
+- Role: Artifact-to-QA traceability map
+- Reviewer use: Confirm traceability coverage and governance mapping
+- QA: `scripts/qa/validate_management_layer_traceability_matrix.py`
 
-- Path: `data_processed/management/management_layer_traceability_matrix.csv`
-- Type: `documentation_dataset`
-- Role: traceability_governance
-- Tracked in repo: yes
-- Local-only output: no
-- QA-covered: yes
-- QA script: `scripts/qa/validate_management_layer_traceability_matrix.py`
-- Dependency class: `repo_governance`
-- Boundary note: Governance traceability artifact only. Maps package lineage across management-layer artifacts, QA coverage, and reviewer usability without adding modelling logic, synthetic intra-day segmentation, or unsupported hour-level roster inference.
+### management_layer_release_readiness_note
+- File: `data_processed/management/management_layer_release_readiness_note.md`
+- Role: Release readiness and handoff trust note
+- Reviewer use: Assess release posture and packaging trust
+- QA: `scripts/qa/validate_management_layer_release_readiness_note.py`
 
 ## Governance notes
-
-- `output/` remains local-only and should not be tracked.
-- This index is a packaging and readability layer, not a modelling layer.
-- Registry and QA coverage should be updated when management-layer artifacts change.
+This management layer stack should be interpreted as a governance-structured management portfolio layer.
+It should not be interpreted as a live production system, a real-time staffing engine, a daypart forecasting engine, or an hourly staffing optimization system.
