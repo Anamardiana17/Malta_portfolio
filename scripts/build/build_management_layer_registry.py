@@ -52,6 +52,21 @@ TRACKED_ARTIFACTS = [
             "Supports governance, packaging discipline, and methodological defensibility."
         ),
     },
+    {
+        "artifact_key": "management_layer_index",
+        "artifact_path": "data_processed/management/management_layer_index.md",
+        "artifact_type": "documentation_index",
+        "management_layer_role": "documentation_index",
+        "tracked_in_repo_flag": 1,
+        "local_only_output_flag": 0,
+        "qa_coverage_flag": 1,
+        "qa_script_path": "scripts/qa/validate_management_layer_index.py",
+        "source_dependency_class": "registry_derived_documentation",
+        "methodology_boundary_note": (
+            "Tracked readability and packaging layer derived from the management registry. "
+            "Documents artifact scope and governance boundaries without adding new modelling logic."
+        ),
+    },
 ]
 
 REQUIRED_COLUMNS = [
