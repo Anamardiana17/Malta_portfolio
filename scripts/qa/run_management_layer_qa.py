@@ -14,6 +14,8 @@ VALIDATORS = [
     QA_DIR / "validate_management_layer_registry.py",
     QA_DIR / "validate_management_layer_index.py",
     QA_DIR / "validate_management_layer_package_guide.py",
+    QA_DIR / "validate_management_layer_reviewer_checklist.py",
+    QA_DIR / "validate_management_layer_traceability_matrix.py",
 ]
 
 
