@@ -70,6 +70,18 @@ def main() -> None:
             "source_dependency_class": "repo_governance",
             "methodology_boundary_note": "Reviewer governance artifact only. Supports package integrity, reviewer usability, and methodological defensibility without adding modelling logic or unsupported staffing inference.",
         },
+        {
+            "artifact_key": "management_layer_traceability_matrix",
+            "artifact_path": "data_processed/management/management_layer_traceability_matrix.csv",
+            "artifact_type": "documentation_dataset",
+            "management_layer_role": "traceability_governance",
+            "tracked_in_repo_flag": 1,
+            "local_only_output_flag": 0,
+            "qa_coverage_flag": 1,
+            "qa_script_path": "scripts/qa/validate_management_layer_traceability_matrix.py",
+            "source_dependency_class": "repo_governance",
+            "methodology_boundary_note": "Governance traceability artifact only. Maps package lineage across management-layer artifacts, QA coverage, and reviewer usability without adding modelling logic, synthetic intra-day segmentation, or unsupported hour-level roster inference.",
+        },
     ]
 
     df = pd.DataFrame(rows)

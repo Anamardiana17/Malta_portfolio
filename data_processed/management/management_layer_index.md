@@ -71,6 +71,18 @@ This index documents the current management-layer artifacts used for interpretat
 - Dependency class: `repo_governance`
 - Boundary note: Reviewer governance artifact only. Supports package integrity, reviewer usability, and methodological defensibility without adding modelling logic or unsupported staffing inference.
 
+### management_layer_traceability_matrix
+
+- Path: `data_processed/management/management_layer_traceability_matrix.csv`
+- Type: `documentation_dataset`
+- Role: traceability_governance
+- Tracked in repo: yes
+- Local-only output: no
+- QA-covered: yes
+- QA script: `scripts/qa/validate_management_layer_traceability_matrix.py`
+- Dependency class: `repo_governance`
+- Boundary note: Governance traceability artifact only. Maps package lineage across management-layer artifacts, QA coverage, and reviewer usability without adding modelling logic, synthetic intra-day segmentation, or unsupported hour-level roster inference.
+
 ## Governance notes
 
 - `output/` remains local-only and should not be tracked.
