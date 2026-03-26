@@ -13,6 +13,7 @@ VALIDATORS = [
     QA_DIR / "validate_monthly_roster_management_markdown_readout.py",
     QA_DIR / "validate_management_layer_registry.py",
     QA_DIR / "validate_management_layer_index.py",
+    QA_DIR / "validate_management_layer_package_guide.py",
 ]
 
 
