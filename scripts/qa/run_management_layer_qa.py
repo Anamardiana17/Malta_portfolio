@@ -11,6 +11,7 @@ QA_DIR = ROOT / "scripts" / "qa"
 VALIDATORS = [
     QA_DIR / "validate_monthly_roster_management_interpretation.py",
     QA_DIR / "validate_monthly_roster_management_markdown_readout.py",
+    QA_DIR / "validate_management_layer_registry.py",
 ]
 
 
