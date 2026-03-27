@@ -25,6 +25,7 @@ It is designed to improve governance readability, package traceability, and hand
 5. `management_layer_reviewer_checklist.md`
 6. `management_layer_traceability_matrix.csv`
 7. `management_layer_release_readiness_note.md`
+8. `management_layer_governance_changelog.md`
 
 ## Artifact register
 
@@ -69,6 +70,12 @@ It is designed to improve governance readability, package traceability, and hand
 - Role: Release readiness and handoff trust note
 - Reviewer use: Assess release posture and packaging trust
 - QA: `scripts/qa/validate_management_layer_release_readiness_note.py`
+
+### management_layer_governance_changelog
+- File: `data_processed/management/management_layer_governance_changelog.md`
+- Role: Governance evolution and handoff trust log
+- Reviewer use: Understand staged governance expansion and package maturity
+- QA: `scripts/qa/validate_management_layer_governance_changelog.py`
 
 ## Governance notes
 This management layer stack should be interpreted as a governance-structured management portfolio layer.

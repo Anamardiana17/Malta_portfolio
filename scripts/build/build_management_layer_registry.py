@@ -105,6 +105,19 @@ def main():
             "source_dependency_class": "governance_metadata",
             "methodology_boundary_note": COMMON_BOUNDARY_NOTE,
         },
+        {
+            "artifact_key": "management_layer_governance_changelog",
+            "artifact_name": "management_layer_governance_changelog.md",
+            "artifact_type": "governance_changelog",
+            "artifact_path": "data_processed/management/management_layer_governance_changelog.md",
+            "management_layer_role": "governance_evolution_and_handoff_trust_log",
+            "tracked_in_repo_flag": 1,
+            "local_only_output_flag": 0,
+            "qa_coverage_flag": 1,
+            "qa_script_path": "scripts/qa/validate_management_layer_governance_changelog.py",
+            "source_dependency_class": "governance_metadata",
+            "methodology_boundary_note": COMMON_BOUNDARY_NOTE,
+        },
     ]
 
     df = pd.DataFrame(rows)
