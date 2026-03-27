@@ -17,6 +17,7 @@ VALIDATORS = [
     "validate_management_layer_governance_changelog.py",
     "validate_management_layer_artifact_lifecycle_policy.py",
     "validate_management_layer_governance_manifest.py",
+    "validate_management_layer_reviewer_quickstart.py",
 ]
 
 def main():

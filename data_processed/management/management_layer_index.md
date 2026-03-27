@@ -22,6 +22,7 @@ It is designed to improve governance readability, package traceability, and hand
 8. `management_layer_governance_changelog.md`
 9. `management_layer_artifact_lifecycle_policy.md`
 10. `management_layer_governance_manifest.md`
+11. `management_layer_reviewer_quickstart.md`
 
 ## Artifact register
 
@@ -84,6 +85,12 @@ It is designed to improve governance readability, package traceability, and hand
 - Role: Canonical summary of the governed package
 - Reviewer use: Quickly verify the active governed artifact set, review order, and package posture
 - QA: `scripts/qa/validate_management_layer_governance_manifest.py`
+
+### management_layer_reviewer_quickstart
+- File: `data_processed/management/management_layer_reviewer_quickstart.md`
+- Role: Reviewer fast-entry and orientation guide
+- Reviewer use: Start a fast package review using the shortest defensible reading path
+- QA: `scripts/qa/validate_management_layer_reviewer_quickstart.py`
 
 ## Governance notes
 This management layer stack should be interpreted as a governance-structured management portfolio layer.
