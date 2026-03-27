@@ -1,0 +1,2 @@
+review_cycle_id,artifact_name,artifact_type,review_scope,reviewer_name,review_date,review_status,evidence_reference,follow_up_action,handoff_ready_flag,notes
+TEMPLATE,management_layer_reviewer_quickstart.md,markdown,template_demonstration_only,,,pending,"Use relative repo path, commit hash, or QA output reference",,no,Replace or append with actual review records; keep this row only if using template mode.

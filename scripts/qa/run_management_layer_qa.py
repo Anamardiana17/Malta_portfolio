@@ -18,6 +18,7 @@ VALIDATORS = [
     "validate_management_layer_artifact_lifecycle_policy.py",
     "validate_management_layer_governance_manifest.py",
     "validate_management_layer_reviewer_quickstart.py",
+    "validate_management_layer_review_log_template.py",
 ]
 
 def main():
