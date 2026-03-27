@@ -55,3 +55,7 @@ output/
 
 # notebook / temp
 .ipynb_checkpoints/
+
+# archived history
+backups/
+snapshots/
