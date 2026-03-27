@@ -24,6 +24,7 @@ This index provides a reviewer-facing navigation layer for the active management
 10. management_layer_governance_manifest.md
 11. management_layer_reviewer_quickstart.md
 12. management_layer_review_log_template.csv
+13. management_layer_review_disposition_matrix.csv
 
 ## Artifact register
 
@@ -65,3 +66,18 @@ Structured review execution log template used to record reviewer action, evidenc
 
 ## Governance notes
 This package is presented as a portfolio governance layer rather than a live production control system. It is intended to improve reviewer usability, auditability, and handoff trust while preserving methodological defensibility.
+
+
+### management_layer_review_disposition_matrix
+
+**Artifact path**  
+`data_processed/management/management_layer_review_disposition_matrix.csv`
+
+**Purpose**  
+Provides a standardized reviewer decision reference for disposition outcome, release eligibility, rerun expectation, and audit-note handling.
+
+**Reviewer use**  
+Use alongside the reviewer quickstart and review log template so acceptance, follow-up, revision, and release-blocking decisions remain consistent and auditable.
+
+**Governance note**  
+Supports governance review only. Does not introduce new operating logic, synthetic intraday deployment assumptions, or unsupported hour-level roster inference.
