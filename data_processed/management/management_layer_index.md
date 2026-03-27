@@ -81,3 +81,19 @@ Use alongside the reviewer quickstart and review log template so acceptance, fol
 
 **Governance note**  
 Supports governance review only. Does not introduce new operating logic, synthetic intraday deployment assumptions, or unsupported hour-level roster inference.
+
+
+13. management_layer_qa_escalation_matrix.csv
+
+## Artifact register
+
+
+### management_layer_qa_escalation_matrix
+- Artifact path: `data_processed/management/management_layer_qa_escalation_matrix.csv`
+- Artifact type: `governance_qa_escalation_matrix`
+- Management-layer role: `review_disposition_standardization_and_release_decision_reference`
+- Purpose: defines severity-based QA escalation pathways for validator failure, governance drift, release holds, and handoff-risk conditions.
+- Build script: `scripts/build/build_management_layer_qa_escalation_matrix.py`
+- QA script: `scripts/qa/validate_management_layer_qa_escalation_matrix.py`
+- Boundary note: preserves governance clarity, reviewer usability, auditability, handoff trust, and release discipline without expanding methodological claims or introducing synthetic intra-day logic.
+

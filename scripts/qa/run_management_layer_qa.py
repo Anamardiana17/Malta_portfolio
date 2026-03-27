@@ -20,6 +20,7 @@ VALIDATORS = [
     "validate_management_layer_reviewer_quickstart.py",
     "validate_management_layer_review_log_template.py",
     "validate_management_layer_review_disposition_matrix.py",
+    "validate_management_layer_qa_escalation_matrix.py",
 ]
 
 def main():
