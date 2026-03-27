@@ -20,6 +20,7 @@ It is designed to improve governance readability, package traceability, and hand
 6. `management_layer_traceability_matrix.csv`
 7. `management_layer_release_readiness_note.md`
 8. `management_layer_governance_changelog.md`
+9. `management_layer_artifact_lifecycle_policy.md`
 
 ## Artifact register
 
@@ -70,6 +71,12 @@ It is designed to improve governance readability, package traceability, and hand
 - Role: Governance evolution and handoff trust log
 - Reviewer use: Understand staged governance expansion and package maturity
 - QA: `scripts/qa/validate_management_layer_governance_changelog.py`
+
+### management_layer_artifact_lifecycle_policy
+- File: `data_processed/management/management_layer_artifact_lifecycle_policy.md`
+- Role: Artifact lifecycle and archive boundary policy
+- Reviewer use: Distinguish governed artifacts, local-only outputs, and archived artifacts excluded from the main repo
+- QA: `scripts/qa/validate_management_layer_artifact_lifecycle_policy.py`
 
 ## Governance notes
 This management layer stack should be interpreted as a governance-structured management portfolio layer.

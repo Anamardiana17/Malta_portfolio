@@ -15,6 +15,7 @@ VALIDATORS = [
     "validate_management_layer_traceability_matrix.py",
     "validate_management_layer_release_readiness_note.py",
     "validate_management_layer_governance_changelog.py",
+    "validate_management_layer_artifact_lifecycle_policy.py",
 ]
 
 def main():
