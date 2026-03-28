@@ -75,6 +75,21 @@ Illustrative management reads from the portfolio include:
 - **Sliema / Balluta Spa** -> buffered growth-ready | protect premium core
 - **Valletta Spa** -> buffered growth-ready | protect premium core
 
+## Deliverable highlights
+Key reviewer-facing outputs in this repository include:
+- `deliverables/executive_readout/malta_operating_model_executive_readout.md` -> executive management readout summarizing outlet posture, operating signals, and portfolio implications
+- `deliverables/executive_readout/malta_operating_model_headline_strip.md` -> fast portfolio headline layer for quick executive scanning
+- `deliverables/operating_model/outlet_staffing_management_view.csv` -> outlet-level staffing interpretation layer tied to management posture
+- `deliverables/operating_model/outlet_manager_action_queue_enriched.csv` -> manager action queue translating operating signals into prioritised follow-up
+
+## What to review first
+For a fast portfolio review:
+1. `README.md`
+2. `docs/executive_portfolio_summary.md`
+3. `deliverables/executive_readout/malta_operating_model_executive_readout.md`
+4. `deliverables/operating_model/outlet_staffing_management_view.csv`
+5. `deliverables/operating_model/outlet_manager_action_queue_enriched.csv`
+
 ## How to read this repo
 
 ### For recruiters and non-technical reviewers
