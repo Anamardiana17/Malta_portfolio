@@ -52,6 +52,11 @@ This project is a management portfolio and decision-support model built to trans
 
 It is based on market research, operating assumptions, modeled management logic, and management-facing outputs rather than on a live production system or a direct internal export from one spa operator.
 
+## What this is not
+This repository is not presented as a live production deployment, a direct export from one spa operator, or a demand-forecasting engine.
+
+It is a management portfolio built to demonstrate structured commercial reasoning, operating-model interpretation, staffing realism checks, and decision-support discipline under controlled assumptions.
+
 ## Operating model / management layer
 The operating-model layer translates the Malta spa network into a management-facing decision framework.
 
