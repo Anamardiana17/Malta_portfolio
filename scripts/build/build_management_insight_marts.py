@@ -119,17 +119,78 @@ def main():
         INTERNAL_PROXY / "internal_proxy_roster_therapist_monthly_bridge.csv",
     ])
 
+    # New layers
+    staff_commercial_fp = pick_file([
+        INSIGHT_MART / "staff_commercial_scoring_layer.csv",
+    ])
+    therapist_perf_fp = pick_file([
+        INSIGHT_MART / "therapist_top_bottom_performance_layer.csv",
+    ])
+
     mgmt = pd.read_csv(mgmt_fp)
     therapist = pd.read_csv(therapist_fp)
     treatment = pd.read_csv(treatment_fp)
     roster_outlet = pd.read_csv(roster_outlet_fp)
     roster_therapist = pd.read_csv(roster_therapist_fp)
+    staff_commercial = pd.read_csv(staff_commercial_fp)
+    therapist_perf = pd.read_csv(therapist_perf_fp)
 
     mgmt = ensure_outlet_id(ensure_month_id(mgmt))
     therapist = ensure_outlet_id(ensure_month_id(therapist))
     treatment = ensure_outlet_id(ensure_month_id(treatment))
     roster_outlet = ensure_outlet_id(ensure_month_id(roster_outlet))
     roster_therapist = ensure_outlet_id(ensure_month_id(roster_therapist))
+    staff_commercial = ensure_outlet_id(ensure_month_id(staff_commercial))
+    therapist_perf = ensure_outlet_id(ensure_month_id(therapist_perf))
+
+    # ------------------------------------------------------------
+    # Commercial summaries by outlet-month
+    # ------------------------------------------------------------
+    staff_commercial = ensure_col(staff_commercial, "outlet_name", "")
+    for c, d in {
+        "retail_selling_score_0_100": 0.0,
+        "retail_reward_eligibility_flag": 0.0,
+        "retail_revenue_eur": 0.0,
+        "retail_units_sold": 0.0,
+    }.items():
+        staff_commercial = safe_numeric(staff_commercial, c, d)
+
+    staff_commercial_summary = (
+        staff_commercial.groupby(["month_id", "outlet_id", "outlet_name"], as_index=False)
+        .agg(
+            total_staff_retail_revenue_eur=("retail_revenue_eur", "sum"),
+            total_staff_retail_units_sold=("retail_units_sold", "sum"),
+            avg_staff_retail_selling_score_0_100=("retail_selling_score_0_100", "mean"),
+            retail_reward_eligible_staff_count=("retail_reward_eligibility_flag", "sum"),
+        )
+    )
+
+    therapist_perf = ensure_col(therapist_perf, "outlet_name", "")
+    for c, d in {
+        "upsell_score_0_100": 0.0,
+        "total_commercial_score_0_100": 0.0,
+        "bonus_reward_eligibility_flag": 0.0,
+        "refresh_training_required_flag": 0.0,
+        "top3_therapist_flag": 0.0,
+        "bottom3_therapist_flag": 0.0,
+        "treatment_upsell_revenue_eur": 0.0,
+        "retail_revenue_eur": 0.0,
+    }.items():
+        therapist_perf = safe_numeric(therapist_perf, c, d)
+
+    therapist_perf_summary = (
+        therapist_perf.groupby(["month_id", "outlet_id", "outlet_name"], as_index=False)
+        .agg(
+            avg_therapist_upsell_score_0_100=("upsell_score_0_100", "mean"),
+            avg_therapist_total_commercial_score_0_100=("total_commercial_score_0_100", "mean"),
+            therapist_bonus_reward_eligible_count=("bonus_reward_eligibility_flag", "sum"),
+            therapist_refresh_training_required_count=("refresh_training_required_flag", "sum"),
+            therapist_top_group_count=("top3_therapist_flag", "sum"),
+            therapist_bottom_group_count=("bottom3_therapist_flag", "sum"),
+            total_therapist_treatment_upsell_revenue_eur=("treatment_upsell_revenue_eur", "sum"),
+            total_therapist_retail_revenue_eur=("retail_revenue_eur", "sum"),
+        )
+    )
 
     # outlet_management_summary
     outlet = mgmt.copy()
@@ -190,6 +251,61 @@ def main():
         default="balanced commercial and operational conditions with manageable managerial control needs",
     )
 
+    outlet = outlet.merge(
+        staff_commercial_summary,
+        on=["month_id", "outlet_id", "outlet_name"],
+        how="left",
+    ).merge(
+        therapist_perf_summary,
+        on=["month_id", "outlet_id", "outlet_name"],
+        how="left",
+    )
+
+    for c, d in {
+        "total_staff_retail_revenue_eur": 0.0,
+        "total_staff_retail_units_sold": 0.0,
+        "avg_staff_retail_selling_score_0_100": 0.0,
+        "retail_reward_eligible_staff_count": 0.0,
+        "avg_therapist_upsell_score_0_100": 0.0,
+        "avg_therapist_total_commercial_score_0_100": 0.0,
+        "therapist_bonus_reward_eligible_count": 0.0,
+        "therapist_refresh_training_required_count": 0.0,
+        "therapist_top_group_count": 0.0,
+        "therapist_bottom_group_count": 0.0,
+        "total_therapist_treatment_upsell_revenue_eur": 0.0,
+        "total_therapist_retail_revenue_eur": 0.0,
+    }.items():
+        outlet = safe_numeric(outlet, c, d)
+
+    outlet["commercial_reward_attention_flag"] = np.where(
+        (outlet["retail_reward_eligible_staff_count"] > 0)
+        | (outlet["therapist_bonus_reward_eligible_count"] > 0),
+        1,
+        0,
+    )
+
+    outlet["refresh_training_attention_flag"] = np.where(
+        outlet["therapist_refresh_training_required_count"] > 0,
+        1,
+        0,
+    )
+
+    outlet["commercial_story"] = np.select(
+        [
+            (outlet["retail_reward_eligible_staff_count"] > 0) & (outlet["therapist_bonus_reward_eligible_count"] > 0),
+            (outlet["retail_reward_eligible_staff_count"] > 0),
+            (outlet["therapist_bonus_reward_eligible_count"] > 0),
+            (outlet["therapist_refresh_training_required_count"] > 0),
+        ],
+        [
+            "Outlet shows both staff retail-selling reward potential and therapist upsell reward potential.",
+            "Outlet shows staff retail-selling reward potential that can be recognized and replicated.",
+            "Outlet shows therapist upsell reward potential with commercial coaching upside.",
+            "Outlet shows limited reward readiness and therapist refresh-training need.",
+        ],
+        default="Outlet commercial reward and training signals remain moderate under current modeled thresholds.",
+    )
+
     outlet_management_summary = outlet[
         [
             "management_signal_id",
@@ -219,7 +335,22 @@ def main():
             "recommended_manager_action",
             "revenue_growth_without_team_burnout_flag",
             "leakage_control_priority_flag",
+            "total_staff_retail_revenue_eur",
+            "total_staff_retail_units_sold",
+            "avg_staff_retail_selling_score_0_100",
+            "retail_reward_eligible_staff_count",
+            "avg_therapist_upsell_score_0_100",
+            "avg_therapist_total_commercial_score_0_100",
+            "therapist_bonus_reward_eligible_count",
+            "therapist_refresh_training_required_count",
+            "therapist_top_group_count",
+            "therapist_bottom_group_count",
+            "total_therapist_treatment_upsell_revenue_eur",
+            "total_therapist_retail_revenue_eur",
+            "commercial_reward_attention_flag",
+            "refresh_training_attention_flag",
             "managerial_story",
+            "commercial_story",
             "qa_status",
             "audit_note",
             "status",
@@ -252,6 +383,8 @@ def main():
         "avg_coverage_gap_day_ratio",
         "avg_idle_hour_ratio",
         "avg_external_demand_proxy_index",
+        "commercial_reward_attention_flag",
+        "refresh_training_attention_flag",
     ]
     th = th.merge(
         outlet_management_summary[join_cols].drop_duplicates(["month_id", "outlet_id"]),
@@ -383,6 +516,41 @@ def main():
         default="therapist performance pattern is stable with manageable coaching need",
     )
 
+    therapist_perf_join_cols = [
+        "month_id",
+        "outlet_id",
+        "therapist_id",
+        "therapist_name",
+        "upsell_score_0_100",
+        "total_commercial_score_0_100",
+        "bonus_reward_eligibility_flag",
+        "commercial_reward_reason",
+        "top3_therapist_flag",
+        "bottom3_therapist_flag",
+        "refresh_training_required_flag",
+        "refresh_training_reason",
+        "coaching_action_recommendation",
+    ]
+    tc = tc.merge(
+        therapist_perf[therapist_perf_join_cols].drop_duplicates(["month_id", "outlet_id", "therapist_id"]),
+        on=["month_id", "outlet_id", "therapist_id"],
+        how="left",
+        suffixes=("", "_perf"),
+    )
+
+    for c, d in {
+        "upsell_score_0_100": 0.0,
+        "total_commercial_score_0_100": 0.0,
+        "bonus_reward_eligibility_flag": 0.0,
+        "top3_therapist_flag": 0.0,
+        "bottom3_therapist_flag": 0.0,
+        "refresh_training_required_flag": 0.0,
+    }.items():
+        tc = safe_numeric(tc, c, d)
+    tc = ensure_col(tc, "commercial_reward_reason", "Therapist did not yet meet full commercial reward threshold or quality guardrail threshold.")
+    tc = ensure_col(tc, "refresh_training_reason", "No immediate refresh training trigger under current modeled threshold.")
+    tc = ensure_col(tc, "coaching_action_recommendation", "maintain routine coaching cadence and monitor month-over-month movement")
+
     therapist_coaching_summary = tc.copy()
 
     # manager_action_queue
@@ -422,12 +590,14 @@ def main():
         default="neutral",
     )
     outlet_actions["execution_priority_score"] = (
-        0.45 * (100 - outlet_actions["overall_management_signal_score_0_100"])
-        + 0.25 * outlet_actions["avg_capacity_strain_score_0_100"]
+        0.35 * (100 - outlet_actions["overall_management_signal_score_0_100"])
+        + 0.20 * outlet_actions["avg_capacity_strain_score_0_100"]
         + 0.15 * (outlet_actions["leakage_control_priority_flag"] * 100)
-        + 0.15 * ((1 - outlet_actions["revenue_growth_without_team_burnout_flag"]) * 100)
+        + 0.10 * ((1 - outlet_actions["revenue_growth_without_team_burnout_flag"]) * 100)
+        + 0.10 * (outlet_actions["refresh_training_attention_flag"] * 100)
+        + 0.10 * (outlet_actions["commercial_reward_attention_flag"] * 100)
     ).clip(0, 100)
-    outlet_actions["manager_note"] = outlet_actions["managerial_story"]
+    outlet_actions["manager_note"] = outlet_actions["managerial_story"] + " | " + outlet_actions["commercial_story"]
     outlet_actions = outlet_actions[
         [
             "month_id",
@@ -448,27 +618,63 @@ def main():
 
     therapist_actions = therapist_coaching_summary.copy()
     therapist_actions["action_type"] = "therapist_coaching"
-    therapist_actions["action_theme"] = therapist_actions["coaching_priority_band"]
-    therapist_actions["management_signal"] = therapist_actions["coaching_priority_band"]
-    therapist_actions["recommended_action"] = np.select(
+    therapist_actions["action_theme"] = np.select(
         [
+            therapist_actions["bonus_reward_eligibility_flag"].eq(1),
+            therapist_actions["refresh_training_required_flag"].eq(1),
             therapist_actions["coaching_priority_band"].eq("urgent"),
             therapist_actions["coaching_priority_band"].eq("watchlist"),
         ],
         [
+            "reward_recognition",
+            "refresh_training",
+            "urgent_coaching",
+            "watchlist_coaching",
+        ],
+        default="routine_coaching",
+    )
+    therapist_actions["management_signal"] = therapist_actions["action_theme"]
+    therapist_actions["recommended_action"] = np.select(
+        [
+            therapist_actions["bonus_reward_eligibility_flag"].eq(1),
+            therapist_actions["refresh_training_required_flag"].eq(1),
+            therapist_actions["coaching_priority_band"].eq("urgent"),
+            therapist_actions["coaching_priority_band"].eq("watchlist"),
+        ],
+        [
+            "recognize bonus-eligible therapist and capture best-practice upsell behavior",
+            therapist_actions["coaching_action_recommendation"],
             "immediate coaching and workload protection review",
             "targeted coaching with schedule and recovery monitoring",
         ],
         default="maintain routine coaching cadence",
     )
-    therapist_actions["revenue_impact_direction"] = "protective"
-    therapist_actions["team_impact_direction"] = "stabilize"
+    therapist_actions["revenue_impact_direction"] = np.select(
+        [
+            therapist_actions["bonus_reward_eligibility_flag"].eq(1),
+        ],
+        ["upside"],
+        default="protective",
+    )
+    therapist_actions["team_impact_direction"] = np.select(
+        [
+            therapist_actions["refresh_training_required_flag"].eq(1),
+        ],
+        ["stabilize"],
+        default="neutral",
+    )
     therapist_actions["execution_priority_score"] = (
-        0.50 * (100 - therapist_actions["therapist_consistency_score_0_100"])
-        + 0.30 * therapist_actions["burnout_risk_score_0_100"]
-        + 0.20 * therapist_actions["coverage_gap_day_ratio"].clip(0, 1) * 100
+        0.35 * (100 - therapist_actions["therapist_consistency_score_0_100"])
+        + 0.20 * therapist_actions["burnout_risk_score_0_100"]
+        + 0.15 * therapist_actions["coverage_gap_day_ratio"].clip(0, 1) * 100
+        + 0.15 * therapist_actions["refresh_training_required_flag"] * 100
+        + 0.15 * therapist_actions["bonus_reward_eligibility_flag"] * 100
     ).clip(0, 100)
-    therapist_actions["manager_note"] = therapist_actions["managerial_story"]
+    therapist_actions["manager_note"] = np.where(
+        therapist_actions["bonus_reward_eligibility_flag"].eq(1),
+        therapist_actions["commercial_reward_reason"],
+        therapist_actions["refresh_training_reason"],
+    )
     therapist_actions["outlet_name"] = therapist_actions.get("outlet_name", therapist_actions["outlet_id"])
     therapist_actions = therapist_actions[
         [
@@ -556,8 +762,74 @@ def main():
         ]
     ].copy()
 
+    # Staff commercial actions
+    staff_actions = staff_commercial.copy()
+    staff_actions["action_type"] = "staff_commercial"
+    staff_actions["action_theme"] = np.select(
+        [
+            staff_actions["retail_reward_eligibility_flag"].eq(1),
+            staff_actions["retail_selling_score_0_100"] < 45,
+            staff_actions["retail_selling_score_0_100"] < 60,
+        ],
+        [
+            "reward_recognition",
+            "refresh_training",
+            "watchlist_commercial_coaching",
+        ],
+        default="maintain_monitor",
+    )
+    staff_actions["recommended_action"] = np.select(
+        [
+            staff_actions["retail_reward_eligibility_flag"].eq(1),
+            staff_actions["retail_selling_score_0_100"] < 45,
+            staff_actions["retail_selling_score_0_100"] < 60,
+        ],
+        [
+            "recognize retail-selling reward candidate and capture replicable selling behavior",
+            "run refresh training on retail recommendation, attach behavior, and guest-conversation conversion",
+            "run targeted commercial coaching on retail recommendation and attach-rate improvement",
+        ],
+        default="maintain current commercial coaching cadence",
+    )
+    staff_actions["management_signal"] = staff_actions["action_theme"]
+    staff_actions["revenue_impact_direction"] = np.select(
+        [
+            staff_actions["retail_reward_eligibility_flag"].eq(1),
+        ],
+        ["upside"],
+        default="recoverable_upside",
+    )
+    staff_actions["team_impact_direction"] = "neutral"
+    staff_actions["execution_priority_score"] = (
+        0.55 * (100 - staff_actions["retail_selling_score_0_100"])
+        + 0.45 * staff_actions["retail_reward_eligibility_flag"] * 100
+    ).clip(0, 100)
+    staff_actions["manager_note"] = staff_actions["reward_bonus_reason"]
+    if "period_start" not in staff_actions.columns:
+        staff_actions["period_start"] = pd.to_datetime(staff_actions["month_id"] + "-01", errors="coerce")
+    if "period_end" not in staff_actions.columns:
+        staff_actions["period_end"] = staff_actions["period_start"] + pd.offsets.MonthEnd(0)
+
+    staff_actions = staff_actions[
+        [
+            "month_id",
+            "period_start",
+            "period_end",
+            "outlet_id",
+            "outlet_name",
+            "action_type",
+            "action_theme",
+            "management_signal",
+            "recommended_action",
+            "revenue_impact_direction",
+            "team_impact_direction",
+            "execution_priority_score",
+            "manager_note",
+        ]
+    ].copy()
+
     manager_action_queue = pd.concat(
-        [outlet_actions, therapist_actions, treatment_actions],
+        [outlet_actions, therapist_actions, treatment_actions, staff_actions],
         ignore_index=True,
     )
 
