@@ -111,9 +111,10 @@ For a fast portfolio review:
 2. `docs/executive_portfolio_summary.md`
 3. `deliverables/executive_readout/malta_operating_model_executive_readout.md`
 4. `data_processed/management/outlet_operating_role_framework.csv`
-5. `data_processed/management/staff_commercial_scoring_layer.csv`
-6. `data_processed/management/therapist_top_bottom_performance_layer.csv`
-7. `data_processed/management/manager_action_queue.csv`
+5. `data_processed/management/outlet_executive_ranking_layer.csv`
+6. `data_processed/management/staff_commercial_scoring_layer.csv`
+7. `data_processed/management/therapist_top_bottom_performance_layer.csv`
+8. `data_processed/management/manager_action_queue.csv`
 
 ## How to read this repo
 
@@ -138,6 +139,8 @@ For a fast portfolio review:
 - `deliverables/operating_model/therapist_segmentation_management_pack.xlsx`
 - `deliverables/operating_model/therapist_structural_segmentation_summary.csv`
 - `data_processed/management/outlet_operating_role_framework.csv`
+- `data_processed/management/outlet_executive_ranking_layer.csv`
+- `data_processed/dashboard_export/dashboard_outlet_executive_ranking.csv`
 - `data_processed/management/staff_commercial_scoring_layer.csv`
 - `data_processed/management/therapist_top_bottom_performance_layer.csv`
 - `data_processed/management/manager_action_queue.csv`
