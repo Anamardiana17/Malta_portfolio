@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 import pandas as pd
 import streamlit as st
 
@@ -10,6 +8,7 @@ from services.batch_creation_helper import (
     UploadedFilePayload,
     create_batch,
 )
+from services.batch_schema_profiler import profile_batch
 from services.repo_paths import resolve_repo_path
 from services.schema_registry_loader import get_supported_dataset_types
 
@@ -39,7 +38,6 @@ def render() -> None:
 
     st.markdown("### Supported Dataset Types")
     st.write(", ".join(supported_dataset_types))
-
 
     input_registry = _load_csv_or_empty(
         "data_input/registry/input_registry.csv",
@@ -145,12 +143,38 @@ def render() -> None:
             st.write(f"**Manifest:** `{result.manifest_path}`")
             st.write(f"**File count:** {result.file_count}")
             st.write(f"**Total size bytes:** {result.total_size_bytes:,}")
+
+            profile_df = profile_batch(result.batch_id)
+            st.markdown("### New Batch Profiling Result")
+            if profile_df.empty:
+                st.warning("No readable files found for the newly registered batch.")
+            else:
+                st.dataframe(profile_df, width="stretch")
+
             st.info("Refresh the page to reload registry tables and updated inbox counts.")
 
         except BatchCreationError as exc:
             st.error(f"Batch registration failed: {exc}")
         except Exception as exc:
             st.exception(exc)
+
+    st.markdown("### Batch Schema Profiling")
+
+    batch_id_to_profile = st.text_input(
+        "Inbox batch id to profile",
+        placeholder="e.g. 20260330_115452_fresha_rawkit_malta_demo",
+        help="Profiles files inside data_input/inbox/<batch_id>/files",
+    )
+
+    if st.button("Profile inbox batch", use_container_width=True):
+        if not batch_id_to_profile.strip():
+            st.error("Batch id is required for profiling.")
+        else:
+            profile_df = profile_batch(batch_id_to_profile.strip())
+            if profile_df.empty:
+                st.warning("No readable files found for this inbox batch.")
+            else:
+                st.dataframe(profile_df, width="stretch")
 
     st.markdown("### Input Layer Path Check")
     path_checks = {
@@ -161,9 +185,7 @@ def render() -> None:
         "data_input/registry/processing_history.csv": resolve_repo_path("data_input/registry/processing_history.csv").exists(),
         "data_input/registry/upload_log.csv": resolve_repo_path("data_input/registry/upload_log.csv").exists(),
     }
-    path_df = pd.DataFrame(
-        [{"path": k, "exists": v} for k, v in path_checks.items()]
-    )
+    path_df = pd.DataFrame([{"path": k, "exists": v} for k, v in path_checks.items()])
     st.dataframe(path_df, width="stretch")
 
     st.markdown("### Input Registry")
