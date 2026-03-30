@@ -5,7 +5,13 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+from services.batch_creation_helper import (
+    BatchCreationError,
+    UploadedFilePayload,
+    create_batch,
+)
 from services.repo_paths import resolve_repo_path
+from services.schema_registry_loader import get_supported_dataset_types
 
 
 def _load_csv_or_empty(relative_path: str, expected_columns: list[str]) -> pd.DataFrame:
@@ -28,6 +34,12 @@ def _count_batch_dirs(relative_path: str) -> int:
 def render() -> None:
     st.subheader("Data Input Panel")
     st.caption("Batch ingestion governance layer for uploaded datasets before processing.")
+
+    supported_dataset_types = get_supported_dataset_types()
+
+    st.markdown("### Supported Dataset Types")
+    st.write(", ".join(supported_dataset_types))
+
 
     input_registry = _load_csv_or_empty(
         "data_input/registry/input_registry.csv",
@@ -58,6 +70,21 @@ def render() -> None:
         ],
     )
 
+    upload_log = _load_csv_or_empty(
+        "data_input/registry/upload_log.csv",
+        [
+            "event_ts",
+            "batch_id",
+            "batch_label",
+            "zone",
+            "file_name",
+            "file_ext",
+            "file_size_bytes",
+            "stored_relpath",
+            "upload_status",
+        ],
+    )
+
     inbox_count = _count_batch_dirs("data_input/inbox")
     accepted_count = _count_batch_dirs("data_input/accepted")
     rejected_count = _count_batch_dirs("data_input/rejected")
@@ -69,6 +96,62 @@ def render() -> None:
     c3.metric("Rejected batches", rejected_count)
     c4.metric("Registry rows", registry_rows)
 
+    st.markdown("### Batch Registration")
+
+    batch_label = st.text_input(
+        "Batch label",
+        placeholder="e.g. march_pos_roster",
+        help="Used to generate batch folder suffix.",
+    )
+
+    notes = st.text_area(
+        "Upload notes",
+        placeholder="Optional reviewer / operator notes for this intake batch.",
+    )
+
+    uploaded_files = st.file_uploader(
+        "Upload new dataset files",
+        accept_multiple_files=True,
+    )
+
+    if st.button("Register new batch", type="primary", use_container_width=True):
+        try:
+            if not batch_label.strip():
+                st.error("Batch label is required.")
+                return
+
+            if not uploaded_files:
+                st.error("At least one file must be uploaded.")
+                return
+
+            payloads = [
+                UploadedFilePayload(
+                    name=file.name,
+                    bytes_data=file.getvalue(),
+                )
+                for file in uploaded_files
+            ]
+
+            result = create_batch(
+                batch_label=batch_label,
+                uploaded_files=payloads,
+                notes=notes.strip(),
+                source_type="gui_upload",
+            )
+
+            st.success("Batch registered successfully.")
+            st.write(f"**Batch ID:** `{result.batch_id}`")
+            st.write(f"**Batch folder:** `{result.batch_dir}`")
+            st.write(f"**Manifest:** `{result.manifest_path}`")
+            st.write(f"**File count:** {result.file_count}")
+            st.write(f"**Total size bytes:** {result.total_size_bytes:,}")
+            st.info("Refresh the page to reload registry tables and updated inbox counts.")
+
+        except BatchCreationError as exc:
+            st.error(f"Batch registration failed: {exc}")
+        except Exception as exc:
+            st.exception(exc)
+
     st.markdown("### Input Layer Path Check")
     path_checks = {
         "data_input/inbox": resolve_repo_path("data_input/inbox").exists(),
@@ -76,6 +159,7 @@ def render() -> None:
         "data_input/rejected": resolve_repo_path("data_input/rejected").exists(),
         "data_input/registry/input_registry.csv": resolve_repo_path("data_input/registry/input_registry.csv").exists(),
         "data_input/registry/processing_history.csv": resolve_repo_path("data_input/registry/processing_history.csv").exists(),
+        "data_input/registry/upload_log.csv": resolve_repo_path("data_input/registry/upload_log.csv").exists(),
     }
     path_df = pd.DataFrame(
         [{"path": k, "exists": v} for k, v in path_checks.items()]
@@ -87,6 +171,12 @@ def render() -> None:
         st.info("No uploaded batch has been registered yet.")
     else:
         st.dataframe(input_registry, width="stretch")
+
+    st.markdown("### Upload Log")
+    if upload_log.empty:
+        st.info("No upload log has been recorded yet.")
+    else:
+        st.dataframe(upload_log, width="stretch")
 
     st.markdown("### Processing History")
     if processing_history.empty:

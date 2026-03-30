@@ -1,0 +1,194 @@
+dataset_types:
+  appointments_raw:
+    description: "Raw appointment-level booking extract for spa operations intake."
+    file_name_patterns:
+      - "appointments"
+      - "booking"
+      - "calendar"
+    required_columns:
+      - appointment_id
+      - customer_id
+      - staff_id
+      - service_id
+      - appointment_date
+      - start_time
+      - end_time
+      - status
+    optional_columns:
+      - booking_reference
+      - booked_at
+      - outlet_id
+      - channel
+      - room_code
+      - notes
+    key_columns:
+      - appointment_id
+    date_fields:
+      - appointment_date
+      - booked_at
+    time_fields:
+      - start_time
+      - end_time
+    numeric_fields: []
+    allowed_status_values:
+      - completed
+      - cancelled
+      - no_show
+      - confirmed
+      - pending
+
+  sales_lines_raw:
+    description: "Raw transaction or service sales line extract."
+    file_name_patterns:
+      - "sales"
+      - "transaction"
+      - "invoice"
+      - "receipt"
+    required_columns:
+      - transaction_id
+      - appointment_id
+      - service_id
+      - qty
+      - unit_price_eur
+      - gross_amount_eur
+      - net_amount_eur
+      - final_amount_eur
+    optional_columns:
+      - line_id
+      - sold_at
+      - outlet_id
+      - customer_id
+      - staff_id
+      - discount_code
+      - discount_amount_eur
+      - tip_amount_eur
+      - tax_rate_percent
+      - line_status
+    key_columns:
+      - transaction_id
+      - line_id
+    date_fields:
+      - sold_at
+    time_fields: []
+    numeric_fields:
+      - qty
+      - unit_price_eur
+      - gross_amount_eur
+      - discount_amount_eur
+      - net_amount_eur
+      - tip_amount_eur
+      - final_amount_eur
+      - tax_rate_percent
+
+  payments_raw:
+    description: "Raw payment settlement extract."
+    file_name_patterns:
+      - "payment"
+      - "settlement"
+      - "tender"
+    required_columns:
+      - payment_id
+      - transaction_id
+      - paid_at
+      - payment_method
+      - amount_eur
+      - payment_status
+    optional_columns:
+      - currency
+    key_columns:
+      - payment_id
+    date_fields:
+      - paid_at
+    time_fields: []
+    numeric_fields:
+      - amount_eur
+
+  customers_raw:
+    description: "Raw customer master extract."
+    file_name_patterns:
+      - "customer"
+      - "client"
+      - "guest"
+    required_columns:
+      - customer_id
+      - customer_name
+    optional_columns:
+      - gender
+      - country
+      - member_flag
+      - created_at
+      - phone
+      - email
+    key_columns:
+      - customer_id
+    date_fields:
+      - created_at
+    time_fields: []
+    numeric_fields:
+      - member_flag
+
+  staff_raw:
+    description: "Raw staff master extract."
+    file_name_patterns:
+      - "staff"
+      - "employee"
+      - "therapist"
+      - "team"
+    required_columns:
+      - staff_id
+      - staff_name
+      - role
+    optional_columns:
+      - outlet_id
+      - active_flag
+      - hire_date
+    key_columns:
+      - staff_id
+    date_fields:
+      - hire_date
+    time_fields: []
+    numeric_fields:
+      - active_flag
+
+  services_raw:
+    description: "Raw service menu extract."
+    file_name_patterns:
+      - "service"
+      - "menu"
+      - "treatment"
+    required_columns:
+      - service_id
+      - service_name
+      - category
+    optional_columns:
+      - duration_min
+      - list_price_eur
+      - active_flag
+    key_columns:
+      - service_id
+    date_fields: []
+    time_fields: []
+    numeric_fields:
+      - duration_min
+      - list_price_eur
+      - active_flag
+
+  outlets_raw:
+    description: "Raw outlet master extract."
+    file_name_patterns:
+      - "outlet"
+      - "branch"
+      - "location"
+      - "store"
+    required_columns:
+      - outlet_id
+      - outlet_name
+    optional_columns:
+      - city
+      - country
+      - region
+    key_columns:
+      - outlet_id
+    date_fields: []
+    time_fields: []
+    numeric_fields: []
