@@ -151,7 +151,7 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
             processing_row = _pick_latest_row(
                 processing_trigger_registry,
                 batch_id,
-                ["triggered_at", "executed_at", "completed_at", "created_at"]
+                ["trigger_event_ts", "triggered_at", "executed_at", "completed_at", "created_at"]
             )
 
         review_outcome_label = _pull_value(
@@ -164,7 +164,8 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
             processing_row,
             "latest_result_status",
             "result_status",
-            "processing_result_status"
+            "processing_result_status",
+            "trigger_status"
         )
 
         if review_outcome_label and latest_result_status:
@@ -211,13 +212,15 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
                     processing_row,
                     "latest_qa_status",
                     "qa_status",
-                    "processing_qa_status"
+                    "processing_qa_status",
+                    "eligibility_status"
                 ),
                 "latest_output_folder": _pull_value(
                     processing_row,
                     "latest_output_folder",
                     "output_folder",
-                    "output_path"
+                    "output_path",
+                    "operator_note"
                 ),
                 "latest_processing_step": _pull_value(
                     processing_row,
