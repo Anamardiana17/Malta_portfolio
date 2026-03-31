@@ -23,6 +23,7 @@ def render() -> None:
             "manager_action_queue",
             "therapist_coaching_summary",
         }:
+            execution_row = get_latest_execution_event(batch_id) if has_execution_log() else None
             rows.append(
                 {
                     "artifact": name,
