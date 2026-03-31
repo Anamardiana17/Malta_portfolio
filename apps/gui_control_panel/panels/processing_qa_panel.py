@@ -8,8 +8,8 @@ import streamlit as st
 from services.accepted_batch_registry import (
     accepted_batch_exists,
     list_accepted_batch_ids,
-    load_processing_history,
 )
+from services.processing_registry_service import load_processing_history_log
 from services.artifact_resolver import resolve_artifacts
 from services.gui_processing_executor import execute_gui_processing_trigger
 from services.repo_paths import resolve_repo_path
@@ -30,7 +30,7 @@ def render() -> None:
     st.caption("Artifact readiness, governance visibility, and QA wrapper layer.")
 
     accepted_batch_ids = list_accepted_batch_ids()
-    processing_history = load_processing_history()
+    processing_history = load_processing_history_log()
 
     st.markdown("### Accepted Batch Processing Gate")
     if not accepted_batch_ids:

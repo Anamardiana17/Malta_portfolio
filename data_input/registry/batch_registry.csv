@@ -1,0 +1,2 @@
+batch_id,created_at,batch_status,source_file_name,stored_file_path,file_count,created_via
+DEMO_BATCH_20260331_001,2026-04-01T00:03:12,inbox,demo_pos_transactions_sample.csv,data_input/inbox/DEMO_BATCH_20260331_001/demo_pos_transactions_sample.csv,1,demo_bootstrap_terminal

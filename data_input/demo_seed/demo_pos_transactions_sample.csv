@@ -1,0 +1,5 @@
+appointment_id,transaction_date,outlet_name,service_name,therapist_name,client_id,revenue_amount,treatment_minutes,payment_status
+APT001,2026-03-30,Valletta Spa,Deep Tissue Massage,Therapist A,C001,85,60,paid
+APT002,2026-03-30,Valletta Spa,Facial Deluxe,Therapist B,C002,95,75,paid
+APT003,2026-03-30,Sliema Spa,Aromatherapy,Therapist C,C003,70,60,paid
+APT004,2026-03-31,Sliema Spa,Hot Stone Massage,Therapist A,C004,110,90,paid

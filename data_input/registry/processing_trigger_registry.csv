@@ -1,0 +1,2 @@
+trigger_event_ts,batch_id,processing_step,trigger_source,eligibility_status,trigger_status,operator_note
+2026-04-01T00:03:26,DEMO_BATCH_20260331_001,gui_processing_trigger,gui_control_panel,eligible_for_processing,trigger_recorded,Bootstrap governed processing registries from demo batch.
