@@ -5,6 +5,11 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+from services.accepted_batch_registry import (
+    accepted_batch_exists,
+    list_accepted_batch_ids,
+    load_processing_history,
+)
 from services.artifact_resolver import resolve_artifacts
 from services.repo_paths import resolve_repo_path
 from services.qa_runner import get_qa_status_summary
@@ -22,6 +27,41 @@ def _format_mtime(path_str: str | None) -> str:
 def render() -> None:
     st.subheader("Processing / QA Panel")
     st.caption("Artifact readiness, governance visibility, and QA wrapper layer.")
+
+    accepted_batch_ids = list_accepted_batch_ids()
+    processing_history = load_processing_history()
+
+    st.markdown("### Accepted Batch Processing Gate")
+    if not accepted_batch_ids:
+        st.warning(
+            "No accepted batch is currently available. Processing should remain blocked until at least one batch passes manual acceptance review."
+        )
+    else:
+        selected_batch_id = st.selectbox(
+            "Accepted batch eligible for processing",
+            options=accepted_batch_ids,
+            index=len(accepted_batch_ids) - 1,
+            help="Only batches inside data_input/accepted/ are eligible for downstream processing.",
+        )
+
+        is_eligible = accepted_batch_exists(selected_batch_id)
+        gate_status = "eligible_for_processing" if is_eligible else "blocked"
+
+        c_gate_1, c_gate_2, c_gate_3 = st.columns(3)
+        c_gate_1.metric("Accepted batches", len(accepted_batch_ids))
+        c_gate_2.metric("Selected batch", selected_batch_id)
+        c_gate_3.metric("Gate status", gate_status)
+
+        if is_eligible:
+            st.success(f"Processing gate open for accepted batch: {selected_batch_id}")
+        else:
+            st.error(f"Selected batch is not eligible for processing: {selected_batch_id}")
+
+    st.markdown("### Processing History")
+    if processing_history.empty:
+        st.info("No processing history has been recorded yet.")
+    else:
+        st.dataframe(processing_history, width="stretch")
 
     qa_summary = get_qa_status_summary()
     st.info(f"QA status: {qa_summary['status']} | {qa_summary['note']}")
