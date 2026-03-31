@@ -11,7 +11,7 @@ from services.accepted_batch_registry import (
     load_processing_history,
 )
 from services.artifact_resolver import resolve_artifacts
-from services.processing_history_logger import append_processing_history
+from services.gui_processing_executor import execute_gui_processing_trigger
 from services.repo_paths import resolve_repo_path
 from services.qa_runner import get_qa_status_summary
 
@@ -73,21 +73,18 @@ def render() -> None:
             placeholder="Document why this accepted batch is being triggered for processing.",
         )
 
-        if st.button("Log processing trigger", use_container_width=True):
+        if st.button("Run controlled processing trigger", use_container_width=True):
             if not is_eligible:
                 st.error("Processing trigger is blocked because the selected batch is not eligible.")
             else:
-                append_processing_history(
+                result = execute_gui_processing_trigger(
                     batch_id=selected_batch_id,
                     processing_step=processing_step,
-                    script_name="gui_control_panel_manual_trigger",
-                    result_status="trigger_logged",
-                    output_folder="pending_processing_output",
-                    qa_status="pending",
-                    note=processing_note.strip() or "Accepted batch manually triggered from GUI processing panel.",
+                    operator_note=processing_note.strip(),
                 )
                 st.success(
-                    f"Processing trigger logged for accepted batch: {selected_batch_id}"
+                    f"Controlled processing execution recorded for accepted batch: {result.batch_id} | "
+                    f"status={result.execution_status} | qa_status={result.qa_status}"
                 )
 
     st.markdown("### Processing History")
