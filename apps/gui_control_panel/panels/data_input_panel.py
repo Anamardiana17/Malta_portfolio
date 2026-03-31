@@ -14,6 +14,7 @@ from services.manual_acceptance_review import (
     build_batch_decision_summary,
     record_manual_acceptance_review,
 )
+from services.batch_acceptance_movement import move_batch_by_review_outcome
 from services.repo_paths import resolve_repo_path
 from services.schema_registry_loader import get_supported_dataset_types
 
@@ -148,6 +149,9 @@ def render() -> None:
             "unreadable_files",
             "unsupported_files",
             "average_match_score",
+            "batch_location",
+            "movement_status",
+            "movement_note",
             "review_notes",
         ],
     )
@@ -173,6 +177,9 @@ def render() -> None:
             "unreadable_files",
             "unsupported_files",
             "average_match_score",
+            "batch_location",
+            "movement_status",
+            "movement_note",
             "review_notes",
         ],
     )
@@ -279,7 +286,7 @@ def render() -> None:
     review_batch_id = st.text_input(
         "Inbox batch id for manual review",
         placeholder="e.g. 20260330_115452_fresha_rawkit_malta_demo",
-        help="Manual reviewer decision is persisted to registry/log only. No batch movement is triggered here.",
+        help="Manual reviewer decision is persisted to registry/log and drives governed batch movement by outcome.",
     )
 
     reviewer_name = st.text_input(
@@ -314,15 +321,23 @@ def render() -> None:
                         batch_id=review_batch_id.strip(),
                         profile_df=review_profile_df,
                     )
+                    movement = move_batch_by_review_outcome(
+                        batch_id=review_batch_id.strip(),
+                        review_outcome=reviewer_outcome,
+                    )
                     record_manual_acceptance_review(
                         batch_id=review_batch_id.strip(),
                         reviewer_name=reviewer_name.strip(),
                         review_outcome=reviewer_outcome,
                         review_notes=reviewer_notes.strip(),
                         summary=summary,
+                        batch_location=movement.batch_location,
+                        movement_status=movement.movement_status,
+                        movement_note=movement.movement_note,
                     )
                     st.success(
-                        "Manual review outcome saved. Batch remains in inbox until a future movement layer is explicitly implemented."
+                        f"Manual review outcome saved. Batch location: {movement.destination_relpath} | "
+                        f"movement_status={movement.movement_status}"
                     )
 
     st.markdown("### Input Layer Path Check")
@@ -374,11 +389,11 @@ def render() -> None:
     st.write("- Each upload should have its own timestamped batch folder")
     st.write("- Each batch should carry upload date and upload time")
     st.write("- Processing should start only after validation / manual acceptance review")
-    st.write("- Manual acceptance review does not move inbox batches")
+    st.write("- Manual acceptance review moves batches to accepted/, rejected/, or keeps them in inbox when held")
     st.write("- data_processed/ remains output territory, not raw upload territory")
 
     st.markdown("### Recommended Batch Folder Pattern")
     st.code("YYYYMMDD_HHMMSS_<batch_label>", language="text")
 
     st.markdown("### Recommended Flow")
-    st.write("upload -> inbox -> profile -> manual review -> future acceptance/rejection movement -> processing -> qa -> dashboard_export")
+    st.write("upload -> inbox -> profile -> manual review -> accepted/rejected/hold movement -> processing -> qa -> dashboard_export")

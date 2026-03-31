@@ -29,6 +29,9 @@ REVIEW_REGISTRY_HEADER = [
     "unreadable_files",
     "unsupported_files",
     "average_match_score",
+    "batch_location",
+    "movement_status",
+    "movement_note",
     "review_notes",
 ]
 
@@ -51,6 +54,9 @@ REVIEW_LOG_HEADER = [
     "unreadable_files",
     "unsupported_files",
     "average_match_score",
+    "batch_location",
+    "movement_status",
+    "movement_note",
     "review_notes",
 ]
 
@@ -289,6 +295,9 @@ def record_manual_acceptance_review(
     review_outcome: str,
     review_notes: str,
     summary: BatchDecisionSummary,
+    batch_location: str,
+    movement_status: str,
+    movement_note: str,
 ) -> None:
     if review_outcome not in MANUAL_OUTCOME_LABELS:
         raise ValueError(f"Unsupported review_outcome: {review_outcome}")
