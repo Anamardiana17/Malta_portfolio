@@ -35,6 +35,44 @@ def render() -> None:
     st.dataframe(pd.DataFrame(rows), width="stretch")
 
 
+    st.markdown("---")
+    st.subheader("End-to-End Batch Governance Review Pack")
+
+    review_pack_df = _build_batch_governance_review_pack()
+
+    if review_pack_df.empty:
+        st.info("No governed batch review-pack evidence is available yet.")
+    else:
+        available_batch_ids = review_pack_df["batch_id"].astype(str).tolist()
+        selected_batch_id = st.selectbox(
+            "Select governed batch_id",
+            options=available_batch_ids,
+            key="review_pack_batch_id",
+        )
+
+        selected_row = review_pack_df.loc[
+            review_pack_df["batch_id"].astype(str) == str(selected_batch_id)
+        ].iloc[0]
+
+        compact_summary = pd.DataFrame([
+            {"field": "batch_id", "value": selected_row["batch_id"]},
+            {"field": "last_reviewed_at", "value": selected_row["last_reviewed_at"]},
+            {"field": "reviewer_status_recommendation", "value": selected_row["reviewer_status_recommendation"]},
+            {"field": "review_outcome_label", "value": selected_row["review_outcome_label"]},
+            {"field": "batch_location", "value": selected_row["batch_location"]},
+            {"field": "movement_status", "value": selected_row["movement_status"]},
+            {"field": "movement_note", "value": selected_row["movement_note"]},
+            {"field": "latest_result_status", "value": selected_row["latest_result_status"]},
+            {"field": "latest_qa_status", "value": selected_row["latest_qa_status"]},
+            {"field": "latest_output_folder", "value": selected_row["latest_output_folder"]},
+            {"field": "latest_processing_step", "value": selected_row["latest_processing_step"]},
+            {"field": "review_notes", "value": selected_row["review_notes"]},
+        ])
+
+        st.dataframe(compact_summary, use_container_width=True, hide_index=True)
+        st.caption(selected_row["governance_interpretation"])
+
+
 def _safe_read_csv(path_str: str) -> pd.DataFrame:
     path = Path(path_str)
     if not path.exists():
@@ -198,40 +236,3 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
         )
 
     return pd.DataFrame(rows)
-
-    st.markdown("---")
-    st.subheader("End-to-End Batch Governance Review Pack")
-
-    review_pack_df = _build_batch_governance_review_pack()
-
-    if review_pack_df.empty:
-        st.info("No governed batch review-pack evidence is available yet.")
-    else:
-        available_batch_ids = review_pack_df["batch_id"].astype(str).tolist()
-        selected_batch_id = st.selectbox(
-            "Select governed batch_id",
-            options=available_batch_ids,
-            key="review_pack_batch_id",
-        )
-
-        selected_row = review_pack_df.loc[
-            review_pack_df["batch_id"].astype(str) == str(selected_batch_id)
-        ].iloc[0]
-
-        compact_summary = pd.DataFrame([
-            {"field": "batch_id", "value": selected_row["batch_id"]},
-            {"field": "last_reviewed_at", "value": selected_row["last_reviewed_at"]},
-            {"field": "reviewer_status_recommendation", "value": selected_row["reviewer_status_recommendation"]},
-            {"field": "review_outcome_label", "value": selected_row["review_outcome_label"]},
-            {"field": "batch_location", "value": selected_row["batch_location"]},
-            {"field": "movement_status", "value": selected_row["movement_status"]},
-            {"field": "movement_note", "value": selected_row["movement_note"]},
-            {"field": "latest_result_status", "value": selected_row["latest_result_status"]},
-            {"field": "latest_qa_status", "value": selected_row["latest_qa_status"]},
-            {"field": "latest_output_folder", "value": selected_row["latest_output_folder"]},
-            {"field": "latest_processing_step", "value": selected_row["latest_processing_step"]},
-            {"field": "review_notes", "value": selected_row["review_notes"]},
-        ])
-
-        st.dataframe(compact_summary, use_container_width=True, hide_index=True)
-        st.caption(selected_row["governance_interpretation"])
