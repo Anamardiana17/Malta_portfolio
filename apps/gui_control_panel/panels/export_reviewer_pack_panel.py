@@ -216,17 +216,41 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
                     "eligibility_status"
                 ),
                 "latest_output_folder": _pull_value(
-                    processing_row,
-                    "latest_output_folder",
+                    execution_row or processing_row,
                     "output_folder",
+                    "latest_output_folder",
                     "output_path",
                     "operator_note"
                 ),
                 "latest_processing_step": _pull_value(
-                    processing_row,
-                    "latest_processing_step",
+                    execution_row or processing_row,
                     "processing_step",
+                    "latest_processing_step",
                     "step_name"
+                ),
+                "execution_event_ts": _pull_value(
+                    execution_row,
+                    "execution_event_ts"
+                ),
+                "execution_status": _pull_value(
+                    execution_row,
+                    "execution_status",
+                    "trigger_status"
+                ),
+                "qa_status": _pull_value(
+                    execution_row,
+                    "qa_status"
+                ),
+                "execution_note": _pull_value(
+                    execution_row,
+                    "execution_note",
+                    "trigger_note",
+                    "operator_note"
+                ),
+                "processing_evidence_source": (
+                    "processing_execution_log.csv"
+                    if execution_row
+                    else "processing_trigger_registry.csv"
                 ),
                 "review_notes": _pull_value(
                     acceptance_row,
