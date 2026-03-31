@@ -11,6 +11,7 @@ from services.accepted_batch_registry import (
     load_processing_history,
 )
 from services.artifact_resolver import resolve_artifacts
+from services.processing_history_logger import append_processing_history
 from services.repo_paths import resolve_repo_path
 from services.qa_runner import get_qa_status_summary
 
@@ -56,6 +57,38 @@ def render() -> None:
             st.success(f"Processing gate open for accepted batch: {selected_batch_id}")
         else:
             st.error(f"Selected batch is not eligible for processing: {selected_batch_id}")
+
+        st.markdown("### Controlled Processing Trigger")
+        processing_step = st.selectbox(
+            "Processing step",
+            options=[
+                "gui_processing_gate_check",
+                "gui_processing_trigger",
+                "gui_qa_review_checkpoint",
+            ],
+            index=1,
+        )
+        processing_note = st.text_area(
+            "Processing note",
+            placeholder="Document why this accepted batch is being triggered for processing.",
+        )
+
+        if st.button("Log processing trigger", use_container_width=True):
+            if not is_eligible:
+                st.error("Processing trigger is blocked because the selected batch is not eligible.")
+            else:
+                append_processing_history(
+                    batch_id=selected_batch_id,
+                    processing_step=processing_step,
+                    script_name="gui_control_panel_manual_trigger",
+                    result_status="trigger_logged",
+                    output_folder="pending_processing_output",
+                    qa_status="pending",
+                    note=processing_note.strip() or "Accepted batch manually triggered from GUI processing panel.",
+                )
+                st.success(
+                    f"Processing trigger logged for accepted batch: {selected_batch_id}"
+                )
 
     st.markdown("### Processing History")
     if processing_history.empty:
