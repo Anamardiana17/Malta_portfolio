@@ -36,6 +36,90 @@ def _count_batch_dirs(relative_path: str) -> int:
     return sum(1 for p in path.iterdir() if p.is_dir())
 
 
+def _safe_text(value: object, default: str = "-") -> str:
+    if value is None:
+        return default
+    text = str(value).strip()
+    return text if text else default
+
+
+def _build_acceptance_evidence_summary(
+    acceptance_review_registry: pd.DataFrame,
+) -> dict[str, object]:
+    if acceptance_review_registry.empty:
+        return {
+            "has_data": False,
+            "latest_batch_id": "-",
+            "latest_reviewed_at": "-",
+            "latest_recommendation": "-",
+            "latest_manual_outcome": "-",
+            "latest_batch_location": "-",
+            "latest_movement_status": "-",
+            "latest_recommended_dataset_types": "-",
+            "latest_decision_summary": "No acceptance evidence has been recorded yet.",
+            "latest_review_notes": "-",
+            "reviewed_batches": 0,
+            "accepted_reviews": 0,
+            "held_reviews": 0,
+            "rejected_reviews": 0,
+            "governance_note": (
+                "Acceptance evidence is not yet available. A reviewer cannot yet inspect a governed intake-to-review-to-movement trail."
+            ),
+        }
+
+    registry = acceptance_review_registry.fillna("").copy()
+    latest_row = registry.iloc[-1]
+
+    latest_batch_id = _safe_text(latest_row.get("batch_id"))
+    latest_reviewed_at = _safe_text(latest_row.get("last_reviewed_at"))
+    latest_recommendation = _safe_text(latest_row.get("reviewer_status_recommendation"))
+    latest_manual_outcome = _safe_text(latest_row.get("review_outcome_label"))
+    latest_batch_location = _safe_text(latest_row.get("batch_location"))
+    latest_movement_status = _safe_text(latest_row.get("movement_status"))
+    latest_recommended_dataset_types = _safe_text(
+        latest_row.get("recommended_dataset_types"),
+        default="none confidently inferred",
+    )
+    latest_decision_summary = _safe_text(latest_row.get("decision_summary"))
+    latest_review_notes = _safe_text(latest_row.get("review_notes"))
+
+    reviewed_batches = len(registry)
+    accepted_reviews = int(
+        (registry["review_outcome"].astype(str) == "accepted_manual_review").sum()
+    )
+    held_reviews = int(
+        (registry["review_outcome"].astype(str) == "hold_manual_review").sum()
+    )
+    rejected_reviews = int(
+        (registry["review_outcome"].astype(str) == "rejected_manual_review").sum()
+    )
+
+    governance_note = (
+        f"The latest reviewed batch {latest_batch_id} received recommendation "
+        f"'{latest_recommendation}', manual outcome '{latest_manual_outcome}', "
+        f"and movement status '{latest_movement_status}' with resulting location "
+        f"'{latest_batch_location}'. This supports reviewer visibility into governed intake control."
+    )
+
+    return {
+        "has_data": True,
+        "latest_batch_id": latest_batch_id,
+        "latest_reviewed_at": latest_reviewed_at,
+        "latest_recommendation": latest_recommendation,
+        "latest_manual_outcome": latest_manual_outcome,
+        "latest_batch_location": latest_batch_location,
+        "latest_movement_status": latest_movement_status,
+        "latest_recommended_dataset_types": latest_recommended_dataset_types,
+        "latest_decision_summary": latest_decision_summary,
+        "latest_review_notes": latest_review_notes,
+        "reviewed_batches": reviewed_batches,
+        "accepted_reviews": accepted_reviews,
+        "held_reviews": held_reviews,
+        "rejected_reviews": rejected_reviews,
+        "governance_note": governance_note,
+    }
+
+
 def _render_decision_summary(batch_id: str, profile_df: pd.DataFrame) -> None:
     summary = build_batch_decision_summary(batch_id=batch_id, profile_df=profile_df)
 
@@ -359,6 +443,34 @@ def render() -> None:
         st.info("No uploaded batch has been registered yet.")
     else:
         st.dataframe(input_registry, width="stretch")
+
+    st.markdown("### Reviewer-Facing Acceptance Evidence Summary")
+    acceptance_evidence = _build_acceptance_evidence_summary(acceptance_review_registry)
+
+    c_acc_1, c_acc_2, c_acc_3, c_acc_4 = st.columns(4)
+    c_acc_1.metric("Latest reviewed batch", acceptance_evidence["latest_batch_id"])
+    c_acc_2.metric("Manual outcome", acceptance_evidence["latest_manual_outcome"])
+    c_acc_3.metric("Batch location", acceptance_evidence["latest_batch_location"])
+    c_acc_4.metric("Reviewed batches", acceptance_evidence["reviewed_batches"])
+
+    c_acc_5, c_acc_6, c_acc_7 = st.columns(3)
+    c_acc_5.metric("Accepted reviews", acceptance_evidence["accepted_reviews"])
+    c_acc_6.metric("Held reviews", acceptance_evidence["held_reviews"])
+    c_acc_7.metric("Rejected reviews", acceptance_evidence["rejected_reviews"])
+
+    st.write(f"**Latest reviewed at:** {acceptance_evidence['latest_reviewed_at']}")
+    st.write(f"**Latest recommendation:** {acceptance_evidence['latest_recommendation']}")
+    st.write(f"**Latest movement status:** {acceptance_evidence['latest_movement_status']}")
+    st.write(
+        f"**Recommended dataset types:** {acceptance_evidence['latest_recommended_dataset_types']}"
+    )
+    st.write(f"**Decision summary:** {acceptance_evidence['latest_decision_summary']}")
+    st.write(f"**Reviewer notes:** {acceptance_evidence['latest_review_notes']}")
+
+    st.info(acceptance_evidence["governance_note"])
+    st.caption(
+        "This summary is reviewer-facing evidence only. It supports governed intake traceability and does not change the core Malta processing logic."
+    )
 
     st.markdown("### Acceptance Review Registry")
     if acceptance_review_registry.empty:

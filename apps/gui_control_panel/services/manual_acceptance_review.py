@@ -324,6 +324,9 @@ def record_manual_acceptance_review(
         "unreadable_files": summary.unreadable_files,
         "unsupported_files": summary.unsupported_files,
         "average_match_score": summary.average_match_score,
+        "batch_location": batch_location,
+        "movement_status": movement_status,
+        "movement_note": movement_note,
         "review_notes": review_notes.strip(),
     }
 
@@ -346,6 +349,9 @@ def record_manual_acceptance_review(
         "unreadable_files": summary.unreadable_files,
         "unsupported_files": summary.unsupported_files,
         "average_match_score": summary.average_match_score,
+        "batch_location": batch_location,
+        "movement_status": movement_status,
+        "movement_note": movement_note,
         "review_notes": review_notes.strip(),
     }
 
