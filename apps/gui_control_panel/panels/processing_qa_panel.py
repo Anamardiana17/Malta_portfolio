@@ -25,6 +25,74 @@ def _format_mtime(path_str: str | None) -> str:
     return pd.Timestamp(path.stat().st_mtime, unit="s").strftime("%Y-%m-%d %H:%M:%S")
 
 
+def _safe_str(value: object, default: str = "-") -> str:
+    if value is None:
+        return default
+    text = str(value).strip()
+    return text if text else default
+
+
+def _build_execution_evidence_summary(processing_history: pd.DataFrame) -> dict[str, object]:
+    if processing_history.empty:
+        return {
+            "has_data": False,
+            "latest_batch_id": "-",
+            "latest_processing_step": "-",
+            "latest_result_status": "-",
+            "latest_qa_status": "-",
+            "latest_output_folder": "-",
+            "latest_note": "No controlled processing evidence has been recorded yet.",
+            "latest_event_ts": "-",
+            "total_events": 0,
+            "completed_events": 0,
+            "pending_events": 0,
+            "latest_batch_event_count": 0,
+            "governance_note": (
+                "Processing evidence is not yet available. A reviewer cannot yet inspect a governed trigger-to-execution trail."
+            ),
+        }
+
+    history = processing_history.fillna("").copy()
+    latest_row = history.iloc[-1]
+
+    latest_batch_id = _safe_str(latest_row.get("batch_id"))
+    latest_processing_step = _safe_str(latest_row.get("processing_step"))
+    latest_result_status = _safe_str(latest_row.get("result_status"))
+    latest_qa_status = _safe_str(latest_row.get("qa_status"))
+    latest_output_folder = _safe_str(latest_row.get("output_folder"))
+    latest_note = _safe_str(latest_row.get("note"))
+    latest_event_ts = _safe_str(latest_row.get("history_event_ts"))
+
+    total_events = len(history)
+    completed_events = int((history["result_status"].astype(str) == "execution_completed").sum())
+    pending_events = int((history["qa_status"].astype(str) == "pending").sum())
+    latest_batch_event_count = int(
+        (history["batch_id"].astype(str).str.strip() == latest_batch_id).sum()
+    )
+
+    governance_note = (
+        f"The latest governed run for batch {latest_batch_id} reached result status "
+        f"'{latest_result_status}' with QA status '{latest_qa_status}'. "
+        "This supports reviewer visibility into controlled execution history without changing the core Malta pipeline."
+    )
+
+    return {
+        "has_data": True,
+        "latest_batch_id": latest_batch_id,
+        "latest_processing_step": latest_processing_step,
+        "latest_result_status": latest_result_status,
+        "latest_qa_status": latest_qa_status,
+        "latest_output_folder": latest_output_folder,
+        "latest_note": latest_note,
+        "latest_event_ts": latest_event_ts,
+        "total_events": total_events,
+        "completed_events": completed_events,
+        "pending_events": pending_events,
+        "latest_batch_event_count": latest_batch_event_count,
+        "governance_note": governance_note,
+    }
+
+
 def render() -> None:
     st.subheader("Processing / QA Panel")
     st.caption("Artifact readiness, governance visibility, and QA wrapper layer.")
@@ -33,6 +101,10 @@ def render() -> None:
     processing_history = load_processing_history_log()
 
     st.markdown("### Accepted Batch Processing Gate")
+    selected_batch_id = None
+    is_eligible = False
+    gate_status = "blocked"
+
     if not accepted_batch_ids:
         st.warning(
             "No accepted batch is currently available. Processing should remain blocked until at least one batch passes manual acceptance review."
@@ -86,6 +158,39 @@ def render() -> None:
                     f"Controlled processing execution recorded for accepted batch: {result.batch_id} | "
                     f"status={result.execution_status} | qa_status={result.qa_status}"
                 )
+                processing_history = load_processing_history_log()
+
+    st.markdown("### Recruiter-Facing Execution Evidence Summary")
+    evidence = _build_execution_evidence_summary(processing_history)
+
+    c_ev_1, c_ev_2, c_ev_3, c_ev_4 = st.columns(4)
+    c_ev_1.metric("Latest batch", evidence["latest_batch_id"])
+    c_ev_2.metric("Latest result", evidence["latest_result_status"])
+    c_ev_3.metric("Latest QA status", evidence["latest_qa_status"])
+    c_ev_4.metric("Recorded events", evidence["total_events"])
+
+    c_ev_5, c_ev_6, c_ev_7 = st.columns(3)
+    c_ev_5.metric("Completed events", evidence["completed_events"])
+    c_ev_6.metric("Pending QA events", evidence["pending_events"])
+    c_ev_7.metric("Latest batch events", evidence["latest_batch_event_count"])
+
+    if selected_batch_id:
+        batch_alignment = (
+            "selected batch matches latest governed run"
+            if selected_batch_id == evidence["latest_batch_id"]
+            else "selected batch differs from latest governed run"
+        )
+        st.write(f"**Batch alignment:** {batch_alignment}")
+
+    st.write(f"**Latest processing step:** {evidence['latest_processing_step']}")
+    st.write(f"**Latest event timestamp:** {evidence['latest_event_ts']}")
+    st.write(f"**Latest output folder:** {evidence['latest_output_folder']}")
+    st.write(f"**Latest execution note:** {evidence['latest_note']}")
+
+    st.info(evidence["governance_note"])
+    st.caption(
+        "This summary is reviewer-facing evidence only. It does not replace the core Malta processing pipeline and does not introduce synthetic intra-day logic or unsupported staffing inference."
+    )
 
     st.markdown("### Execution Summary")
     if processing_history.empty:
