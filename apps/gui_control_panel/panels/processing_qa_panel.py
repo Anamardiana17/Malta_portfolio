@@ -87,6 +87,24 @@ def render() -> None:
                     f"status={result.execution_status} | qa_status={result.qa_status}"
                 )
 
+    st.markdown("### Execution Summary")
+    if processing_history.empty:
+        st.info("No processing execution summary is available yet.")
+    else:
+        latest_row = processing_history.iloc[-1].fillna("")
+        total_processing_events = len(processing_history)
+        last_batch_id = str(latest_row.get("batch_id", "-")).strip() or "-"
+        last_result_status = str(latest_row.get("result_status", "-")).strip() or "-"
+        last_qa_status = str(latest_row.get("qa_status", "-")).strip() or "-"
+
+        c_exec_1, c_exec_2, c_exec_3, c_exec_4 = st.columns(4)
+        c_exec_1.metric("Accepted batches", len(accepted_batch_ids))
+        c_exec_2.metric("Processing events", total_processing_events)
+        c_exec_3.metric("Last result status", last_result_status)
+        c_exec_4.metric("Last QA status", last_qa_status)
+
+        st.write(f"**Last processed batch:** {last_batch_id}")
+
     st.markdown("### Processing History")
     if processing_history.empty:
         st.info("No processing history has been recorded yet.")
