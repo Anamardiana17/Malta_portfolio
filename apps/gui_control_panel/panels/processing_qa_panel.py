@@ -57,15 +57,15 @@ def _build_execution_evidence_summary(processing_history: pd.DataFrame) -> dict[
 
     latest_batch_id = _safe_str(latest_row.get("batch_id"))
     latest_processing_step = _safe_str(latest_row.get("processing_step"))
-    latest_result_status = _safe_str(latest_row.get("result_status"))
+    latest_result_status = _safe_str(latest_row.get("execution_status"))
     latest_qa_status = _safe_str(latest_row.get("qa_status"))
     latest_output_folder = _safe_str(latest_row.get("output_folder"))
     latest_note = _safe_str(latest_row.get("note"))
-    latest_event_ts = _safe_str(latest_row.get("history_event_ts"))
+    latest_event_ts = _safe_str(latest_row.get("execution_event_ts"))
 
     total_events = len(history)
-    completed_events = int((history["result_status"].astype(str) == "execution_completed").sum())
-    pending_events = int((history["qa_status"].astype(str) == "pending").sum())
+    completed_events = int((history["execution_status"].astype(str) == "execution_completed").sum())
+    pending_events = int((history["qa_status"].astype(str).isin(["pending", "pending_review"])).sum())
     latest_batch_event_count = int(
         (history["batch_id"].astype(str).str.strip() == latest_batch_id).sum()
     )
@@ -199,7 +199,7 @@ def render() -> None:
         latest_row = processing_history.iloc[-1].fillna("")
         total_processing_events = len(processing_history)
         last_batch_id = str(latest_row.get("batch_id", "-")).strip() or "-"
-        last_result_status = str(latest_row.get("result_status", "-")).strip() or "-"
+        last_result_status = str(latest_row.get("execution_status", "-")).strip() or "-"
         last_qa_status = str(latest_row.get("qa_status", "-")).strip() or "-"
 
         c_exec_1, c_exec_2, c_exec_3, c_exec_4 = st.columns(4)
