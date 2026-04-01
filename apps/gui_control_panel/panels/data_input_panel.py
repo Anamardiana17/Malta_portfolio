@@ -150,6 +150,10 @@ def _render_acceptance_evidence_summary(summary: dict[str, object]) -> None:
     else:
         st.info(summary.get("governance_note", "No acceptance evidence available yet."))
 
+    st.caption(
+        "This is the primary reviewer-facing intake evidence block for the Data Input Panel."
+    )
+
 def _render_decision_summary(batch_id: str, profile_df: pd.DataFrame) -> None:
     summary = build_batch_decision_summary(batch_id=batch_id, profile_df=profile_df)
 
@@ -307,7 +311,25 @@ def render() -> None:
     inbox_count = _count_batch_dirs("data_input/inbox")
     accepted_count = _count_batch_dirs("data_input/accepted")
     rejected_count = _count_batch_dirs("data_input/rejected")
-    registry_rows = len(input_registry)
+
+    if not acceptance_review_registry.empty and "review_outcome" in acceptance_review_registry.columns:
+        accepted_reviews_count = int(
+            (acceptance_review_registry["review_outcome"].astype(str) == "accepted_manual_review").sum()
+        )
+        rejected_reviews_count = int(
+            (acceptance_review_registry["review_outcome"].astype(str) == "rejected_manual_review").sum()
+        )
+        held_reviews_count = int(
+            (acceptance_review_registry["review_outcome"].astype(str) == "hold_manual_review").sum()
+        )
+    else:
+        accepted_reviews_count = 0
+        rejected_reviews_count = 0
+        held_reviews_count = 0
+
+    accepted_count = max(accepted_count, accepted_reviews_count)
+    rejected_count = max(rejected_count, rejected_reviews_count)
+    registry_rows = max(len(input_registry), len(acceptance_review_registry))
     reviewed_rows = len(acceptance_review_registry)
 
     c1, c2, c3, c4, c5 = st.columns(5)
@@ -480,34 +502,6 @@ def render() -> None:
     else:
         st.dataframe(input_registry, width="stretch")
 
-    st.markdown("### Reviewer-Facing Acceptance Evidence Summary")
-    acceptance_evidence = _build_acceptance_evidence_summary(acceptance_review_registry)
-
-    c_acc_1, c_acc_2, c_acc_3, c_acc_4 = st.columns(4)
-    c_acc_1.metric("Latest reviewed batch", acceptance_evidence["latest_batch_id"])
-    c_acc_2.metric("Manual outcome", acceptance_evidence["latest_manual_outcome"])
-    c_acc_3.metric("Batch location", acceptance_evidence["latest_batch_location"])
-    c_acc_4.metric("Reviewed batches", acceptance_evidence["reviewed_batches"])
-
-    c_acc_5, c_acc_6, c_acc_7 = st.columns(3)
-    c_acc_5.metric("Accepted reviews", acceptance_evidence["accepted_reviews"])
-    c_acc_6.metric("Held reviews", acceptance_evidence["held_reviews"])
-    c_acc_7.metric("Rejected reviews", acceptance_evidence["rejected_reviews"])
-
-    st.write(f"**Latest reviewed at:** {acceptance_evidence['latest_reviewed_at']}")
-    st.write(f"**Latest recommendation:** {acceptance_evidence['latest_recommendation']}")
-    st.write(f"**Latest movement status:** {acceptance_evidence['latest_movement_status']}")
-    st.write(
-        f"**Recommended dataset types:** {acceptance_evidence['latest_recommended_dataset_types']}"
-    )
-    st.write(f"**Decision summary:** {acceptance_evidence['latest_decision_summary']}")
-    st.write(f"**Reviewer notes:** {acceptance_evidence['latest_review_notes']}")
-
-    st.info(acceptance_evidence["governance_note"])
-    st.caption(
-        "This summary is reviewer-facing evidence only. It supports governed intake traceability and does not change the core Malta processing logic."
-    )
-
     st.markdown("### Acceptance Review Registry")
     if acceptance_review_registry.empty:
         st.info("No manual acceptance review has been recorded yet.")
@@ -528,7 +522,7 @@ def render() -> None:
 
     st.markdown("### Processing History")
     if processing_history.empty:
-        st.info("No processing history has been recorded yet.")
+        st.info("No legacy processing history is shown here. Reviewer-facing execution evidence is surfaced in the Processing / QA Panel and Reviewer Pack.")
     else:
         st.dataframe(processing_history, width="stretch")
 
