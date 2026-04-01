@@ -2,6 +2,24 @@ from __future__ import annotations
 
 import streamlit as st
 
+def _gui_clean_flag_dict(value):
+    try:
+        if hasattr(value, "items"):
+            cleaned = {}
+            for k, v in value.items():
+                sv = str(v)
+                if "np.int64(1)" in sv or sv == "1":
+                    cleaned[k] = "Yes"
+                elif "np.int64(0)" in sv or sv == "0":
+                    cleaned[k] = "No"
+                else:
+                    cleaned[k] = sv
+            return cleaned
+    except Exception:
+        pass
+    return value
+
+
 from panels import (
     data_input_panel,
     processing_qa_panel,
