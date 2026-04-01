@@ -73,7 +73,7 @@ def append_processing_trigger_registry(
     )
 
 
-def append_processing_execution_registry(
+def append_processing_execution_event(
     batch_id: str,
     processing_step: str,
     script_name: str,
@@ -83,7 +83,7 @@ def append_processing_execution_registry(
     note: str,
 ) -> None:
     _append_row(
-        "data_input/registry/processing_execution_registry.csv",
+        "data_input/registry/processing_execution_log.csv",
         PROCESSING_EXECUTION_HEADER,
         {
             "execution_event_ts": datetime.now().isoformat(timespec="seconds"),
@@ -95,6 +95,26 @@ def append_processing_execution_registry(
             "output_folder": output_folder.strip(),
             "note": note.strip(),
         },
+    )
+
+
+def append_processing_execution_registry(
+    batch_id: str,
+    processing_step: str,
+    script_name: str,
+    execution_status: str,
+    qa_status: str,
+    output_folder: str,
+    note: str,
+) -> None:
+    append_processing_execution_event(
+        batch_id=batch_id,
+        processing_step=processing_step,
+        script_name=script_name,
+        execution_status=execution_status,
+        qa_status=qa_status,
+        output_folder=output_folder,
+        note=note,
     )
 
 

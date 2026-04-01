@@ -6,6 +6,10 @@ import pandas as pd
 
 from services.artifact_resolver import resolve_artifacts
 from services.export_packager import get_export_pack_summary
+from services.processing_execution_logger import (
+    get_latest_execution_event,
+    has_execution_log,
+)
 
 
 def render() -> None:
@@ -23,7 +27,6 @@ def render() -> None:
             "manager_action_queue",
             "therapist_coaching_summary",
         }:
-            execution_row = get_latest_execution_event(batch_id) if has_execution_log() else None
             rows.append(
                 {
                     "artifact": name,
@@ -108,12 +111,27 @@ def _pick_latest_row(df: pd.DataFrame, batch_id: str, time_col_candidates: list[
 def _pull_value(row, *cols) -> str:
     if row is None:
         return ""
+
     for col in cols:
-        if col in row.index:
-            value = row[col]
-            if pd.isna(value):
-                continue
-            return str(value)
+        value = None
+        found = False
+
+        if isinstance(row, dict):
+            if col in row:
+                value = row.get(col)
+                found = True
+        else:
+            row_index = getattr(row, "index", [])
+            if col in row_index:
+                value = row[col]
+                found = True
+
+        if not found:
+            continue
+        if pd.isna(value):
+            continue
+        return str(value)
+
     return ""
 
 
@@ -146,7 +164,7 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
         processing_row = _pick_latest_row(
             processing_execution_log,
             batch_id,
-            ["executed_at", "completed_at", "triggered_at", "created_at"]
+            ["execution_event_ts", "executed_at", "completed_at", "triggered_at", "created_at"]
         )
         if processing_row is None:
             processing_row = _pick_latest_row(
@@ -161,6 +179,7 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
             "manual_review_outcome",
             "review_outcome"
         )
+        execution_row = get_latest_execution_event(batch_id) if has_execution_log() else None
         latest_result_status = _pull_value(
             processing_row,
             "latest_result_status",
@@ -245,6 +264,7 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
                 "execution_note": _pull_value(
                     execution_row,
                     "execution_note",
+                    "note",
                     "trigger_note",
                     "operator_note"
                 ),

@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, Optional
+from typing import Any, Dict, Optional
 
 import pandas as pd
 
@@ -11,10 +10,11 @@ EXECUTION_LOG_COLUMNS = [
     "execution_event_ts",
     "batch_id",
     "processing_step",
+    "script_name",
     "execution_status",
     "qa_status",
     "output_folder",
-    "execution_note",
+    "note",
 ]
 
 
@@ -52,22 +52,24 @@ def append_processing_execution_event(
     *,
     batch_id: str,
     processing_step: str,
+    script_name: str = "",
     execution_status: str,
     qa_status: str = "",
     output_folder: str = "",
-    execution_note: str = "",
+    note: str = "",
 ) -> Dict[str, Any]:
     path = ensure_processing_execution_log()
     df = load_processing_execution_log()
 
     event = {
-        "execution_event_ts": datetime.now(timezone.utc).isoformat(),
+        "execution_event_ts": pd.Timestamp.now().isoformat(),
         "batch_id": str(batch_id or "").strip(),
         "processing_step": str(processing_step or "").strip(),
+        "script_name": str(script_name or "").strip(),
         "execution_status": str(execution_status or "").strip(),
         "qa_status": str(qa_status or "").strip(),
         "output_folder": str(output_folder or "").strip(),
-        "execution_note": str(execution_note or "").strip(),
+        "note": str(note or "").strip(),
     }
 
     df = pd.concat([df, pd.DataFrame([event])], ignore_index=True)
@@ -87,8 +89,23 @@ def get_latest_execution_event(batch_id: str) -> Optional[Dict[str, Any]]:
     if subset.empty:
         return None
 
-    subset = subset.sort_values("execution_event_ts", ascending=False, na_position="last")
-    return subset.iloc[0].to_dict()
+    subset = subset.reset_index(drop=False).rename(columns={"index": "_row_order"})
+    subset["execution_event_ts"] = pd.to_datetime(subset["execution_event_ts"], errors="coerce")
+
+    status_rank = {
+        "execution_completed": 3,
+        "execution_started": 2,
+        "trigger_recorded": 1,
+    }
+    subset["_status_rank"] = subset["execution_status"].astype(str).map(status_rank).fillna(0)
+
+    subset = subset.sort_values(
+        by=["execution_event_ts", "_status_rank", "_row_order"],
+        ascending=[False, False, False],
+        na_position="last",
+    )
+
+    return subset.iloc[0][EXECUTION_LOG_COLUMNS].to_dict()
 
 
 def get_latest_execution_events() -> pd.DataFrame:
@@ -96,9 +113,24 @@ def get_latest_execution_events() -> pd.DataFrame:
     if df.empty:
         return df.copy()
 
-    ordered = df.sort_values("execution_event_ts", ascending=False, na_position="last").copy()
+    ordered = df.reset_index(drop=False).rename(columns={"index": "_row_order"})
+    ordered["execution_event_ts"] = pd.to_datetime(ordered["execution_event_ts"], errors="coerce")
+
+    status_rank = {
+        "execution_completed": 3,
+        "execution_started": 2,
+        "trigger_recorded": 1,
+    }
+    ordered["_status_rank"] = ordered["execution_status"].astype(str).map(status_rank).fillna(0)
+
+    ordered = ordered.sort_values(
+        by=["execution_event_ts", "_status_rank", "_row_order"],
+        ascending=[False, False, False],
+        na_position="last",
+    )
+
     deduped = ordered.drop_duplicates(subset=["batch_id", "processing_step"], keep="first")
-    return deduped.reset_index(drop=True)
+    return deduped[EXECUTION_LOG_COLUMNS].reset_index(drop=True)
 
 
 def has_execution_log() -> bool:
