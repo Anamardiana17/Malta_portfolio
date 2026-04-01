@@ -9,7 +9,7 @@ from services.accepted_batch_registry import (
     accepted_batch_exists,
     list_accepted_batch_ids,
 )
-from services.processing_registry_service import load_processing_history_log
+from services.processing_execution_logger import load_processing_execution_log
 from services.artifact_resolver import resolve_artifacts
 from services.gui_processing_executor import execute_gui_processing_trigger
 from services.repo_paths import resolve_repo_path
@@ -48,7 +48,7 @@ def _build_execution_evidence_summary(processing_history: pd.DataFrame) -> dict[
             "pending_events": 0,
             "latest_batch_event_count": 0,
             "governance_note": (
-                "Processing evidence is not yet available. A reviewer cannot yet inspect a governed trigger-to-execution trail."
+                "Processing execution evidence is not yet available. A reviewer cannot yet inspect a governed trigger-to-execution trail."
             ),
         }
 
@@ -98,7 +98,7 @@ def render() -> None:
     st.caption("Artifact readiness, governance visibility, and QA wrapper layer.")
 
     accepted_batch_ids = list_accepted_batch_ids()
-    processing_history = load_processing_history_log()
+    processing_history = load_processing_execution_log()
 
     st.markdown("### Accepted Batch Processing Gate")
     selected_batch_id = None
@@ -158,7 +158,7 @@ def render() -> None:
                     f"Controlled processing execution recorded for accepted batch: {result.batch_id} | "
                     f"status={result.execution_status} | qa_status={result.qa_status}"
                 )
-                processing_history = load_processing_history_log()
+                processing_history = load_processing_execution_log()
 
     st.markdown("### Recruiter-Facing Execution Evidence Summary")
     evidence = _build_execution_evidence_summary(processing_history)
@@ -189,7 +189,7 @@ def render() -> None:
 
     st.info(evidence["governance_note"])
     st.caption(
-        "This summary is reviewer-facing evidence only. It does not replace the core Malta processing pipeline and does not introduce synthetic intra-day logic or unsupported staffing inference."
+        "This summary is reviewer-facing execution evidence only. It uses the governed processing_execution_log.csv layer and does not replace the core Malta processing pipeline or introduce synthetic intra-day logic."
     )
 
     st.markdown("### Execution Summary")
