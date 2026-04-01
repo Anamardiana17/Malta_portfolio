@@ -120,6 +120,36 @@ def _build_acceptance_evidence_summary(
     }
 
 
+
+def _render_acceptance_evidence_summary(summary: dict[str, object]) -> None:
+    st.markdown("### Acceptance Evidence Summary")
+
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Latest batch", summary.get("latest_batch_id", "-"))
+    c2.metric("Recommendation", summary.get("latest_recommendation", "-"))
+    c3.metric("Manual outcome", summary.get("latest_manual_outcome", "-"))
+    c4.metric("Movement status", summary.get("latest_movement_status", "-"))
+
+    c5, c6, c7, c8 = st.columns(4)
+    c5.metric("Reviewed batches", int(summary.get("reviewed_batches", 0)))
+    c6.metric("Accepted", int(summary.get("accepted_reviews", 0)))
+    c7.metric("Held", int(summary.get("held_reviews", 0)))
+    c8.metric("Rejected", int(summary.get("rejected_reviews", 0)))
+
+    st.write("**Latest reviewed at:**", summary.get("latest_reviewed_at", "-"))
+    st.write("**Latest batch location:**", summary.get("latest_batch_location", "-"))
+    st.write(
+        "**Recommended dataset types:**",
+        summary.get("latest_recommended_dataset_types", "-"),
+    )
+    st.write("**Decision summary:**", summary.get("latest_decision_summary", "-"))
+    st.write("**Review notes:**", summary.get("latest_review_notes", "-"))
+
+    if summary.get("has_data"):
+        st.success(summary.get("governance_note", "Acceptance evidence available."))
+    else:
+        st.info(summary.get("governance_note", "No acceptance evidence available yet."))
+
 def _render_decision_summary(batch_id: str, profile_df: pd.DataFrame) -> None:
     summary = build_batch_decision_summary(batch_id=batch_id, profile_df=profile_df)
 
@@ -267,6 +297,12 @@ def render() -> None:
             "review_notes",
         ],
     )
+
+    acceptance_evidence_summary = _build_acceptance_evidence_summary(
+        acceptance_review_registry=acceptance_review_registry
+    )
+
+    _render_acceptance_evidence_summary(acceptance_evidence_summary)
 
     inbox_count = _count_batch_dirs("data_input/inbox")
     accepted_count = _count_batch_dirs("data_input/accepted")
