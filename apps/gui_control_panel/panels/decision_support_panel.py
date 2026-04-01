@@ -3,6 +3,21 @@ from __future__ import annotations
 import pandas as pd
 import streamlit as st
 
+
+def _format_gui_flag_value(value):
+    text = str(value)
+    if text in {"1", "True", "true", "np.int64(1)"}:
+        return "Yes"
+    if text in {"0", "False", "false", "np.int64(0)"}:
+        return "No"
+    return text
+
+def _format_gui_flag_dict(flag_dict):
+    if not hasattr(flag_dict, "items"):
+        return flag_dict
+    return {k: _format_gui_flag_value(v) for k, v in flag_dict.items()}
+
+
 def _gui_clean_flag_dict(value):
     try:
         if hasattr(value, "items"):
@@ -202,7 +217,7 @@ def render() -> None:
                 "bottom3_therapist_flag": row.get("bottom3_therapist_flag", "-"),
             }
             st.markdown("**Therapist reward / coaching flags**")
-            st.json(reward_flags)
+            st.json(_format_gui_flag_dict(reward_flags))
     else:
         st.info("No therapist rows available for the current filters.")
 
