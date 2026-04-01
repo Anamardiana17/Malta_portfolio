@@ -181,8 +181,9 @@ def _build_batch_governance_review_pack() -> pd.DataFrame:
         )
         execution_row = get_latest_execution_event(batch_id) if has_execution_log() else None
         latest_result_status = _pull_value(
-            processing_row,
+            execution_row or processing_row,
             "latest_result_status",
+            "execution_status",
             "result_status",
             "processing_result_status",
             "trigger_status"
