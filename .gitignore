@@ -55,3 +55,10 @@ output/
 
 # notebook / temp
 .ipynb_checkpoints/
+
+# archived history
+backups/
+snapshots/
+
+# GUI runtime accepted intake batches
+data_input/accepted/*

@@ -145,7 +145,8 @@ def quality_to_score(x):
 if quality_col:
     ext["external_signal_confidence_score_0_100"] = ext[quality_col].map(quality_to_score)
 else:
-    ext["external_signal_confidence_score_0_100"] = np.nan
+    # Neutral placeholder when no external signal quality source is available.
+    ext["external_signal_confidence_score_0_100"] = 50.0
 
 ext["external_context_regime"] = np.select(
     [

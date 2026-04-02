@@ -1,0 +1,2 @@
+batch_id,profiled_at,file_name,file_path,readable_flag,supported_flag,likely_dataset_type,match_score,match_status,missing_required_columns
+DEMO_BATCH_20260331_001,2026-04-01T00:03:12,demo_pos_transactions_sample.csv,data_input/inbox/DEMO_BATCH_20260331_001/demo_pos_transactions_sample.csv,1,1,pos_transactions,0.95,strong_match,

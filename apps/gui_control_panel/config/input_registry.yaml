@@ -1,0 +1,13 @@
+repo:
+  root_mode: auto_detect
+
+gui:
+  source_policy:
+    use_active_pipeline_only: true
+    exclude_backup_paths: true
+    exclude_snapshot_paths: true
+
+notes:
+  - GUI acts only as control and presentation layer
+  - No synthetic intra-day logic
+  - No unsupported staffing inference

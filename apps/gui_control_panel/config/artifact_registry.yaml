@@ -1,0 +1,66 @@
+artifacts:
+  outlet_executive_ranking_layer:
+    active_path: data_processed/management/outlet_executive_ranking_layer.csv
+    fallback_paths: []
+    panel: executive_dashboard
+    role: supporting_layer
+
+  outlet_management_summary:
+    active_path: data_processed/management/outlet_management_summary.csv
+    fallback_paths: []
+    panel: executive_dashboard
+    role: primary_summary
+
+  manager_action_queue:
+    active_path: data_processed/management/manager_action_queue.csv
+    fallback_paths: []
+    panel: decision_support
+    role: primary_summary
+
+  therapist_coaching_summary:
+    active_path: data_processed/management/therapist_coaching_summary.csv
+    fallback_paths: []
+    panel: decision_support
+    role: primary_summary
+
+  staff_commercial_scoring_layer:
+    active_path: data_processed/management/staff_commercial_scoring_layer.csv
+    fallback_paths: []
+    panel: decision_support
+    role: supporting_layer
+
+  therapist_top_bottom_performance_layer:
+    active_path: data_processed/management/therapist_top_bottom_performance_layer.csv
+    fallback_paths: []
+    panel: decision_support
+    role: supporting_layer
+
+  dashboard_outlet_executive_ranking:
+    active_path: data_processed/dashboard_export/dashboard_outlet_executive_ranking.csv
+    fallback_paths: []
+    panel: executive_dashboard
+    role: dashboard_ready
+
+  dashboard_manager_action_queue:
+    active_path: data_processed/dashboard_export/dashboard_manager_action_queue.csv
+    fallback_paths: []
+    panel: decision_support
+    role: dashboard_ready
+
+  dashboard_therapist_coaching:
+    active_path: data_processed/dashboard_export/dashboard_therapist_coaching.csv
+    fallback_paths: []
+    panel: decision_support
+    role: dashboard_ready
+
+  management_layer_registry:
+    active_path: data_processed/management/management_layer_registry.csv
+    fallback_paths: []
+    panel: data_input
+    role: governance_support
+
+  management_layer_traceability_matrix:
+    active_path: data_processed/management/management_layer_traceability_matrix.csv
+    fallback_paths: []
+    panel: data_input
+    role: governance_support

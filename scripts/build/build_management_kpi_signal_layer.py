@@ -8,7 +8,7 @@ import numpy as np
 BASE = Path(__file__).resolve().parents[2]
 DP = BASE / "data_processed"
 INTERNAL_PROXY = DP / "internal_proxy"
-INSIGHT_MART = DP / "insight_mart"
+INSIGHT_MART = DP / "management"
 
 
 def first_existing(df: pd.DataFrame, candidates: list[str], required: bool = False):

@@ -4,7 +4,7 @@ import numpy as np
 
 BASE = Path("/Users/ambakinanti/Desktop/Malta_portfolio")
 
-INPUT_OUTLET = BASE / "data_processed/insight_mart/outlet_management_summary.csv"
+INPUT_OUTLET = BASE / "data_processed/management/outlet_management_summary.csv"
 INPUT_ROSTER = BASE / "data_processed/internal_proxy/internal_proxy_roster_outlet_monthly_bridge.csv"
 
 OUT_DIR = BASE / "data_processed/management_interpretation"

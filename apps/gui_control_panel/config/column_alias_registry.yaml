@@ -1,0 +1,236 @@
+column_aliases:
+  appointment_id:
+    - appointment_id
+    - appt_id
+    - booking_id
+
+  booking_reference:
+    - booking_reference
+    - booking_ref
+    - reservation_code
+
+  booked_at:
+    - booked_at
+    - booked_datetime
+    - booking_created_at
+
+  appointment_date:
+    - appointment_date
+    - booking_date
+    - service_date
+    - appt_date
+    - date
+
+  start_time:
+    - start_time
+    - start
+    - appointment_start
+    - start_at
+
+  end_time:
+    - end_time
+    - end
+    - appointment_end
+    - end_at
+
+  customer_id:
+    - customer_id
+    - client_id
+    - guest_id
+
+  customer_name:
+    - customer_name
+    - client_name
+    - guest_name
+    - customer
+    - client
+
+  staff_id:
+    - staff_id
+    - therapist_id
+    - employee_id
+
+  staff_name:
+    - staff_name
+    - therapist_name
+    - employee_name
+    - therapist
+    - employee
+
+  service_id:
+    - service_id
+    - treatment_id
+    - menu_item_id
+
+  service_name:
+    - service_name
+    - treatment_name
+    - service
+    - treatment
+
+  outlet_id:
+    - outlet_id
+    - branch_id
+    - location_id
+    - store_id
+
+  outlet_name:
+    - outlet_name
+    - branch_name
+    - location_name
+    - store_name
+
+  status:
+    - status
+    - appointment_status
+    - booking_status
+
+  channel:
+    - channel
+    - booking_channel
+    - source_channel
+
+  room_code:
+    - room_code
+    - room
+    - treatment_room
+
+  notes:
+    - notes
+    - note
+    - remarks
+    - comments
+
+  transaction_id:
+    - transaction_id
+    - trx_id
+    - sale_id
+    - invoice_id
+
+  line_id:
+    - line_id
+    - item_line_id
+    - transaction_line_id
+
+  sold_at:
+    - sold_at
+    - sold_datetime
+    - checkout_at
+    - sale_datetime
+
+  qty:
+    - qty
+    - quantity
+
+  unit_price_eur:
+    - unit_price_eur
+    - unit_price
+    - price_each
+    - item_price
+
+  gross_amount_eur:
+    - gross_amount_eur
+    - gross_amount
+    - subtotal_amount
+
+  discount_code:
+    - discount_code
+    - promo_code
+    - voucher_code
+
+  discount_amount_eur:
+    - discount_amount_eur
+    - discount_amount
+    - promo_amount
+
+  net_amount_eur:
+    - net_amount_eur
+    - net_amount
+    - after_discount_amount
+
+  tip_amount_eur:
+    - tip_amount_eur
+    - tip_amount
+    - gratuity_amount
+
+  final_amount_eur:
+    - final_amount_eur
+    - final_amount
+    - total_paid_amount
+    - final_total
+
+  tax_rate_percent:
+    - tax_rate_percent
+    - vat_rate
+    - tax_percent
+
+  line_status:
+    - line_status
+    - sales_line_status
+    - invoice_line_status
+
+  payment_id:
+    - payment_id
+    - tender_id
+
+  paid_at:
+    - paid_at
+    - paid_datetime
+    - payment_datetime
+
+  payment_method:
+    - payment_method
+    - tender_type
+    - method
+
+  currency:
+    - currency
+    - currency_code
+
+  amount_eur:
+    - amount_eur
+    - payment_amount
+    - amount_paid
+
+  payment_status:
+    - payment_status
+    - settlement_status
+    - payment_result
+
+  role:
+    - role
+    - staff_role
+    - employee_role
+
+  active_flag:
+    - active_flag
+    - is_active
+    - active
+
+  hire_date:
+    - hire_date
+    - joined_date
+    - start_date
+
+  category:
+    - category
+    - service_category
+    - treatment_category
+
+  duration_min:
+    - duration_min
+    - duration_minutes
+    - service_duration_min
+
+  list_price_eur:
+    - list_price_eur
+    - list_price
+    - menu_price
+
+  gender:
+    - gender
+    - sex
+
+  country:
+    - country
+    - nationality

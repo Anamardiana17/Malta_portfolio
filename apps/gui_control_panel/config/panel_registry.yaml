@@ -1,0 +1,11 @@
+panels:
+  - id: data_input
+    label: Data Input Panel
+  - id: processing_qa
+    label: Processing / QA Panel
+  - id: executive_dashboard
+    label: KPI / Executive Dashboard Panel
+  - id: decision_support
+    label: Decision Support Panel
+  - id: export_reviewer_pack
+    label: Export / Reviewer Pack Panel

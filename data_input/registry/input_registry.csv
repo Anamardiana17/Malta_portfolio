@@ -1,0 +1,2 @@
+batch_id,batch_label,uploaded_at,upload_date,upload_time,source_type,status,file_count,notes
+20260402_013403_fresha_rawkit_malta_demo,fresha_rawkit_malta_demo,2026-04-02T01:34:03,2026-04-02,01:34:03,gui_upload,accepted_manual_review,8,FRESHA raw Malta GUI smoke test using uploaded demo rawkit files
