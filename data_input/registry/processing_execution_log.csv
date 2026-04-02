@@ -1,3 +1,5 @@
 execution_event_ts,batch_id,processing_step,script_name,execution_status,qa_status,output_folder,note
 2026-04-01T15:21:29,DEMO_BATCH_20260331_001,gui_processing_trigger,gui_control_panel_execution_wrapper,execution_started,pending,pending_processing_output,Controlled GUI processing execution started.
 2026-04-01T15:21:29,DEMO_BATCH_20260331_001,gui_processing_trigger,gui_control_panel_execution_wrapper,execution_completed,pending_review,pending_processing_output,Checkpoint validation for preferred execution log source.
+2026-04-02T01:42:49,DEMO_BATCH_20260331_001,gui_processing_trigger,gui_control_panel_execution_wrapper,execution_started,pending,pending_processing_output,Controlled GUI processing execution started.
+2026-04-02T01:42:49,DEMO_BATCH_20260331_001,gui_processing_trigger,gui_control_panel_execution_wrapper,execution_completed,pending_review,pending_processing_output,Run controlled processing trigger for FRESHA Malta rawkit demo batch
