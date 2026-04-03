@@ -78,6 +78,7 @@ def _safe_text(value: object, default: str = "-") -> str:
 
 def _build_acceptance_evidence_summary(
     acceptance_review_registry: pd.DataFrame,
+    batch_id: str | None = None,
 ) -> dict[str, object]:
     if acceptance_review_registry.empty:
         return {
@@ -101,7 +102,42 @@ def _build_acceptance_evidence_summary(
         }
 
     registry = acceptance_review_registry.fillna("").copy()
-    latest_row = registry.iloc[-1]
+
+    if batch_id is not None and str(batch_id).strip():
+        batch_registry = registry[
+            registry["batch_id"].astype(str).str.strip() == str(batch_id).strip()
+        ].copy()
+    else:
+        batch_registry = registry
+
+    if batch_registry.empty:
+        return {
+            "has_data": False,
+            "latest_batch_id": _safe_text(batch_id),
+            "latest_reviewed_at": "-",
+            "latest_recommendation": "-",
+            "latest_manual_outcome": "-",
+            "latest_batch_location": "-",
+            "latest_movement_status": "-",
+            "latest_recommended_dataset_types": "-",
+            "latest_decision_summary": "No acceptance evidence has been recorded yet for the selected batch.",
+            "latest_review_notes": "-",
+            "reviewed_batches": len(registry),
+            "accepted_reviews": int(
+                (registry["review_outcome"].astype(str) == "accepted_manual_review").sum()
+            ),
+            "held_reviews": int(
+                (registry["review_outcome"].astype(str) == "hold_manual_review").sum()
+            ),
+            "rejected_reviews": int(
+                (registry["review_outcome"].astype(str) == "rejected_manual_review").sum()
+            ),
+            "governance_note": (
+                "The selected batch does not yet have reviewer-facing acceptance evidence in the registry."
+            ),
+        }
+
+    latest_row = batch_registry.iloc[-1]
 
     latest_batch_id = _safe_text(latest_row.get("batch_id"))
     latest_reviewed_at = _safe_text(latest_row.get("last_reviewed_at"))
@@ -116,15 +152,15 @@ def _build_acceptance_evidence_summary(
     latest_decision_summary = _safe_text(latest_row.get("decision_summary"))
     latest_review_notes = _safe_text(latest_row.get("review_notes"))
 
-    reviewed_batches = len(registry)
+    reviewed_batches = len(batch_registry)
     accepted_reviews = int(
-        (registry["review_outcome"].astype(str) == "accepted_manual_review").sum()
+        (batch_registry["review_outcome"].astype(str) == "accepted_manual_review").sum()
     )
     held_reviews = int(
-        (registry["review_outcome"].astype(str) == "hold_manual_review").sum()
+        (batch_registry["review_outcome"].astype(str) == "hold_manual_review").sum()
     )
     rejected_reviews = int(
-        (registry["review_outcome"].astype(str) == "rejected_manual_review").sum()
+        (batch_registry["review_outcome"].astype(str) == "rejected_manual_review").sum()
     )
 
     governance_note = (
@@ -335,8 +371,29 @@ def render() -> None:
         ],
     )
 
+    selected_acceptance_batch_id = None
+    if not acceptance_review_registry.empty and "batch_id" in acceptance_review_registry.columns:
+        acceptance_batch_options = (
+            acceptance_review_registry["batch_id"]
+            .astype(str)
+            .str.strip()
+            .replace("", pd.NA)
+            .dropna()
+            .drop_duplicates()
+            .tolist()
+        )
+        if acceptance_batch_options:
+            selected_acceptance_batch_id = st.selectbox(
+                "Acceptance evidence batch_id",
+                options=acceptance_batch_options,
+                index=len(acceptance_batch_options) - 1,
+                key="acceptance_evidence_batch_id",
+                help="Reviewer-facing acceptance evidence is shown for the selected governed batch.",
+            )
+
     acceptance_evidence_summary = _build_acceptance_evidence_summary(
-        acceptance_review_registry=acceptance_review_registry
+        acceptance_review_registry=acceptance_review_registry,
+        batch_id=selected_acceptance_batch_id,
     )
 
     _render_acceptance_evidence_summary(acceptance_evidence_summary)
