@@ -37,7 +37,10 @@ def _gui_clean_flag_dict(value):
 
 
 from services.artifact_loader import load_artifact_df
-from services.active_processing_context import get_active_processing_context
+from services.active_processing_context import (
+    build_month_context_integrity_summary,
+    get_active_processing_context,
+)
 
 
 def _safe_metric_value(value):
@@ -100,6 +103,41 @@ def render() -> None:
     action_view = action_df[action_df["month_id"].astype(str) == selected_month].copy()
     coaching_view = coaching_df[coaching_df["month_id"].astype(str) == selected_month].copy()
     manager_view = manager_df[manager_df["month_id"].astype(str) == selected_month].copy()
+
+    month_integrity = build_month_context_integrity_summary(
+        selected_month,
+        {
+            "dashboard_manager_action_queue": action_df,
+            "dashboard_therapist_coaching": coaching_df,
+            "manager_action_queue": manager_df,
+        },
+    )
+
+    st.markdown("### Active Context Integrity / Coverage Summary")
+    ix1, ix2, ix3, ix4 = st.columns(4)
+    ix1.metric("Selected analytical month_id", month_integrity["selected_month_id"])
+    ix2.metric("Artifacts checked", month_integrity["artifacts_checked"])
+    ix3.metric("Artifacts with month_id", month_integrity["artifacts_with_month_column"])
+    ix4.metric("Artifacts matching selected month_id", month_integrity["artifacts_matching_month"])
+
+    st.caption(
+        f"Integrity status: {month_integrity['integrity_status']} | "
+        f"Source batch_id: {context['source_batch_id']}"
+    )
+    st.info(month_integrity["reviewer_note"])
+    st.caption(month_integrity["boundary_note"])
+    st.caption("Decision suggestions should be read within the coverage status shown above.")
+
+    with st.expander("Coverage diagnostics"):
+        st.write(f"Missing / empty artifacts: {month_integrity['missing_artifacts']}")
+        st.write(
+            "Artifacts without month_id column: "
+            f"{month_integrity['artifacts_without_month_column']}"
+        )
+        st.write(
+            "Artifacts without selected month_id: "
+            f"{month_integrity['artifacts_without_selected_month']}"
+        )
 
     total_actions = len(action_view)
     critical_actions = (
