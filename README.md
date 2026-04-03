@@ -1,95 +1,76 @@
-# Malta Spa Operations Control & Decision-Support Portfolio
-
-## Overview
-This portfolio shows how spa operational data can be turned into structured management decisions across pricing discipline, staffing pressure, outlet performance, and commercial control. Built around Malta market context, it is designed to demonstrate operational leadership supported by analytical governance — not technical analysis for its own sake.
+# Malta Portfolio
 
 ## Repo Positioning
-Malta_portfolio is a management-oriented spa operations and decision-support portfolio. It shows how internal spa operating data and external Malta market context can be translated into KPI guardrails, business interpretation, and prioritized management action.
+Malta_portfolio is a spa operations and management portfolio project designed to support business interpretation and operational decision-making across a multi-outlet environment. It is built as a management-oriented decision-support model, not as a live production deployment or a generic analytics showcase.
 
-This repository is built for management-facing and reviewer-facing use. It is intended to demonstrate operational judgment, commercial discipline, and decision structure rather than raw analytics in isolation.
+It is intended for reviewers, operators, and decision-makers who need to understand business health, demand context, operational trade-offs, and action priorities in a structured and defensible way.
 
-## Recruiter Snapshot
-Best suited for Spa Manager, Spa Operations Manager, and multi-outlet operational leadership roles where pricing discipline, staffing control, service consistency, and management decision quality matter.
+## Malta_bigger_picture
+The core logic of this project is simple:
 
-## Malta Bigger Picture
-The operating logic behind this portfolio is straightforward:
+- internal POS and operating data act as the primary operational truth
+- external Malta demand proxies act as contextual guardrails, not exact demand truth
 
-- internal POS and operational data remain the primary operational truth
-- Malta external demand proxies are used as contextual guardrails, not exact demand truth
-- the core objective is to improve revenue while protecting yield, utilization balance, RevPATH quality, service consistency, and therapist sustainability
-- the intended flow is raw data intake -> governed processing -> KPI engine -> guardrail evaluation -> business interpretation -> management action output
-
-This framework is designed to support management judgment, not replace it.
-
-## Business Decisions Supported
-- price integrity versus promotional push
-- revenue growth without unhealthy yield erosion
-- utilization improvement without therapist overload
-- detection of leakage and operational friction
-- interpretation of market softness versus internal execution weakness
-- prioritization across outlets, teams, and treatment categories
+This means the project does not treat tourism, mobility, or market context as a substitute for real operational performance. External signals are used to frame pressure, seasonality, and commercial context around the spa business, while internal operating data remains the main anchor for action.
 
 ## System Architecture
-The portfolio is structured across six layers:
+The project is organized across six layers:
 
-1. **Input Layer**  
-   governed intake of raw spa operating data such as billing, orders, roster, cancellations, retail, and related inputs
+1. Input Layer  
+   Governed intake of raw operational data, including upload structure, registry logic, and controlled batch handling.
 
-2. **External Context Layer**  
-   Malta market and demand-proxy context used as supporting commercial and operating guardrails
+2. External Context Layer  
+   Malta-specific contextual demand proxies used to frame market pressure, seasonality, and commercial environment.
 
-3. **Processing Layer**  
-   controlled cleaning, transformation, and preparation of operational data into structured outputs
+3. Processing Layer  
+   Structured transformation of raw and intermediate data into governed analytical outputs.
 
-4. **KPI / Guardrail Layer**  
-   KPI construction and guardrail logic for revenue quality, utilization, yield protection, RevPATH balance, and staffing pressure
+4. KPI / Guardrail Layer  
+   Business and operational KPIs combined with methodological guardrails to prevent overclaiming and weak inference.
 
-5. **Interpretation Layer**  
-   translation of KPI signals into management-facing interpretation, prioritization, and action logic
+5. Interpretation Layer  
+   Translation of KPI signals into managerial interpretation, business health reading, and recommended actions.
 
-6. **Presentation Layer**  
-   dashboard outputs, reviewer-facing summaries, action views, and downloadable management outputs
-
-Each layer is designed to preserve governance, interpretability, and decision traceability.
-
-## Key Reviewer Entry Points
-Reviewers can quickly assess the portfolio through:
-- executive dashboard views
-- business health summaries
-- management action queue
-- outlet control summaries
-- therapist coaching summaries
-- treatment opportunity summaries
-- governance and QA validation layers
-- downloadable processed output files
+6. Presentation Layer  
+   Executive dashboard views, decision-support outputs, reviewer-facing evidence, and governed GUI surfaces.
 
 ## Methodological Guardrails
-- Internal spa operating data remains the primary operational truth
-- External Malta market context is decision-support context, not exact demand truth
-- Outputs support management interpretation, not automatic truth claims
-- No unsupported intra-day staffing inference is made
-- The portfolio does not overclaim exact demand truth from external signals
-- Promotion strategy should not damage yield balance or service consistency
-- Revenue improvement should not ignore therapist sustainability or operational strain
-- No blind push for volume at the expense of operating stability
+This project is intentionally constrained by clear methodological boundaries:
+
+- internal POS and operational data remain the primary truth for action
+- external proxies are contextual decision-support inputs only
+- no unsupported intra-day staffing inference is introduced
+- no claim is made that external demand signals represent exact spa demand truth
+- no promotional recommendation should damage yield balance or service stability
+- no revenue framing should ignore therapist sustainability or operating strain
 
 ## GUI Positioning
-The GUI is positioned as a governed operations control layer above validated portfolio artifacts, not as the core analytical engine.
+The GUI is positioned as a governed operations control layer above validated Malta_portfolio artifacts.
 
-Its role is to support:
-- governed upload and intake of raw datasets
-- controlled processing and QA visibility
-- preservation of batch, date, and month context
-- fast reviewer-facing visibility into business health and action priorities
-- structured export for management review
+It is not the core engine.  
+It does not replace the validated processing pipeline.  
+Its role is to help non-technical reviewers and operators move from governed intake to controlled processing, KPI visibility, decision support, and downloadable evidence more clearly.
 
-## What It Is Not
-- Not a live production system
-- Not a direct company export
-- Not a pure forecasting engine
-- Not a substitute for management judgment
-- Not a claim that external proxies represent exact spa demand truth
-- Not a framework for unsupported intra-day staffing inference
+## Output Layer
+The project is designed to produce management-oriented outputs such as:
+
+- executive dashboard views
+- business health summaries
+- action-oriented decision support
+- processed CSV outputs
+- market interaction context
+- spa customer capture context
+
+These outputs are intended to support structured review and operational interpretation rather than function as a live production control system.
 
 ## Demo Data Disclaimer
-Any demo POS raw datasets or illustrative operating datasets used in this repository are generated or demonstration data for portfolio purposes only. They are not presented as live company data.
+The raw POS-style datasets used for the 2017–2025 demonstration workflow are generated/demo data only. They are included to demonstrate governed processing, KPI interpretation, and management-facing output structure. They are not live company operating data.
+
+## Current Direction
+The current repo direction is to strengthen:
+
+- governed intake and controlled processing
+- management-facing KPI interpretation
+- reviewer-facing evidence visibility
+- GUI-supported access to validated outputs
+- clearer public-facing framing of the full Malta_bigger_picture
