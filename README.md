@@ -5,6 +5,24 @@ Malta_portfolio is a spa operations and management portfolio project designed to
 
 It is intended for reviewers, operators, and decision-makers who need to understand business health, demand context, operational trade-offs, and action priorities in a structured and defensible way.
 
+
+## Repository Map / Where to Start
+For a fast review, use this path:
+
+1. `README.md`  
+   Start here for project positioning, methodological guardrails, and the full Malta_bigger_picture.
+
+2. `docs/executive_portfolio_summary.md`  
+   Use this for a compact management-facing summary of the portfolio.
+
+3. `apps/gui_control_panel/README.md`  
+   Use this to understand the governed GUI control layer and its reviewer-facing workflow.
+
+4. `deliverables/`  
+   Use this to inspect selected executive and operating-model outputs.
+
+This order is designed to help a reviewer move from overall positioning to executive interpretation, then to GUI workflow and supporting deliverables.
+
 ## Malta_bigger_picture
 The core logic of this project is simple:
 
