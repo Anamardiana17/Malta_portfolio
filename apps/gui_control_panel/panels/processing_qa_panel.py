@@ -42,7 +42,6 @@ from services.accepted_batch_registry import (
     accepted_batch_exists,
     list_accepted_batch_ids,
 )
-from utils.io_helpers import resolve_repo_path
 from services.processing_execution_logger import load_processing_execution_log
 from services.artifact_resolver import resolve_artifacts
 from services.gui_processing_executor import execute_gui_processing_trigger
