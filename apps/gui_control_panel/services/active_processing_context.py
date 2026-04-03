@@ -36,7 +36,7 @@ def _clean(value) -> str:
 def _format_output_folder_label(value) -> str:
     text = _clean(value)
     mapping = {
-        "pending_processing_output": "Pending processing output (active artifact context)",
+        "pending_processing_output": "Active governed artifact output",
         "output": "Output",
         "-": "-",
     }

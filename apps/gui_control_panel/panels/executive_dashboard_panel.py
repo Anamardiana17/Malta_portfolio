@@ -113,7 +113,7 @@ def render() -> None:
     st.info(month_integrity["reviewer_note"])
     st.caption(month_integrity["boundary_note"])
 
-    with st.expander("Coverage diagnostics"):
+    with st.expander("Reviewer coverage diagnostics"):
         st.write(f"Missing / empty artifacts: {month_integrity['missing_artifacts']}")
         st.write(
             "Artifacts without month_id column: "
