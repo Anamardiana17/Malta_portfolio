@@ -205,6 +205,7 @@ def render() -> None:
 
     accepted_batch_ids = _list_processing_candidate_batch_ids()
     processing_history = load_processing_execution_log()
+    latest_evidence = _build_execution_evidence_summary(processing_history)
 
     st.markdown("### Accepted Batch Processing Gate")
     selected_batch_id = None
@@ -216,10 +217,15 @@ def render() -> None:
             "No accepted batch is currently available. Processing should remain blocked until at least one batch passes manual acceptance review."
         )
     else:
+        preferred_batch_id = str(latest_evidence.get("latest_batch_id", "")).strip()
+        default_index = len(accepted_batch_ids) - 1
+        if preferred_batch_id and preferred_batch_id in accepted_batch_ids:
+            default_index = accepted_batch_ids.index(preferred_batch_id)
+
         selected_batch_id = st.selectbox(
             "Accepted batch eligible for processing",
             options=accepted_batch_ids,
-            index=len(accepted_batch_ids) - 1,
+            index=default_index,
             help="Only batches inside data_input/accepted/ are eligible for downstream processing.",
         )
 
@@ -267,7 +273,7 @@ def render() -> None:
                 processing_history = load_processing_execution_log()
 
     st.markdown("### Recruiter-Facing Execution Evidence Summary")
-    evidence = _build_execution_evidence_summary(processing_history)
+    evidence = latest_evidence
 
     c_ev_1, c_ev_2, c_ev_3, c_ev_4 = st.columns(4)
     c_ev_1.metric("Latest batch", evidence["latest_batch_id"])
