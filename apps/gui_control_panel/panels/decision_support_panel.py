@@ -37,6 +37,7 @@ def _gui_clean_flag_dict(value):
 
 
 from services.artifact_loader import load_artifact_df
+from services.active_processing_context import get_active_processing_context
 
 
 def _safe_metric_value(value):
@@ -63,6 +64,22 @@ def render() -> None:
     coaching_df = coaching_df.copy()
     manager_df = manager_df.copy()
 
+    context = get_active_processing_context()
+
+    st.markdown("### Active Governed Processing Context")
+    cx1, cx2, cx3 = st.columns(3)
+    cx1.metric("Source batch_id", context["source_batch_id"])
+    cx2.metric("Latest execution status", context["latest_execution_status"])
+    cx3.metric("Active artifact output folder", context["latest_output_folder"])
+
+    st.caption(
+        f"Processing step: {context['latest_processing_step']} | "
+        f"Event time: {context['execution_event_ts']} | "
+        f"Context source: {context['context_source']}"
+    )
+    st.info(context["month_context_note"])
+    st.caption(context["output_context_note"])
+
     month_candidates = pd.concat(
         [
             action_df["month_id"].astype(str),
@@ -74,7 +91,7 @@ def render() -> None:
 
     month_options = sorted(month_candidates.unique().tolist())
     selected_month = st.selectbox(
-        "Select month_id",
+        "Select analytical month_id",
         month_options,
         index=len(month_options) - 1 if month_options else 0,
         key="decision_month_id",
