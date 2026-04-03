@@ -50,7 +50,7 @@ def render() -> None:
     st.caption("Reviewer-facing export readiness for validated artifacts.")
 
     export_summary = get_export_pack_summary()
-    st.info(f"Export status: {export_summary['status']} | {export_summary['note']}")
+    st.info("Export status: reviewer-pack packaging pending final connection | Validated dashboard and management artifacts are reserved for governed packaging only.")
 
     resolved = resolve_artifacts()
     rows = []

@@ -37,6 +37,10 @@ def _gui_clean_flag_dict(value):
 
 
 from services.artifact_loader import load_artifact_df
+from services.active_processing_context import (
+    build_month_context_integrity_summary,
+    get_active_processing_context,
+)
 
 
 def _safe_metric_value(value):
@@ -61,11 +65,64 @@ def render() -> None:
     ranking_df = ranking_df.copy()
     summary_df = summary_df.copy()
 
+    context = get_active_processing_context()
+
+    st.markdown("### Active Governed Processing Context")
+    cx1, cx2, cx3 = st.columns(3)
+    cx1.metric("Source batch_id", context["source_batch_id"])
+    cx2.metric("Latest execution status", context["latest_execution_status"])
+    cx3.metric("Active artifact output folder", context["latest_output_folder"])
+
+    st.caption(
+        f"Processing step: {context['latest_processing_step']} | "
+        f"Event time: {context['execution_event_ts']} | "
+        f"Context source: {context['context_source']}"
+    )
+    st.info(context["month_context_note"])
+    st.caption(context["output_context_note"])
+
     month_options = sorted(ranking_df["month_id"].dropna().astype(str).unique().tolist())
-    selected_month = st.selectbox("Select month_id", month_options, index=len(month_options) - 1 if month_options else 0)
+    selected_month = st.selectbox(
+        "Select analytical month_id",
+        month_options,
+        index=len(month_options) - 1 if month_options else 0,
+    )
 
     ranking_view = ranking_df[ranking_df["month_id"].astype(str) == selected_month].copy()
     summary_view = summary_df[summary_df["month_id"].astype(str) == selected_month].copy()
+
+    month_integrity = build_month_context_integrity_summary(
+        selected_month,
+        {
+            "dashboard_outlet_executive_ranking": ranking_df,
+            "outlet_management_summary": summary_df,
+        },
+    )
+
+    st.markdown("### Active Context Integrity / Coverage Summary")
+    ix1, ix2, ix3, ix4 = st.columns(4)
+    ix1.metric("Selected analytical month_id", month_integrity["selected_month_id"])
+    ix2.metric("Artifacts checked", month_integrity["artifacts_checked"])
+    ix3.metric("Artifacts with month_id", month_integrity["artifacts_with_month_column"])
+    ix4.metric("Artifacts matching selected month_id", month_integrity["artifacts_matching_month"])
+
+    st.caption(
+        f"Integrity status: {month_integrity['integrity_status']} | "
+        f"Source batch_id: {context['source_batch_id']}"
+    )
+    st.info(month_integrity["reviewer_note"])
+    st.caption(month_integrity["boundary_note"])
+
+    with st.expander("Reviewer coverage diagnostics"):
+        st.write(f"Missing / empty artifacts: {month_integrity['missing_artifacts']}")
+        st.write(
+            "Artifacts without month_id column: "
+            f"{month_integrity['artifacts_without_month_column']}"
+        )
+        st.write(
+            "Artifacts without selected month_id: "
+            f"{month_integrity['artifacts_without_selected_month']}"
+        )
 
     if ranking_view.empty:
         st.warning("No executive ranking rows found for selected month.")

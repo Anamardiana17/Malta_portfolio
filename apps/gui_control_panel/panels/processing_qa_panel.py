@@ -200,12 +200,12 @@ def render() -> None:
     c_ev_1.metric("Latest batch", evidence["latest_batch_id"])
     c_ev_2.metric("Latest result", evidence["latest_result_status"])
     c_ev_3.metric("Latest QA status", evidence["latest_qa_status"])
-    c_ev_4.metric("Recorded events", evidence["total_events"])
+    c_ev_4.metric("Total governed events", evidence["total_events"])
 
     c_ev_5, c_ev_6, c_ev_7 = st.columns(3)
-    c_ev_5.metric("Completed events", evidence["completed_events"])
-    c_ev_6.metric("Pending QA events", evidence["pending_events"])
-    c_ev_7.metric("Latest batch events", evidence["latest_batch_event_count"])
+    c_ev_5.metric("Completed result events", evidence["completed_events"])
+    c_ev_6.metric("Events awaiting QA review", evidence["pending_events"])
+    c_ev_7.metric("Events for latest batch", evidence["latest_batch_event_count"])
 
     if selected_batch_id:
         batch_alignment = (

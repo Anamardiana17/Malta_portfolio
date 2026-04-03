@@ -62,3 +62,18 @@ snapshots/
 
 # GUI runtime accepted intake batches
 data_input/accepted/*
+
+# macOS / Python noise
+.DS_Store
+**/.DS_Store
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+
+# local-only working output
+output/
+backups/
+
+# helper notes
+verdict_30s_screening.md
