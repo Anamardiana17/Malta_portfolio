@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Mapping
 
 import pandas as pd
 
@@ -147,3 +147,92 @@ def get_active_processing_context() -> Dict[str, str]:
         "used by the dashboard view."
     )
     return context
+
+def build_month_context_integrity_summary(
+    selected_month_id: str,
+    artifact_frames: Mapping[str, pd.DataFrame],
+) -> Dict[str, str]:
+    selected_month = _clean(selected_month_id)
+
+    artifacts_checked = 0
+    artifacts_with_month_column = 0
+    artifacts_matching_month = 0
+    missing_artifacts = []
+    artifacts_without_month_column = []
+    artifacts_without_selected_month = []
+
+    for artifact_name, df in artifact_frames.items():
+        artifacts_checked += 1
+
+        if df is None or getattr(df, "empty", True):
+            missing_artifacts.append(artifact_name)
+            continue
+
+        if "month_id" not in df.columns:
+            artifacts_without_month_column.append(artifact_name)
+            continue
+
+        artifacts_with_month_column += 1
+
+        scoped_months = (
+            df["month_id"]
+            .dropna()
+            .astype(str)
+            .str.strip()
+        )
+
+        if selected_month in set(scoped_months.tolist()):
+            artifacts_matching_month += 1
+        else:
+            artifacts_without_selected_month.append(artifact_name)
+
+    if artifacts_with_month_column == 0:
+        integrity_status = "reviewer_caution"
+    elif artifacts_matching_month == artifacts_with_month_column:
+        integrity_status = "fully_aligned"
+    elif artifacts_matching_month > 0:
+        integrity_status = "partially_aligned"
+    else:
+        integrity_status = "reviewer_caution"
+
+    if integrity_status == "fully_aligned":
+        reviewer_note = (
+            "Selected analytical month_id is consistently available across the active "
+            "governed artifacts used by this panel."
+        )
+    elif integrity_status == "partially_aligned":
+        reviewer_note = (
+            "Selected analytical month_id is available in part of the active governed "
+            "artifact set. Review panel outputs with coverage caution."
+        )
+    else:
+        reviewer_note = (
+            "Selected analytical month_id does not have strong aligned coverage across "
+            "the active governed artifact set used by this panel."
+        )
+
+    boundary_note = (
+        "This summary confirms whether the selected analytical month is present across "
+        "the active governed dashboard artifacts. It does not imply that the month "
+        "originated directly from the latest uploaded batch."
+    )
+
+    return {
+        "selected_month_id": selected_month,
+        "artifacts_checked": str(artifacts_checked),
+        "artifacts_with_month_column": str(artifacts_with_month_column),
+        "artifacts_matching_month": str(artifacts_matching_month),
+        "integrity_status": integrity_status,
+        "reviewer_note": reviewer_note,
+        "boundary_note": boundary_note,
+        "missing_artifacts": ", ".join(missing_artifacts) if missing_artifacts else "-",
+        "artifacts_without_month_column": (
+            ", ".join(artifacts_without_month_column)
+            if artifacts_without_month_column else "-"
+        ),
+        "artifacts_without_selected_month": (
+            ", ".join(artifacts_without_selected_month)
+            if artifacts_without_selected_month else "-"
+        ),
+    }
+
