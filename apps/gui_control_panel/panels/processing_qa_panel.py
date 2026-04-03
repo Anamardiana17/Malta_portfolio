@@ -42,6 +42,7 @@ from services.accepted_batch_registry import (
     accepted_batch_exists,
     list_accepted_batch_ids,
 )
+from utils.io_helpers import resolve_repo_path
 from services.processing_execution_logger import load_processing_execution_log
 from services.artifact_resolver import resolve_artifacts
 from services.gui_processing_executor import execute_gui_processing_trigger
@@ -63,6 +64,79 @@ def _safe_str(value: object, default: str = "-") -> str:
         return default
     text = str(value).strip()
     return text if text else default
+
+
+def _load_acceptance_review_registry() -> pd.DataFrame:
+    path = resolve_repo_path("data_input/registry/acceptance_review_registry.csv")
+    expected_columns = [
+        "batch_id",
+        "last_reviewed_at",
+        "review_outcome",
+        "review_outcome_label",
+        "batch_location",
+        "movement_status",
+    ]
+    if not path.exists():
+        return pd.DataFrame(columns=expected_columns)
+
+    try:
+        df = pd.read_csv(path)
+    except Exception:
+        return pd.DataFrame(columns=expected_columns)
+
+    for col in expected_columns:
+        if col not in df.columns:
+            df[col] = ""
+    return df.fillna("")
+
+
+def _list_processing_candidate_batch_ids() -> list[str]:
+    accepted_batch_ids = list_accepted_batch_ids()
+    if accepted_batch_ids:
+        return accepted_batch_ids
+
+    review_df = _load_acceptance_review_registry()
+    if review_df.empty or "review_outcome" not in review_df.columns or "batch_id" not in review_df.columns:
+        return []
+
+    accepted_df = review_df[
+        review_df["review_outcome"].astype(str).str.strip() == "accepted_manual_review"
+    ].copy()
+
+    if accepted_df.empty:
+        return []
+
+    if "last_reviewed_at" in accepted_df.columns:
+        accepted_df = accepted_df.sort_values("last_reviewed_at")
+
+    return (
+        accepted_df["batch_id"]
+        .astype(str)
+        .str.strip()
+        .replace("", pd.NA)
+        .dropna()
+        .drop_duplicates()
+        .tolist()
+    )
+
+
+def _processing_candidate_exists(batch_id: str) -> bool:
+    if accepted_batch_exists(batch_id):
+        return True
+
+    review_df = _load_acceptance_review_registry()
+    if review_df.empty or "review_outcome" not in review_df.columns or "batch_id" not in review_df.columns:
+        return False
+
+    scoped = review_df[
+        review_df["batch_id"].astype(str).str.strip() == str(batch_id).strip()
+    ].copy()
+    if scoped.empty:
+        return False
+
+    return bool(
+        (scoped["review_outcome"].astype(str).str.strip() == "accepted_manual_review").any()
+    )
 
 
 def _build_execution_evidence_summary(processing_history: pd.DataFrame) -> dict[str, object]:
@@ -130,7 +204,7 @@ def render() -> None:
     st.subheader("Processing / QA Panel")
     st.caption("Artifact readiness, governance visibility, and QA wrapper layer.")
 
-    accepted_batch_ids = list_accepted_batch_ids()
+    accepted_batch_ids = _list_processing_candidate_batch_ids()
     processing_history = load_processing_execution_log()
 
     st.markdown("### Accepted Batch Processing Gate")
@@ -150,18 +224,18 @@ def render() -> None:
             help="Only batches inside data_input/accepted/ are eligible for downstream processing.",
         )
 
-        is_eligible = accepted_batch_exists(selected_batch_id)
+        is_eligible = _processing_candidate_exists(selected_batch_id)
         gate_status = "eligible_for_processing" if is_eligible else "blocked"
 
         c_gate_1, c_gate_2, c_gate_3 = st.columns(3)
-        c_gate_1.metric("Accepted batches", len(accepted_batch_ids))
+        c_gate_1.metric("Processing candidates", len(accepted_batch_ids))
         c_gate_2.metric("Selected batch", selected_batch_id)
         c_gate_3.metric("Gate status", gate_status)
 
         if is_eligible:
-            st.success(f"Processing gate open for accepted batch: {selected_batch_id}")
+            st.success(f"Processing gate open for governed accepted batch: {selected_batch_id}")
         else:
-            st.error(f"Selected batch is not eligible for processing: {selected_batch_id}")
+            st.error(f"Selected batch is not eligible for governed processing: {selected_batch_id}")
 
         st.markdown("### Controlled Processing Trigger")
         processing_step = st.selectbox(
