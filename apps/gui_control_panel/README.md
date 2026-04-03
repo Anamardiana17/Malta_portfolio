@@ -23,4 +23,8 @@ upload -> profile -> review -> accepted gate -> controlled execution -> KPI dash
 - does not function as a live production deployment
 
 ## Management Value
-The GUI helps managers and reviewers quickly understand business health, check governed processing evidence, identify operational priorities, and access validated outputs without having to read code or inspect raw pipeline files.
+The GUI helps managers and reviewers quickly understand business health, check governed processing evidence, identify operational priorities, and access validated outputs without having to read code or inspect raw pipeline files.\n\n## Analytical Context Integrity Guardrail
+
+The dashboard and decision-support views include an active context integrity / coverage summary for the selected analytical `month_id` across the active governed artifacts used by each panel.
+
+This summary is a reviewer-facing guardrail. It confirms whether the selected analytical month is present across active processed artifacts, and does not claim that the month came directly from the latest uploaded batch.\n
