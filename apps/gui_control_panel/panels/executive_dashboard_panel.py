@@ -139,6 +139,12 @@ def render() -> None:
     c3.metric("Bonus reward eligible", int(total_reward_ready))
     c4.metric("Refresh training required", int(total_refresh_needed))
 
+    st.caption(
+        "How to read these cards: use them as a fast business-health read for the active analytical month. "
+        "They help identify whether current conditions look healthy, mixed, pressured, or urgent, but should "
+        "not be treated as stand-alone truth without reviewing context integrity and outlet detail below."
+    )
+
     st.markdown("### Outlet Executive Leaderboard")
     leaderboard_cols = [
         "executive_rank_within_month",
@@ -156,6 +162,12 @@ def render() -> None:
         ascending=[True, False],
     )
     st.dataframe(leaderboard, width="stretch")
+
+    st.caption(
+        "How to read this leaderboard: higher-ranked outlets should be reviewed first. Use the priority band, "
+        "management signal, and recommended action together to decide where management attention should go before "
+        "pushing commercial uplift."
+    )
 
     outlet_options = leaderboard["outlet_name"].dropna().unique().tolist()
     selected_outlet = st.selectbox("Select outlet", outlet_options)
@@ -218,4 +230,10 @@ def render() -> None:
             ascending=[False, False],
         ),
         width="stretch",
+    )
+
+    st.caption(
+        "How to read this summary table: use it to confirm whether a strong or weak outlet signal is supported by "
+        "commercial performance, utilization, and management flags. Read outlet detail and context notes before "
+        "making an aggressive intervention."
     )

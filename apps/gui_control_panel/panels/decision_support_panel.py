@@ -51,6 +51,19 @@ def _safe_metric_value(value):
     return value
 
 
+def _priority_row_style(row: pd.Series) -> list[str]:
+    priority = str(row.get("execution_priority", "")).strip().lower()
+    if "critical" in priority:
+        color = "background-color: rgba(255, 99, 71, 0.30);"
+    elif "high" in priority:
+        color = "background-color: rgba(255, 165, 0, 0.28);"
+    elif "medium" in priority:
+        color = "background-color: rgba(255, 215, 0, 0.22);"
+    else:
+        color = ""
+    return [color] * len(row)
+
+
 def render() -> None:
     st.subheader("Decision Support Panel")
     st.caption("Manager action queue, therapist coaching priorities, and commercial signal translation.")
@@ -162,6 +175,40 @@ def render() -> None:
     c3.metric("Coach priority therapists", int(coach_priority_count))
     c4.metric("Burnout risk flagged", int(burnout_risk_count))
 
+    st.caption(
+        "How to read these cards: use them as a quick signal for current management load. They show whether the "
+        "active month looks more stable or more pressured, but action should still be prioritized only after "
+        "checking context integrity and the ranked queue below."
+    )
+
+    st.markdown("### Ranked Action Priority View")
+    if action_view.empty:
+        st.info("No action rows available for the selected analytical month.")
+    else:
+        action_chart = action_view.copy()
+        action_chart["execution_priority_score"] = pd.to_numeric(
+            action_chart["execution_priority_score"], errors="coerce"
+        )
+        action_chart["action_label"] = (
+            action_chart["outlet_name"].astype(str) + " | " + action_chart["action_type"].astype(str)
+        )
+        action_chart = action_chart.sort_values(
+            by=["execution_priority_score", "action_priority_rank"],
+            ascending=[False, True],
+        ).head(10)
+
+        if not action_chart.empty:
+            st.bar_chart(
+                action_chart.set_index("action_label")[["execution_priority_score"]],
+                height=320,
+            )
+
+        st.caption(
+            "How to read this chart: higher bars mean higher action priority for the current analytical month. "
+            "Read from top to bottom and treat the highest-ranked items as first review candidates, especially "
+            "when execution priority and team impact both point to pressure."
+        )
+
     st.markdown("### Manager Action Queue")
     action_type_options = ["All"] + sorted(action_view["action_type"].dropna().astype(str).unique().tolist())
     selected_action_type = st.selectbox("Filter action_type", action_type_options)
@@ -185,12 +232,22 @@ def render() -> None:
         "execution_priority",
         "manager_note",
     ]
+
+    styled_action_view = filtered_action_view[action_cols].sort_values(
+        by=["action_priority_rank", "execution_priority_score"],
+        ascending=[True, False],
+    )
+
     st.dataframe(
-        filtered_action_view[action_cols].sort_values(
-            by=["action_priority_rank", "execution_priority_score"],
-            ascending=[True, False],
-        ),
+        styled_action_view.style.apply(_priority_row_style, axis=1),
         width="stretch",
+        hide_index=True,
+    )
+
+    st.caption(
+        "How to read this action table: highlighted rows represent management attention priority. Combine the row "
+        "priority with integrity notes, management signal, and team impact before acting. Do not treat a highlighted "
+        "row as an automatic instruction without managerial review."
     )
 
     st.markdown("### Therapist Coaching View")
@@ -234,6 +291,11 @@ def render() -> None:
             ascending=[True, False],
         ),
         width="stretch",
+    )
+
+    st.caption(
+        "How to read this coaching view: use it to identify coaching, recognition, and strain patterns across therapists. "
+        "It should support people-management prioritization, not punitive judgment."
     )
 
     st.markdown("### Therapist Detail")
@@ -292,4 +354,10 @@ def render() -> None:
             ascending=[True, False],
         ),
         width="stretch",
+    )
+
+    st.caption(
+        "How to read this management snapshot: use it as a compact queue view after reviewing the ranked chart and "
+        "styled action table above. Higher-priority items should be reviewed first, but action should remain anchored "
+        "to internal operating truth and the guardrails shown in context integrity notes."
     )
