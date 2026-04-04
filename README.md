@@ -1,27 +1,16 @@
 # Malta Portfolio
 
 ## Repo Positioning
-Malta_portfolio is a spa operations and management portfolio project designed to support business interpretation and operational decision-making across a multi-outlet environment. It is built as a management-oriented decision-support model, not as a live production deployment or a generic analytics showcase.
+Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It is designed for reviewers, operators, and hiring managers who want to see how operational data can be translated into structured business interpretation, KPI guardrails, and management action.
 
-It is intended for reviewers, operators, and decision-makers who need to understand business health, demand context, operational trade-offs, and action priorities in a structured and defensible way.
+This repository is best suited for spa management and operations-facing review. It is not positioned as a live production deployment or a generic analytics showcase.
 
-
-## Repository Map / Where to Start
-For a fast review, use this path:
-
-1. `README.md`  
-   Start here for project positioning, methodological guardrails, and the full Malta_bigger_picture.
-
-2. `docs/executive_portfolio_summary.md`  
-   Use this for a compact management-facing summary of the portfolio.
-
-3. `apps/gui_control_panel/README.md`  
-   Use this to understand the governed GUI control layer and its reviewer-facing workflow.
-
-4. `deliverables/`  
-   Use this to inspect selected executive and operating-model outputs.
-
-This order is designed to help a reviewer move from overall positioning to executive interpretation, then to GUI workflow and supporting deliverables.
+## Where to Start
+For a fast reviewer path, use:
+1. `README.md` — repo positioning, Malta_bigger_picture, and methodological guardrails
+2. `docs/executive_portfolio_summary.md` — compact management-facing portfolio summary
+3. `apps/gui_control_panel/README.md` — governed GUI control-layer workflow
+4. `deliverables/` — selected executive and operating-model outputs
 
 ## Malta_bigger_picture
 The core logic of this project is simple:

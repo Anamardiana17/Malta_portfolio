@@ -1,11 +1,9 @@
 # GUI Control Panel
 
 ## Overview
-The GUI presents governed intake evidence, controlled execution evidence, and analytical dashboard context as distinct but connected layers. It makes processing governance visible, clarifies that analytical month selection comes from active validated artifacts rather than direct upload-batch provenance, and preserves reviewer trust through explicit control-layer evidence.
+This GUI sits on top of the validated Malta_portfolio workflow as a governed control layer. It helps reviewers, managers, and non-technical stakeholders move from raw batch intake through controlled processing, KPI visibility, decision support, and downloadable reviewer-ready outputs.
 
-This GUI sits on top of the validated Malta_portfolio workflow as a governed control layer. It helps reviewers, managers, and non-technical stakeholders work from raw batch intake through controlled processing, KPI visibility, decision support, and downloadable reviewer-ready outputs.
-
-It is meant to make the portfolio easier to review and use in practice by showing business health signals, processing evidence, and action-oriented outputs in one place.
+The GUI presents governed intake evidence, controlled execution evidence, and analytical dashboard context as distinct but connected layers. It also makes clear that analytical `month_id` selection comes from active validated artifacts rather than direct upload-batch provenance.
 
 ## What It Supports
 - governed upload, profiling, and review
