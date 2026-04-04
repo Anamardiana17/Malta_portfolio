@@ -167,7 +167,7 @@ def _build_acceptance_evidence_summary(
         f"The latest reviewed batch {latest_batch_id} received recommendation "
         f"'{latest_recommendation}', manual outcome '{latest_manual_outcome}', "
         f"and movement status '{latest_movement_status}' with resulting location "
-        f"'{latest_batch_location}'. This supports reviewer visibility into governed intake control."
+        f"'{latest_batch_location}'. This supports reviewer visibility into governed intake control, including cases where reviewer judgment overrides a profiler hold recommendation for controlled GUI validation."
     )
 
     return {
@@ -220,7 +220,7 @@ def _render_acceptance_evidence_summary(summary: dict[str, object]) -> None:
         st.info(summary.get("governance_note", "No acceptance evidence available yet."))
 
     st.caption(
-        "This is the primary reviewer-facing intake evidence block for the Data Input Panel."
+        "This is the primary reviewer-facing intake evidence block for the Data Input Panel. Profiler recommendation and manual review outcome are shown separately to preserve governed override visibility."
     )
 
 def _render_decision_summary(batch_id: str, profile_df: pd.DataFrame) -> None:
