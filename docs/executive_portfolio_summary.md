@@ -1,9 +1,11 @@
-# Malta Spa Commercial & Operational Management Portfolio
+# Malta Spa Management Portfolio
 
 ## Positioning
-This portfolio is built as a Spa Manager commercial and operational decision system, not merely as a reporting dashboard.
+This portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments.
 
-It is designed to show how multi-outlet spa performance can be interpreted through commercial pressure, operating control, staffing realism, therapist structure, non-therapist operating-role design, and management action discipline.
+It is designed for reviewers, operators, and hiring managers who want to see how spa performance can be interpreted through commercial pressure, operating control, staffing realism, therapist structure, non-therapist operating-role design, and management action discipline.
+
+It is not positioned as a live production deployment or a generic reporting dashboard.
 
 ## Core Objective
 The objective is to identify:
@@ -88,4 +90,4 @@ This portfolio shows how a Spa Manager can decide where to grow, where to tighte
 ## Boundary Note
 This project is presented as a management portfolio and decision-support model.
 
-It is not presented as a live production system or as a direct internal export from one spa operator. External context is used to frame commercial conditions, while management interpretation remains anchored to structured operating logic, role-aware decision rules, and controlled portfolio assumptions.
+It is not presented as a live production deployment or as a direct internal export from one spa operator. External context is used to frame commercial conditions, while management interpretation remains anchored to structured operating logic, role-aware decision rules, and controlled portfolio assumptions.
