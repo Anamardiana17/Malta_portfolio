@@ -257,7 +257,7 @@ def render() -> None:
             placeholder="Document why this accepted batch is being triggered for processing.",
         )
 
-        if st.button("Run controlled processing trigger", use_container_width=True):
+        if st.button("Run controlled processing trigger", width="stretch"):
             if not is_eligible:
                 st.error("Processing trigger is blocked because the selected batch is not eligible.")
             else:

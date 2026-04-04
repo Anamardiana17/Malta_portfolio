@@ -106,7 +106,7 @@ def render() -> None:
             {"field": "review_notes", "value": selected_row["review_notes"]},
         ])
 
-        st.dataframe(compact_summary, use_container_width=True, hide_index=True)
+        st.dataframe(compact_summary, width="stretch", hide_index=True)
         st.caption(selected_row["governance_interpretation"])
 
 
