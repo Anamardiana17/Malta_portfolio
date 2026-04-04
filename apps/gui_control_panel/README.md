@@ -32,3 +32,25 @@ The GUI helps managers and reviewers quickly understand business health, check g
 The dashboard and decision-support views include an active context integrity / coverage summary for the selected analytical `month_id` across the active governed artifacts used by each panel.
 
 This summary is a reviewer-facing guardrail. It confirms whether the selected analytical month is present across active processed artifacts, and does not claim that the month came directly from the latest uploaded batch.
+
+## GUI Screenshot Pack
+
+This screenshot pack shows the Malta GUI as a **governed operations control layer** on top of validated portfolio artifacts.
+
+In under 30 seconds, a reviewer can see the full control story:
+
+**upload → profiling → manual acceptance → controlled processing → KPI visibility → decision support → reviewer-ready export**
+
+It shows that the portfolio is more than analysis output: it is a management-facing operating layer that helps users:
+- understand business health quickly
+- review governed processing evidence
+- translate KPI signals into actions
+- inspect recruiter-friendly, reviewer-ready outputs
+
+### Positioning
+- internal operational data remains the primary decision anchor
+- external context is used as decision-support guardrails, not exact demand truth
+- the GUI does not replace the core pipeline
+- the GUI does not weaken methodological controls
+
+For the full screenshot-by-screenshot list, see `docs/gui_screenshot_index.md`.
