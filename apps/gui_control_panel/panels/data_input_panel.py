@@ -447,7 +447,7 @@ def render() -> None:
         accept_multiple_files=True,
     )
 
-    if st.button("Register new batch", type="primary", use_container_width=True):
+    if st.button("Register new batch", type="primary", width="stretch"):
         try:
             if not batch_label.strip():
                 st.error("Batch label is required.")
@@ -502,7 +502,7 @@ def render() -> None:
         help="Profiles files inside data_input/inbox/<batch_id>/files",
     )
 
-    if st.button("Profile inbox batch", use_container_width=True):
+    if st.button("Profile inbox batch", width="stretch"):
         if not batch_id_to_profile.strip():
             st.error("Batch id is required for profiling.")
         else:
@@ -545,7 +545,7 @@ def render() -> None:
             st.dataframe(review_profile_df, width="stretch")
             _render_decision_summary(review_batch_id.strip(), review_profile_df)
 
-            if st.button("Save manual review outcome", use_container_width=True):
+            if st.button("Save manual review outcome", width="stretch"):
                 if not reviewer_name.strip():
                     st.error("Reviewer name is required.")
                 else:

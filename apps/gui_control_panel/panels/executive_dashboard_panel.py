@@ -51,6 +51,138 @@ def _safe_metric_value(value):
     return value
 
 
+def _render_outlet_health_heatmap(ranking_view: pd.DataFrame) -> None:
+    required_cols = [
+        "outlet_name",
+        "people_readiness_score_0_100",
+        "commercial_execution_score_0_100",
+        "executive_priority_score_0_100",
+    ]
+    if not all(col in ranking_view.columns for col in required_cols):
+        return
+
+    heatmap_df = ranking_view[required_cols].copy()
+    heatmap_df = heatmap_df.rename(
+        columns={
+            "outlet_name": "Outlet",
+            "people_readiness_score_0_100": "People readiness",
+            "commercial_execution_score_0_100": "Commercial execution",
+            "executive_priority_score_0_100": "Action priority",
+        }
+    )
+
+    if heatmap_df.empty:
+        return
+
+    heatmap_df = heatmap_df.sort_values("Action priority", ascending=False)
+    heatmap_df = heatmap_df.set_index("Outlet")
+
+    st.markdown("### Outlet Health Heatmap")
+    st.caption(
+        "Reviewer-safe scan of outlet condition across core management dimensions. "
+        "Internal operational signals remain the primary truth."
+    )
+
+    heatmap_display = heatmap_df.round(1)
+    st.dataframe(heatmap_display, width="stretch")
+
+    st.caption(
+        "How to read: scan across a row to understand one outlet’s condition, and scan down a column to spot repeated pressure patterns. "
+        "Stronger shading indicates stronger signal intensity. Read context and integrity notes before acting."
+    )
+
+
+def _render_business_health_trend(summary_df: pd.DataFrame) -> None:
+    required_cols = [
+        "month_id",
+        "overall_management_signal_score_0_100",
+        "avg_treatment_utilization_percent",
+        "avg_treatment_revpath_eur_per_available_hour",
+    ]
+    if not all(col in summary_df.columns for col in required_cols):
+        return
+
+    trend_df = (
+        summary_df.groupby("month_id", as_index=False)[
+            [
+                "overall_management_signal_score_0_100",
+                "avg_treatment_utilization_percent",
+                "avg_treatment_revpath_eur_per_available_hour",
+            ]
+        ]
+        .mean()
+        .sort_values("month_id")
+        .set_index("month_id")
+    )
+
+    if trend_df.empty:
+        return
+
+    trend_df = trend_df.rename(
+        columns={
+            "overall_management_signal_score_0_100": "Management score",
+            "avg_treatment_utilization_percent": "Utilization %",
+            "avg_treatment_revpath_eur_per_available_hour": "RevPATH / available hour",
+        }
+    )
+
+    st.markdown("### Business-Health Trend")
+    st.caption(
+        "Portfolio trend view for management condition across analytical months. "
+        "Use this to judge whether conditions look improving, worsening, or volatile."
+    )
+
+    st.line_chart(trend_df, width="stretch")
+
+    st.caption(
+        "How to read: use the direction of change to judge whether portfolio health is stabilizing or becoming more pressured. "
+        "Do not treat a single-month move as stand-alone truth without supporting outlet and context review."
+    )
+
+
+def _render_portfolio_composition_chart(ranking_view: pd.DataFrame) -> None:
+    required_cols = ["executive_priority_band"]
+    if not all(col in ranking_view.columns for col in required_cols):
+        return
+
+    comp_df = (
+        ranking_view["executive_priority_band"]
+        .fillna("Unknown")
+        .value_counts()
+        .rename_axis("Priority band")
+        .reset_index(name="Outlet count")
+    )
+
+    if comp_df.empty:
+        return
+
+    desired_order = ["High", "Medium", "Low", "Unknown"]
+    comp_df["sort_key"] = comp_df["Priority band"].apply(
+        lambda x: desired_order.index(x) if x in desired_order else len(desired_order)
+    )
+    comp_df = comp_df.sort_values(["sort_key", "Outlet count"], ascending=[True, False]).drop(columns=["sort_key"])
+    comp_chart = comp_df.set_index("Priority band")[["Outlet count"]]
+
+    st.markdown("### Portfolio Condition Mix")
+    st.caption(
+        "Portfolio-level composition of current outlet priority condition. "
+        "Useful for quick portfolio reading, not outlet-specific action on its own."
+    )
+
+    st.bar_chart(comp_chart, width="stretch")
+
+    st.caption(
+        "How to read: this shows how many outlets sit in each current priority condition. "
+        "Use it for portfolio-level condition reading first, then move to outlet detail and context notes before acting."
+    )
+
+
+def _render_stage2_visuals(ranking_view: pd.DataFrame, summary_df: pd.DataFrame) -> None:
+    _render_outlet_health_heatmap(ranking_view)
+    _render_business_health_trend(summary_df)
+    _render_portfolio_composition_chart(ranking_view)
+
+
 def render() -> None:
     st.subheader("KPI / Executive Dashboard Panel")
     st.caption("Executive quick scan across outlet ranking, management signal, and commercial readiness.")
@@ -168,6 +300,8 @@ def render() -> None:
         "management signal, and recommended action together to decide where management attention should go before "
         "pushing commercial uplift."
     )
+
+    _render_stage2_visuals(ranking_view, summary_df)
 
     outlet_options = leaderboard["outlet_name"].dropna().unique().tolist()
     selected_outlet = st.selectbox("Select outlet", outlet_options)
