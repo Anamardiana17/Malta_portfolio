@@ -1,5 +1,14 @@
 # GUI Screenshot Index
 
+## How to Read the Stage 2 Visuals
+These visuals are intended as analytics evidence, not decoration.
+
+- **Outlet health heatmap**: cross-outlet comparative signal surface
+- **Business-health trend**: time-series portfolio monitoring
+- **Portfolio condition mix**: portfolio composition and state distribution
+- **Ranked action chart / action queue view**: prioritization logic for management intervention
+
+
 This screenshot pack presents the GUI layer of `Malta_portfolio` as a governed operations control panel above validated portfolio artifacts.
 The flow shown here follows the clean reviewer-facing story centered on `DEMO_BATCH_20260331_001`.
 

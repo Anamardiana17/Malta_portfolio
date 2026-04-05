@@ -12,6 +12,19 @@ For a fast reviewer path, use:
 3. `apps/gui_control_panel/README.md` — governed GUI control-layer workflow
 4. `deliverables/` — selected executive and operating-model outputs
 
+## Analytics Layer
+This portfolio is designed as a governed analytics and decision-support layer, not just a presentation surface.
+
+It highlights:
+- governed batch intake before interpretation
+- explicit separation between batch processing context and analytical month context
+- KPI and guardrail logic for business-health reading
+- cross-outlet comparative monitoring
+- trend and portfolio composition reading
+- prioritized management action rather than dashboard-only display
+
+The result is a reviewer-facing analytics interface that connects governed processing, KPI visibility, portfolio monitoring, and management prioritization.
+
 ## Malta_bigger_picture
 The core logic of this project is simple:
 
