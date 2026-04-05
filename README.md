@@ -1,18 +1,21 @@
 # Malta Portfolio
 
 ## Repo Positioning
-Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It is designed for reviewers, operators, and hiring managers who want to see how operational data can be translated into structured business interpretation, KPI guardrails, and management action.
+Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It shows how governed operational data can be translated into KPI guardrails, business interpretation, and management action for reviewer-facing and hiring-facing evaluation.
 
-This repository is best suited for spa management and operations-facing review. It is not positioned as a live production deployment or a generic analytics showcase.
+This repository is best suited for spa management, spa operations, and analytically literate reviewers who want to see more than a dashboard: a governed decision-support workflow with clear methodological boundaries.
+
+It is not positioned as a live production deployment or a generic analytics showcase.
 
 ## Where to Start
-For a fast reviewer path, use:
+For the fastest 30-second reviewer path, use:
+
 1. `README.md` — repo positioning, Malta_bigger_picture, and methodological guardrails
 2. `docs/executive_portfolio_summary.md` — compact management-facing portfolio summary
-3. `apps/gui_control_panel/README.md` — governed GUI control-layer workflow
-4. `docs/gui_screenshot_index.md` — fastest visual proof of the Stage 2 analytics and reviewer-facing GUI layer
+3. `docs/gui_screenshot_index.md` — fastest visual proof of the governed GUI and Stage 2 analytics layer
+4. `apps/gui_control_panel/README.md` — governed GUI control-layer workflow
 5. `deliverables/` — selected executive and operating-model outputs
-6. `docs/manager_30_60_90_day_plan.md` — recruiter-facing management application example for the first 90 days
+6. `docs/manager_30_60_90_day_plan.md` — optional recruiter-facing management application example
 
 ## Analytics Layer
 This portfolio is designed as a governed analytics and decision-support layer, not just a presentation surface.
