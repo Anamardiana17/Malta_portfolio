@@ -12,6 +12,8 @@ These visuals are intended as analytics evidence, not decoration.
 This screenshot pack presents the GUI layer of `Malta_portfolio` as a governed operations control panel above validated portfolio artifacts.
 The flow shown here follows the clean reviewer-facing story centered on `DEMO_BATCH_20260331_001`.
 
+In one scan, this pack shows the full reviewer-facing chain: governed intake -> controlled processing -> analytics evidence -> prioritized action -> traceable export.
+
 ---
 
 ## 01. Data Input Panel

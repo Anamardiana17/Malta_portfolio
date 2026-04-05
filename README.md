@@ -7,6 +7,14 @@ This repository is best suited for spa management, spa operations, and analytica
 
 It is not positioned as a live production deployment or a generic analytics showcase.
 
+## What Problems This Solves
+This portfolio shows how a spa operator or reviewer can:
+- move from governed raw batch intake to reviewer-visible processing evidence
+- separate operational truth from market context without weak demand overclaiming
+- turn KPI and guardrail signals into prioritized outlet-level management action
+
+**What a reviewer can verify quickly:** governed intake, controlled processing, KPI guardrails, cross-outlet business-health reading, and ranked management action.
+
 ## Where to Start
 For the fastest 30-second reviewer path, use:
 

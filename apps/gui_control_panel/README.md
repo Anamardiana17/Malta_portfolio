@@ -3,7 +3,8 @@
 ## Overview
 This GUI sits on top of the validated Malta_portfolio workflow as a governed control layer. It helps reviewers, managers, and non-technical stakeholders move from raw batch intake through controlled processing, KPI visibility, decision support, and downloadable reviewer-ready outputs.
 
-The GUI presents governed intake evidence, controlled execution evidence, and analytical dashboard context as distinct but connected layers. It also makes clear that analytical `month_id` selection comes from active validated artifacts rather than direct upload-batch provenance.
+The GUI presents governed intake evidence, controlled execution evidence, and analytical dashboard context as distinct but connected layers.
+On first view, it proves that the portfolio is not just chart output: it shows governed intake, controlled execution, analytical context guardrails, and action-oriented management use in one reviewer-facing flow. It also makes clear that analytical `month_id` selection comes from active validated artifacts rather than direct upload-batch provenance.
 
 ## What It Supports
 - governed upload, profiling, and review
