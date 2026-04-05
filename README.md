@@ -10,8 +10,9 @@ For a fast reviewer path, use:
 1. `README.md` — repo positioning, Malta_bigger_picture, and methodological guardrails
 2. `docs/executive_portfolio_summary.md` — compact management-facing portfolio summary
 3. `apps/gui_control_panel/README.md` — governed GUI control-layer workflow
-4. `deliverables/` — selected executive and operating-model outputs
-5. `docs/manager_30_60_90_day_plan.md` — recruiter-facing management application example for the first 90 days
+4. `docs/gui_screenshot_index.md` — fastest visual proof of the Stage 2 analytics and reviewer-facing GUI layer
+5. `deliverables/` — selected executive and operating-model outputs
+6. `docs/manager_30_60_90_day_plan.md` — recruiter-facing management application example for the first 90 days
 
 ## Analytics Layer
 This portfolio is designed as a governed analytics and decision-support layer, not just a presentation surface.
