@@ -15,6 +15,16 @@ The GUI presents governed intake evidence, controlled execution evidence, and an
 ## User Flow
 upload -> profile -> review -> accepted gate -> controlled execution -> KPI dashboard -> decision support -> export / reviewer pack
 
+## Why This Is More Than a Dashboard
+This GUI is not a dashboard-first layer. It is a governed control surface built on top of validated Malta_portfolio artifacts.
+
+What makes it analytically stronger than a display-only interface:
+- governed processing and review happen before visual presentation
+- context-integrity notes constrain interpretation of analytical month selection
+- visuals summarize multi-layer outputs rather than raw charting alone
+- action queues prioritize management intervention rather than simply showing data
+- external context remains decision-support input, not operational truth
+
 ## Guardrails
 - does not replace the core pipeline
 - does not override portfolio methodology
