@@ -27,6 +27,18 @@ If you are reviewing this portfolio quickly, start here:
 
 This repo is designed to be understandable in a short screening pass while still supporting deeper reviewer validation.
 
+## What reviewers will see in the GUI proof layer
+
+The screenshot pack is structured to show the portfolio in a fast reviewer-facing sequence:
+
+- governed data intake and acceptance checks
+- controlled processing and QA evidence
+- KPI and outlet business-health visibility
+- action prioritization and decision-support outputs
+- reviewer-facing governance and traceability context
+
+This helps reviewers understand the portfolio as a governed decision-support system, not just a dashboard.
+
 ## Repo Positioning
 Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It shows how governed operational data can be translated into KPI guardrails, business interpretation, and management action for reviewer-facing and hiring-facing evaluation.
 
