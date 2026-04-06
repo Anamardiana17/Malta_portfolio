@@ -52,6 +52,18 @@ It is designed to show that governed processing comes before display:
 
 This positioning matters because the portfolio is intended to demonstrate operational decision support, not dashboard styling alone.
 
+## Visual proof preview
+
+For a fast reviewer-facing proof pass, the GUI evidence layer shows:
+
+- governed intake and acceptance review
+- controlled processing and QA evidence
+- KPI and outlet business-health visibility
+- action prioritization and decision-support output
+- reviewer-facing traceability via `docs/gui_screenshot_index.md`
+
+This gives reviewers a fast visual entry into the portfolio before deeper documentation review.
+
 ## Repo Positioning
 Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It shows how governed operational data can be translated into KPI guardrails, business interpretation, and management action for reviewer-facing and hiring-facing evaluation.
 
