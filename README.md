@@ -16,6 +16,17 @@ It demonstrates how internal operating data can be translated into:
 It is not positioned as a live production deployment or a direct export of real operating company data.  
 It is a governed decision-support portfolio built to show analytical rigor, management applicability, and methodological discipline.
 
+## Reviewer fast path
+
+If you are reviewing this portfolio quickly, start here:
+
+1. Read the repo positioning and portfolio scope in this README.
+2. Open the GUI screenshot index in `docs/gui_screenshot_index.md`.
+3. Review how governed inputs, KPI visibility, and action prioritization are shown in the screenshot pack.
+4. Use the documentation layer to confirm governance, methodological boundaries, and reviewer-facing traceability.
+
+This repo is designed to be understandable in a short screening pass while still supporting deeper reviewer validation.
+
 ## Repo Positioning
 Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It shows how governed operational data can be translated into KPI guardrails, business interpretation, and management action for reviewer-facing and hiring-facing evaluation.
 
