@@ -1,3 +1,14 @@
+## Fastest proof path
+
+If you want the fastest reviewer-facing proof pass, open these screenshots first in this order:
+
+1. Data input acceptance evidence
+2. Processing / QA execution evidence
+3. Executive dashboard business-health view
+4. Decision-support action-priority view
+
+This sequence shows the portfolio as a governed decision-support workflow, not just a dashboard surface.
+
 # GUI Screenshot Index
 
 ## What a reviewer can verify in 30 seconds
