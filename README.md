@@ -107,3 +107,9 @@ The current repo direction is to strengthen:
 - reviewer-facing evidence visibility
 - GUI-supported access to validated outputs
 - clearer public-facing framing of the full Malta_bigger_picture
+
+## Data Sources and Provenance
+
+External context sources used in this project are documented in `docs/data_sources_and_rights.md` and `docs/dataset_provenance_register.csv`.
+
+Official statistics are cited to their original publishers. Demo operational datasets are generated for portfolio demonstration and are not live company data. External contextual proxies are used as decision-support context only and not as direct spa demand truth.
