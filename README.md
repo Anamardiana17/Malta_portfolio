@@ -1,5 +1,21 @@
 # Malta Portfolio
 
+
+
+## What this portfolio solves
+
+This portfolio is designed to help spa management teams move from KPI reporting to governed operational action.
+
+It demonstrates how internal operating data can be translated into:
+- outlet-level business health visibility
+- leakage and strain detection
+- prioritized management action queues
+- staffing and control signals
+- reviewer-facing governance and traceability
+
+It is not positioned as a live production deployment or a direct export of real operating company data.  
+It is a governed decision-support portfolio built to show analytical rigor, management applicability, and methodological discipline.
+
 ## Repo Positioning
 Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It shows how governed operational data can be translated into KPI guardrails, business interpretation, and management action for reviewer-facing and hiring-facing evaluation.
 
