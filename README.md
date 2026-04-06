@@ -39,6 +39,19 @@ The screenshot pack is structured to show the portfolio in a fast reviewer-facin
 
 This helps reviewers understand the portfolio as a governed decision-support system, not just a dashboard.
 
+## Why this is more than a dashboard
+
+This portfolio is not only a visual reporting layer.
+
+It is designed to show that governed processing comes before display:
+- inputs are reviewed through acceptance and control logic
+- processing and QA evidence are part of the reviewer-facing story
+- KPI outputs are translated into management interpretation
+- action prioritization is treated as a decision-support layer, not just a chart layer
+- governance and traceability remain visible to reviewers
+
+This positioning matters because the portfolio is intended to demonstrate operational decision support, not dashboard styling alone.
+
 ## Repo Positioning
 Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It shows how governed operational data can be translated into KPI guardrails, business interpretation, and management action for reviewer-facing and hiring-facing evaluation.
 
