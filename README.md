@@ -1,7 +1,5 @@
 # Malta Portfolio
 
-
-
 ## What this portfolio solves
 
 This portfolio is designed to help spa management teams move from KPI reporting to governed operational action.
@@ -27,18 +25,6 @@ If you are reviewing this portfolio quickly, start here:
 
 This repo is designed to be understandable in a short screening pass while still supporting deeper reviewer validation.
 
-## What reviewers will see in the GUI proof layer
-
-The screenshot pack is structured to show the portfolio in a fast reviewer-facing sequence:
-
-- governed data intake and acceptance checks
-- controlled processing and QA evidence
-- KPI and outlet business-health visibility
-- action prioritization and decision-support outputs
-- reviewer-facing governance and traceability context
-
-This helps reviewers understand the portfolio as a governed decision-support system, not just a dashboard.
-
 ## Why this is more than a dashboard
 
 This portfolio is not only a visual reporting layer.
@@ -52,42 +38,12 @@ It is designed to show that governed processing comes before display:
 
 This positioning matters because the portfolio is intended to demonstrate operational decision support, not dashboard styling alone.
 
-## Visual proof preview
-
-For a fast reviewer-facing proof pass, the GUI evidence layer shows:
-
-- governed intake and acceptance review
-- controlled processing and QA evidence
-- KPI and outlet business-health visibility
-- action prioritization and decision-support output
-- reviewer-facing traceability via `docs/gui_screenshot_index.md`
-
-This gives reviewers a fast visual entry into the portfolio before deeper documentation review.
-
 ## Repo Positioning
 Malta_portfolio is a management-oriented spa operations and decision-support portfolio for multi-outlet environments. It shows how governed operational data can be translated into KPI guardrails, business interpretation, and management action for reviewer-facing and hiring-facing evaluation.
 
 This repository is best suited for spa management, spa operations, and analytically literate reviewers who want to see more than a dashboard: a governed decision-support workflow with clear methodological boundaries.
 
 It is not positioned as a live production deployment or a generic analytics showcase.
-
-## What Problems This Solves
-This portfolio shows how a spa operator or reviewer can:
-- move from governed raw batch intake to reviewer-visible processing evidence
-- separate operational truth from market context without weak demand overclaiming
-- turn KPI and guardrail signals into prioritized outlet-level management action
-
-**What a reviewer can verify quickly:** governed intake, controlled processing, KPI guardrails, cross-outlet business-health reading, and ranked management action.
-
-## Where to Start
-For the fastest 30-second reviewer path, use:
-
-1. `README.md` — repo positioning, Malta_bigger_picture, and methodological guardrails
-2. `docs/executive_portfolio_summary.md` — compact management-facing portfolio summary
-3. `docs/gui_screenshot_index.md` — fastest visual proof of the governed GUI and Stage 2 analytics layer
-4. `apps/gui_control_panel/README.md` — governed GUI control-layer workflow
-5. `deliverables/` — selected executive and operating-model outputs
-6. `docs/manager_30_60_90_day_plan.md` — optional recruiter-facing management application example
 
 ## Analytics Layer
 This portfolio is designed as a governed analytics and decision-support layer, not just a presentation surface.
