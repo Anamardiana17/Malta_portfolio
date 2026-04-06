@@ -1,0 +1,2 @@
+source_group,filename,year,publisher_or_owner,source_type,used_for,public_repo_treatment,preferred_citation,official_url,access_date,notes
+mia_pages,mia_traffic_statistics.html,,Malta International Airport plc,HTML snapshot,airport traffic context,Public repo should prefer metadata + official links over re-hosting HTML snapshots where licence clarity is limited.,"Malta International Airport plc, relevant traffic statistics page or release [year].",,,Metadata placeholder created before controlled HTML cleanup. Fill official_url/access_date if needed before deletion.

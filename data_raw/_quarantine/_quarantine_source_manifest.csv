@@ -1,0 +1,2 @@
+source_group,filename,year,publisher_or_owner,source_type,used_for,public_repo_treatment,preferred_citation,official_url,access_date,notes
+_quarantine,nso_airport_passenger_traffic.html,,,HTML snapshot,review snapshot / quarantine traceability,Public repo should prefer metadata + official links over re-hosting HTML snapshots where licence clarity is limited.,,,,Metadata placeholder created before controlled HTML cleanup. Fill official_url/access_date if needed before deletion.
