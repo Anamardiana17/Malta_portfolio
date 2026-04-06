@@ -1,5 +1,22 @@
 # GUI Screenshot Index
 
+## What a reviewer can verify in 30 seconds
+This screenshot sequence is designed to let a reviewer confirm quickly that the portfolio is not just a dashboard.
+
+A reviewer can verify:
+- governed raw-batch intake before interpretation
+- manual acceptance and controlled processing evidence
+- KPI visibility with analytical context guardrails
+- cross-outlet business-health reading
+- ranked management action and traceable export flow
+
+Fast reading path:
+1. Data Input Panel
+2. Processing / QA Panel
+3. KPI / Executive Dashboard Panel
+4. Decision Support Panel
+5. Export / Reviewer Pack Panel
+
 ## How to Read the Stage 2 Visuals
 These visuals are intended as analytics evidence, not decoration.
 
