@@ -5,7 +5,7 @@ import sys
 import pandas as pd
 
 
-BASE_DIR = Path("/Users/ambakinanti/Desktop/Malta_portfolio")
+BASE_DIR = Path(__file__).resolve().parents[2]
 PRICING_DIR = BASE_DIR / "data_processed" / "pricing_research"
 BENCHMARK_FP = PRICING_DIR / "treatment_market_validation_sheet.csv"
 
