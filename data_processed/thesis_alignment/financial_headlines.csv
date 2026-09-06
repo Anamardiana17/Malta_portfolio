@@ -1,0 +1,24 @@
+scope,metric,value,unit,period,evidence_status,source_sheet,data_as_of,model_version,owner,next_review,interpretation_boundary
+valletta_flagship,opening_investment,350000,EUR,Year 0,MODEL OUTPUT,Startup Capital,2026-09-02,2.1,Finance and Owner,Before funding approval,Includes 75000 EUR opening reserve
+valletta_flagship,opening_cash_reserve,75000,EUR,Year 0,MODEL OUTPUT,Startup Capital,2026-09-02,2.1,Finance and Owner,Before funding approval,Current asset not expense
+valletta_flagship,service_revenue,1010000,EUR_net_of_VAT,Year 1,MODEL OUTPUT,Capacity Revenue,2026-09-02,2.1,Spa Manager and Finance,Monthly after opening,Forecast not operating actual
+valletta_flagship,ancillary_revenue,141000,EUR_net_of_VAT,Year 1,MODEL OUTPUT,Capacity Revenue,2026-09-02,2.1,Spa Manager and Finance,Monthly after opening,Forecast not operating actual
+valletta_flagship,total_net_revenue,1151000,EUR_net_of_VAT,Year 1,MODEL OUTPUT,Income Statement,2026-09-02,2.1,Finance,Monthly after opening,Forecast not operating actual
+valletta_flagship,variable_operating_cost,302372.240695,EUR,Year 1,MODEL OUTPUT,Operating Costs,2026-09-02,2.1,Finance,Monthly after opening,26.2704 percent of net revenue
+valletta_flagship,fixed_cash_operating_cost,667000,EUR,Year 1,MODEL OUTPUT,Fixed Cost Detail,2026-09-02,2.1,Finance,Monthly after opening,Reconciles to category schedules
+valletta_flagship,EBITDA,181627.759305,EUR,Year 1,MODEL OUTPUT,Income Statement,2026-09-02,2.1,Finance,Monthly after opening,15.7800 percent margin
+valletta_flagship,profit_after_tax,95400.900691,EUR,Year 1,MODEL OUTPUT,Income Statement,2026-09-02,2.1,Finance and Tax Adviser,Quarterly,Uses 35 percent planning current-tax charge
+valletta_flagship,net_bookable_therapist_hours,16889.6,hours,Year 1,MODEL OUTPUT,Capacity Revenue,2026-09-02,2.1,Spa Manager,Monthly after opening,Scheduled hours after 22 percent non-bookable allowance
+valletta_flagship,paid_treatment_hours,7600.32,hours,Year 1,MODEL OUTPUT,Capacity Revenue,2026-09-02,2.1,Spa Manager,Weekly after opening,45 percent paid utilisation
+valletta_flagship,estimated_treatment_occasions,6608.973913,occasions,Year 1,DERIVED,Capacity Revenue,2026-09-02,2.1,Spa Manager and Finance,Monthly after opening,Uses 1.15-hour weighted average duration
+valletta_flagship,visitor_related_occasions,4295.833043,occasions,Year 1,DERIVED,Integrated thesis,2026-09-02,2.1,Commercial and Finance,Monthly after opening,65 percent internal planning mix
+valletta_flagship,visitor_arrival_capture_proxy,0.001067999,ratio_of_2025_inbound_arrivals,Year 1,DERIVED,Integrated thesis,2026-09-02,2.1,Commercial and Finance,After each annual NSO release,Not market share
+valletta_flagship,break_even_total_net_revenue,904656.949508,EUR_net_of_VAT,Year 1,MODEL OUTPUT,Break Even,2026-09-02,2.1,Finance,Monthly after opening,EBITDA break-even before D&A interest and tax
+valletta_flagship,break_even_paid_utilisation,0.353688642,ratio_of_net_bookable_hours,Year 1,MODEL OUTPUT,Break Even,2026-09-02,2.1,Spa Manager and Finance,Weekly after opening,35.4 percent threshold
+valletta_flagship,break_even_occasions_per_day,14.231470,occasions/day,Year 1,MODEL OUTPUT,Break Even,2026-09-02,2.1,Spa Manager,Daily after opening,Average over 365 days
+valletta_flagship,NPV_at_10_percent,586898.585134,EUR,Years 0-5,MODEL OUTPUT,ROI Returns,2026-09-02,2.1,Finance and Owner,Quarterly reforecast,Depends on forecast and hurdle rate
+valletta_flagship,project_IRR,0.509453837,ratio,Years 0-5,MODEL OUTPUT,ROI Returns,2026-09-02,2.1,Finance and Owner,Quarterly reforecast,Sensitive to cash-flow pattern
+valletta_flagship,management_case_payback,2.812331,years,Years 0-5,MODEL OUTPUT,ROI Returns,2026-09-02,2.1,Finance and Owner,Quarterly reforecast,Execution target not guarantee
+valletta_flagship,conservative_case_payback,3.355184,years,scenario,MODEL OUTPUT,Three Case Summary,2026-09-02,2.1,Finance and Owner,Quarterly reforecast,Preferred planning range
+valletta_flagship,severe_case_recovery,5.698195,years,scenario,MODEL OUTPUT,Three Case Summary,2026-09-02,2.1,Finance and Owner,Quarterly reforecast,Stress extension not forecast
+valletta_flagship,severe_lowest_operating_cash,-79419.180521,EUR,scenario,MODEL OUTPUT,Three Case Summary,2026-09-02,2.1,Finance and Owner,Quarterly reforecast,Additional liquidity required before buffer and facility cost

@@ -1,0 +1,20 @@
+topic,metric,thesis_value,workbook_value,repository_value,unit,status,source_or_formula,decision_note
+market_context,inbound_tourists,4022310,not_applicable,4022310,persons,OFFICIAL,NSO Inbound Tourism December 2025,External context only
+market_context,visitor_arrival_capture_proxy,0.001068,0.001068,0.001068,ratio,DERIVED,visitor-related occasions divided by 2025 inbound tourists,Not market share
+staffing,permanent_employees,15,15,15,employees,PLANNING ASSUMPTION,Final integrated thesis and Finance Assumptions,Controlled-launch plan
+staffing,permanent_therapist_capacity,9,9,9,FTE,PLANNING ASSUMPTION,Final integrated thesis and Capacity Revenue,Relief hours separate
+capacity,operating_days,365,365,365,days/year,PLANNING ASSUMPTION,Final integrated thesis and Finance Assumptions,Single convention
+capacity,paid_hours_per_therapist,45,45,45,hours/FTE/week,PLANNING ASSUMPTION,Final integrated thesis and Finance Assumptions,Employment validation required
+commercial,property_share,0.15,0.15,0.15,ratio,VALIDATION REQUIRED,eligible net service revenue multiplied by property share,Signed agreement required
+commercial,payment_processing_fee,0.022,0.022,0.022,ratio,VALIDATION REQUIRED,gross customer billings multiplied by provider rate,Provider quotation required
+commercial,booking_channel_fee,0.03,0.03,0.03,ratio,VALIDATION REQUIRED,eligible gross channel billings multiplied by channel rate,Channel contract required
+tax,VAT_rate,0.18,0.18,0.18,ratio,VALIDATION REQUIRED,planning statutory reference,Licensed tax review required
+tax,corporate_income_tax_rate,0.35,0.35,0.35,ratio,VALIDATION REQUIRED,planning current-tax rate,Licensed tax review required
+finance,total_net_revenue,1151000,1151000,1151000,EUR net of VAT,MODEL OUTPUT,service revenue plus ancillary revenue,Year 1 forecast
+finance,variable_operating_cost,302372.240695,302372.240695,302372.240695,EUR,MODEL OUTPUT,Operating Costs,Year 1 forecast
+finance,fixed_cash_operating_cost,667000,667000,667000,EUR,MODEL OUTPUT,Fixed Cost Detail,Year 1 forecast
+finance,EBITDA,181627.759305,181627.759305,181627.759305,EUR,MODEL OUTPUT,revenue less variable and fixed cash costs,Year 1 forecast
+finance,break_even_total_net_revenue,904656.949508,904656.949508,904656.949508,EUR net of VAT,MODEL OUTPUT,fixed cash cost divided by contribution margin,EBITDA threshold
+returns,management_case_payback,2.812331,2.812331,2.812331,years,MODEL OUTPUT,ROI Returns,Execution target
+returns,conservative_case_payback,3.355184,3.355184,3.355184,years,MODEL OUTPUT,Three Case Summary,Preferred investment-discussion range
+returns,severe_case_recovery,5.698195,5.698195,5.698195,years,MODEL OUTPUT,Three Case Summary,Liquidity stress test

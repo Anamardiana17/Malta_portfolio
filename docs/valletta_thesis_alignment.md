@@ -19,6 +19,18 @@ Malta recorded 4,022,310 inbound tourists in 2025, 25.4 million nights and €3,
 
 Selected NSO monthly releases show that visitors aged 25–44 and 45–64 together represented 73.8% in January, 71.3% in March, 72.4% in October and 72.5% in December 2025. This supports testing adult recovery, couples and skin-wellness propositions. It is not a full-year demographic distribution and must not be treated as proof of spa demand.
 
+![Figure 2 — Malta market context and segmentation](../assets/figures/figure_2_market_context_and_segmentation.png)
+
+*Figure 2. Malta 2025 external tourism context and selected monthly adult visitor profile. Official NSO statistics are contextual evidence; the portfolio interpretation is a planning hypothesis, not measured Valletta spa demand.*
+
+| External evidence | Planning implication | Limitation |
+|---|---|---|
+| Tourism arrivals | Test visitor partnerships and pre-arrival booking routes | Arrivals are not spa bookings |
+| Tourist nights | Support hotel and city-break access planning | Length of stay does not prove purchase intention |
+| Tourist expenditure | Provide broad affordability context | Trip expenditure is not a disposable spa budget |
+| Monthly age profile | Test adult recovery, couples and skin-wellness propositions | Selected months are not a full-year demographic distribution |
+| Seasonal proxy | Inform monthly staffing and promotion reviews | External context must not override POS and operating evidence |
+
 The thesis base case assumes approximately 6,609 Year 1 treatment occasions. Under the internal 65% visitor-related and 35% resident/corporate planning mix, approximately 4,296 occasions are visitor-related. The resulting 0.107% comparison with 2025 inbound arrivals is an **arrival-capture proxy**, not market share: a visitor may book more than once, residents are also included in the plan, and official tourism arrivals do not measure spa purchase intent.
 
 ## Final Valletta flagship convention
@@ -76,6 +88,8 @@ The arithmetic bridge is explicit:
 3. The integrated thesis governs narrative meaning, strategic boundaries and academic interpretation.
 4. Synthetic multi-outlet files govern only the demonstration workflow in which they appear.
 
+The row-by-row reconciliation is available in `data_processed/thesis_alignment/reconciliation_register.csv`. Evidence labels are governed by `docs/evidence_status_dictionary.md`.
+
 If a source is revised, update the relevant CSV first, record the access and release dates, run `python scripts/qa/validate_thesis_alignment.py`, then update narrative text. Do not silently replace a thesis assumption with a demo value or infer spa demand from external tourism data.
 
 ## Primary references
@@ -84,7 +98,8 @@ If a source is revised, update the relevant CSV first, record the access and rel
 - NSO Malta, *Inbound Tourism: January 2025*: https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf
 - NSO Malta, *Inbound Tourism: March 2025*: https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf
 - NSO Malta, *Inbound Tourism: October 2025*: https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf
-- Final integrated thesis: `Ana_Mardiana_Valletta_Spa_Complete_Thesis_Finance_Integrated_Final(2).docx`
+- Source integrated thesis: `Ana_Mardiana_Valletta_Spa_Complete_Thesis_Finance_Integrated_Final(3).docx`
+- Repository-aligned thesis release: `Ana_Mardiana_Valletta_Spa_Complete_Thesis_Finance_Integrated_Repo_Aligned_Final.docx`
 - Final supporting model: `Valletta_Mediterranean_Wellness_Spa_Financial_Model_Thesis_Aligned_Final.xlsx`
 
-The two final project files are controlled source documents and are referenced by name; they are not duplicated as binary files in this repository.
+The controlled document names and SHA-256 hashes are recorded in `docs/controlled_document_register.csv`. The binary files are not duplicated in this repository.

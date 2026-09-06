@@ -1,18 +1,18 @@
-record_type,period,metric,value,unit,calculation_status,release_date,source_url,interpretation_boundary
-annual,2025,inbound_tourists,4022310,persons,official_published,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,External demand pool; not spa demand
-annual,2025,total_nights,25400000,nights,official_published_rounded,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,External tourism context
-annual,2025,total_tourist_expenditure,3904400000,EUR,official_published,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,External expenditure context; not disposable spa budget
-annual,2025,arrival_growth_vs_2024,0.129,ratio,official_published,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,Annual comparison
-annual,2025,expenditure_per_capita,971,EUR_per_tourist,official_published,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,Trip expenditure; not spa willingness-to-pay
-monthly,2025-01,age_25_44_share,0.394,ratio,official_published,2025-03-17,https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf,Monthly profile only
-monthly,2025-01,age_45_64_share,0.344,ratio,official_published,2025-03-17,https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf,Monthly profile only
-monthly,2025-01,age_25_64_combined_share,0.738,ratio,derived_from_official_components,2025-03-17,https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf,Not a full-year demographic guarantee
-monthly,2025-03,age_25_44_share,0.374,ratio,official_published,2025-05-02,https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf,Monthly profile only
-monthly,2025-03,age_45_64_share,0.339,ratio,official_published,2025-05-02,https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf,Monthly profile only
-monthly,2025-03,age_25_64_combined_share,0.713,ratio,derived_from_official_components,2025-05-02,https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf,Not a full-year demographic guarantee
-monthly,2025-10,age_25_44_share,0.340,ratio,official_published,2025-12-01,https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf,Monthly profile only
-monthly,2025-10,age_45_64_share,0.384,ratio,official_published,2025-12-01,https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf,Monthly profile only
-monthly,2025-10,age_25_64_combined_share,0.724,ratio,derived_from_official_components,2025-12-01,https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf,Not a full-year demographic guarantee
-monthly,2025-12,age_25_44_share,0.362,ratio,official_published,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,Monthly profile only
-monthly,2025-12,age_45_64_share,0.363,ratio,official_published,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,Monthly profile only
-monthly,2025-12,age_25_64_combined_share,0.725,ratio,derived_from_official_components,2026-02-12,https://nso.gov.mt/inbound-tourism-december-2025/,Not a full-year demographic guarantee
+record_type,period,metric,value,unit,evidence_status,release_date,access_date,source_url,model_version,next_review,interpretation_boundary
+annual,2025,inbound_tourists,4022310,persons,OFFICIAL,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,External demand pool; not spa demand
+annual,2025,total_nights,25400000,nights,OFFICIAL,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,Published rounded total; external tourism context
+annual,2025,total_tourist_expenditure,3904400000,EUR,OFFICIAL,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,External expenditure context; not disposable spa budget
+annual,2025,arrival_growth_vs_2024,0.129,ratio,OFFICIAL,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,Annual comparison
+annual,2025,expenditure_per_capita,971,EUR_per_tourist,OFFICIAL,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,Trip expenditure; not spa willingness-to-pay
+monthly,2025-01,age_25_44_share,0.394,ratio,OFFICIAL,2025-03-17,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf,2.1,2027-02-28,Monthly profile only
+monthly,2025-01,age_45_64_share,0.344,ratio,OFFICIAL,2025-03-17,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf,2.1,2027-02-28,Monthly profile only
+monthly,2025-01,age_25_64_combined_share,0.738,ratio,DERIVED,2025-03-17,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf,2.1,2027-02-28,Sum of two official monthly age shares; not a full-year guarantee
+monthly,2025-03,age_25_44_share,0.374,ratio,OFFICIAL,2025-05-02,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf,2.1,2027-02-28,Monthly profile only
+monthly,2025-03,age_45_64_share,0.339,ratio,OFFICIAL,2025-05-02,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf,2.1,2027-02-28,Monthly profile only
+monthly,2025-03,age_25_64_combined_share,0.713,ratio,DERIVED,2025-05-02,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf,2.1,2027-02-28,Sum of two official monthly age shares; not a full-year guarantee
+monthly,2025-10,age_25_44_share,0.340,ratio,OFFICIAL,2025-12-01,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf,2.1,2027-02-28,Monthly profile only
+monthly,2025-10,age_45_64_share,0.384,ratio,OFFICIAL,2025-12-01,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf,2.1,2027-02-28,Monthly profile only
+monthly,2025-10,age_25_64_combined_share,0.724,ratio,DERIVED,2025-12-01,2026-09-06,https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf,2.1,2027-02-28,Sum of two official monthly age shares; not a full-year guarantee
+monthly,2025-12,age_25_44_share,0.362,ratio,OFFICIAL,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,Monthly profile only
+monthly,2025-12,age_45_64_share,0.363,ratio,OFFICIAL,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,Monthly profile only
+monthly,2025-12,age_25_64_combined_share,0.725,ratio,DERIVED,2026-02-12,2026-09-06,https://nso.gov.mt/inbound-tourism-december-2025/,2.1,2027-02-28,Sum of two official monthly age shares; not a full-year guarantee

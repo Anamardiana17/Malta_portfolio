@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas as pd
 
-BASE = Path("/Users/ambakinanti/Desktop/Malta_portfolio")
+BASE = Path(__file__).resolve().parents[2]
 
 files = {
     "dashboard_exec_overview": BASE / "data_processed/dashboard_export/dashboard_exec_overview.csv",
@@ -18,7 +18,7 @@ required = {
     "dashboard_outlet_control": ["outlet_id", "period_start", "overall_management_signal_score_0_100"],
     "dashboard_treatment_opportunity": ["outlet_id", "period_start", "treatment_category", "treatment_health_score_0_100"],
     "dashboard_therapist_coaching": ["therapist_id", "outlet_id", "period_start", "therapist_consistency_score_0_100"],
-    "dashboard_manager_action_queue": ["manager_action_queue_id", "action_priority", "action_scope"],
+    "dashboard_manager_action_queue": ["action_queue_id", "action_priority_rank", "action_type"],
 }
 
 for name, fp in files.items():
