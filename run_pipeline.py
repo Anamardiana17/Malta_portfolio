@@ -8,6 +8,7 @@ STEPS = [
     ("Build management insight marts", BASE / "scripts/build/build_management_insight_marts.py"),
     ("Build dashboard export layer", BASE / "scripts/build/build_dashboard_export_layer.py"),
     ("Validate dashboard export layer", BASE / "scripts/qa/validate_dashboard_export_layer.py"),
+    ("Validate Valletta thesis alignment", BASE / "scripts/qa/validate_thesis_alignment.py"),
 ]
 
 def run_step(label: str, script_path: Path) -> None:

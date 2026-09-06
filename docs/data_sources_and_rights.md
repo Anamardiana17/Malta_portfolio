@@ -1,6 +1,6 @@
 # Malta_portfolio — Data Sources, Provenance, and Rights Register
 
-_Last updated: 2026-04-06_
+_Last updated: 2026-09-06_
 
 ## Purpose
 This document centralizes the provenance, access route, attribution guidance, and reuse/copyright notes for datasets and external reference materials used in `Malta_portfolio`.
@@ -47,6 +47,8 @@ These are the strongest external sources in the repo because they are official s
 **Repo evidence**
 - `data_raw/nso_inbound_tourism/`
 - e.g. `nso_inbound_tourism_dec_2024_page.html`
+- `data_processed/thesis_alignment/market_context_2025.csv`
+- `assets/figures/figure_2_market_context_and_segmentation.png`
 
 **Preferred citation**
 `Source: National Statistics Office, Malta — Inbound Tourism.`
@@ -54,6 +56,8 @@ These are the strongest external sources in the repo because they are official s
 **Notes**
 - use NSO as the named source in charts, tables, and README references
 - when possible, include the exact release title and release date
+- the thesis-alignment layer records the access date, evidence status and interpretation boundary
+- selected monthly age profiles must not be presented as a full-year demographic distribution
 
 ---
 

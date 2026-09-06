@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 
-BASE = Path("/Users/ambakinanti/Desktop/Malta_portfolio")
+BASE = Path(__file__).resolve().parents[2]
 
 IN_OUTLET = BASE / "data_processed/management/outlet_management_summary.csv"
 IN_TREAT = BASE / "data_processed/management/treatment_opportunity_summary.csv"
