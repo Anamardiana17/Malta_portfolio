@@ -6,7 +6,7 @@ Read `docs/valletta_thesis_alignment.md` for the controlled-launch Valletta flag
 
 ## 2. Market context
 
-Open `assets/figures/figure_2_market_context_and_segmentation.png`, then inspect `data_processed/thesis_alignment/market_context_2025.csv`. Official NSO values are labelled **OFFICIAL**. Calculated combinations are labelled **DERIVED**. Tourism evidence is contextual and does not measure spa demand.
+Open `assets/figures/figure_2_market_context_and_segmentation.png`, then inspect `data_processed/thesis_alignment/market_context_2025.csv` for national context and `data_processed/thesis_alignment/valletta_local_market_context.csv` for locality evidence. Official NSO values are labelled **OFFICIAL**; the 2015 MTA survey rows are also marked **HISTORICAL** in temporal relevance. Validation-required visitor proxies must not be treated as official counts. Tourism evidence is contextual and does not measure spa demand.
 
 ## 3. Operating assumptions
 
@@ -34,4 +34,4 @@ Controlled thesis and workbook filenames and hashes are listed in `docs/controll
 python scripts/qa/validate_thesis_alignment.py
 ```
 
-The check validates source values, final capacity conventions, the EBITDA bridge, break-even revenue, fee definitions and the visitor arrival-capture proxy.
+The check validates source values, local-context boundaries, final capacity conventions, the EBITDA bridge, break-even revenue, fee definitions and the national inbound-arrival comparison ratio. It also prevents an unsupported Valletta capture-rate or market-share claim.
