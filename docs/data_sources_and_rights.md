@@ -83,7 +83,48 @@ These are the strongest external sources in the repo because they are official s
 
 ---
 
-### C. National Statistics Office (NSO) Malta — Passenger Traffic at Malta International Airport
+### C. National Statistics Office (NSO) Malta — Tourism Intensity
+
+**Used for**
+- Valletta locality tourism intensity
+- average tourist-presence and seasonality context
+- location-level external demand framing
+
+**Repo evidence**
+- `data_raw/nso_regional_reports/nso_regional_reports_source_manifest.csv`
+- `data_processed/thesis_alignment/valletta_local_market_context.csv`
+
+**Preferred citation**
+`Source: National Statistics Office, Malta — Tourism Intensity: 2024, NR 184/2025.`
+
+**Notes**
+- tourism intensity is based on tourist nights per 100 residents per day
+- it measures average tourist presence rather than annual unique visitors
+- it must not be used as a Valletta spa capture-rate denominator
+
+---
+
+### D. Malta Tourism Authority Research Unit — Valletta Locality Survey
+
+**Used for**
+- historical Valletta visitor typology
+- visit-mode and locality-experience context
+
+**Repo evidence**
+- `data_raw/mta_valletta_locality/mta_valletta_locality_source_manifest.csv`
+- `data_processed/thesis_alignment/valletta_local_market_context.csv`
+
+**Preferred citation**
+`Source: Malta Tourism Authority Research Unit, Valletta Locality Survey, fieldwork February-October 2015.`
+
+**Notes**
+- Valletta-specific sample comprised 277 respondents
+- results are historical survey composition, not a current visitor denominator
+- do not project the 2015 shares directly onto 2025 tourism or spa demand
+
+---
+
+### E. National Statistics Office (NSO) Malta — Passenger Traffic at Malta International Airport
 **Used for**
 - air transport / passenger movement context
 - tourism-access and mobility context
