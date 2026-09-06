@@ -66,6 +66,19 @@ The core logic of this project is simple:
 
 This means the project does not treat tourism, mobility, or market context as a substitute for real operational performance. External signals are used to frame pressure, seasonality, and commercial context around the spa business, while internal operating data remains the main anchor for action.
 
+## Valletta thesis alignment
+
+The repository now contains a controlled alignment layer for the **Valletta Mediterranean Wellness Spa** thesis and its supporting financial model. This layer is intentionally separate from the repository's synthetic multi-outlet operating demonstration:
+
+- `data_processed/thesis_alignment/market_context_2025.csv` records the official 2025 Malta tourism headline statistics and selected monthly age-profile evidence used in Chapter 4.2.
+- `data_processed/thesis_alignment/operating_assumptions.csv` records the final Valletta flagship staffing, capacity, commercial and tax conventions.
+- `data_processed/thesis_alignment/financial_headlines.csv` records the key Year 1, break-even, return and downside outputs from the thesis-aligned workbook.
+- `docs/valletta_thesis_alignment.md` explains scope, reconciliation logic, sources and interpretation boundaries.
+
+The Valletta layer describes a **controlled-launch business concept**, not an operating company actual. The existing multi-outlet datasets remain author-generated demonstration data and are not overwritten by the thesis assumptions. Where the two layers differ, the scope field determines which convention applies.
+
+Malta recorded 4,022,310 inbound tourists, 25.4 million nights and €3,904.4 million in tourist expenditure in 2025. These figures provide external demand context only. They do not measure Valletta spa demand or prove the thesis revenue forecast. The Year 1 visitor requirement is therefore presented as an arrival-capture proxy rather than market share.
+
 ## System Architecture
 The project is organized across six layers:
 
