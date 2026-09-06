@@ -31,12 +31,14 @@ market_rows = load_rows(DATA / "market_context_2025.csv")
 assumption_rows = load_rows(DATA / "operating_assumptions.csv")
 financial_rows = load_rows(DATA / "financial_headlines.csv")
 reconciliation_rows = load_rows(DATA / "reconciliation_register.csv")
+local_rows = load_rows(DATA / "valletta_local_market_context.csv")
+local_by_metric = {row["metric"]: row for row in local_rows}
 
 allowed_statuses = {
     "OFFICIAL", "DERIVED", "PLANNING ASSUMPTION", "MODEL OUTPUT",
     "SYNTHETIC DEMO", "VALIDATION REQUIRED",
 }
-for row in market_rows + assumption_rows + financial_rows:
+for row in market_rows + assumption_rows + financial_rows + local_rows:
     if row["evidence_status"] not in allowed_statuses:
         raise AssertionError(f"Unsupported evidence status: {row['evidence_status']}")
 
@@ -78,8 +80,52 @@ close(
     finance["break_even_total_net_revenue"],
 )
 
-visitor_proxy = finance["visitor_related_occasions"] / market["inbound_tourists"]
-close(visitor_proxy, finance["visitor_arrival_capture_proxy"], 0.00000001)
+national_comparison = finance["visitor_related_occasions"] / market["inbound_tourists"]
+close(
+    national_comparison,
+    finance["national_inbound_arrival_comparison_ratio"],
+    0.00000001,
+)
+
+close(float(local_by_metric["valletta_tourism_intensity"]["value"]), 69.4, 0)
+close(float(local_by_metric["valletta_august_tourism_intensity"]["value"]), 82.0, 0)
+close(float(local_by_metric["valletta_december_tourism_intensity"]["value"]), 49.5, 0)
+
+for row in local_rows:
+    if not row["access_date"].strip() or not row["model_version"].strip():
+        raise AssertionError(f"Missing local-context metadata for {row['metric']}")
+    if not row["interpretation_boundary"].strip():
+        raise AssertionError(f"Missing interpretation boundary for {row['metric']}")
+
+for metric in (
+    "independent_valletta_visitor_share",
+    "organised_excursion_share",
+    "staying_in_valletta_share",
+    "cruise_day_visitor_share",
+):
+    if local_by_metric[metric]["temporal_relevance"] != "HISTORICAL":
+        raise AssertionError(f"Historical MTA row is not controlled: {metric}")
+
+for metric in (
+    "reported_malta_tourists_visiting_valletta_floor",
+    "indicative_valletta_visitor_floor_proxy",
+    "indicative_local_visitor_volume_comparison_ratio",
+):
+    if local_by_metric[metric]["evidence_status"] != "VALIDATION REQUIRED":
+        raise AssertionError(f"Unvalidated local proxy is overstated: {metric}")
+
+for metric in ("valletta_unique_annual_visitors", "valletta_actual_capture_rate"):
+    row = local_by_metric[metric]
+    if row["value"].strip():
+        raise AssertionError(f"Unsupported Valletta denominator/capture value populated: {metric}")
+    if row["evidence_status"] != "VALIDATION REQUIRED":
+        raise AssertionError(f"Unavailable local metric lacks validation control: {metric}")
+
+for row in financial_rows:
+    if row["metric"] == "visitor_arrival_capture_proxy":
+        raise AssertionError("Legacy arrival-capture proxy label remains")
+if "national_inbound_arrival_comparison_ratio" not in finance:
+    raise AssertionError("National comparison ratio is missing")
 
 if not 0.70 <= market["age_25_64_combined_share"] <= 0.75:
     raise AssertionError("Selected monthly combined age share falls outside the disclosed range")
