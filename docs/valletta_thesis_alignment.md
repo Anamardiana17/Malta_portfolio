@@ -31,7 +31,17 @@ Selected NSO monthly releases show that visitors aged 25–44 and 45–64 togeth
 | Monthly age profile | Test adult recovery, couples and skin-wellness propositions | Selected months are not a full-year demographic distribution |
 | Seasonal proxy | Inform monthly staffing and promotion reviews | External context must not override POS and operating evidence |
 
-The thesis base case assumes approximately 6,609 Year 1 treatment occasions. Under the internal 65% visitor-related and 35% resident/corporate planning mix, approximately 4,296 occasions are visitor-related. The resulting 0.107% comparison with 2025 inbound arrivals is an **arrival-capture proxy**, not market share: a visitor may book more than once, residents are also included in the plan, and official tourism arrivals do not measure spa purchase intent.
+The thesis base case assumes approximately 6,609 Year 1 treatment occasions. Under the internal 65% visitor-related and 35% resident/corporate planning mix, approximately 4,296 occasions are visitor-related. Comparing those occasions with Malta's 2025 national inbound arrivals produces 0.107%. This is a **national inbound-arrival comparison ratio** used only to show scale. It is not a Valletta capture rate, market share or addressable-spa-demand estimate: national arrivals include people who may not visit Valletta, and treatment occasions are not unique customers.
+
+### Valletta local demand context
+
+NSO Malta's *Tourism Intensity: 2024* reports Valletta tourism intensity of 69.4 tourists per 100 residents per day on an annual basis, rising to 82.0 in August and falling to 49.5 in December. The measure is based on tourist nights and represents average tourist presence, not annual unique visitors. It strengthens the location rationale and shows pronounced seasonality, but it cannot be used as the denominator of a customer capture rate.
+
+The Malta Tourism Authority's historical Valletta Locality Survey, based on 277 Valletta-specific respondents approached between February and October 2015, reported 67.7% independent visitors, 17.0% organised-excursion visitors, 12.1% staying in Valletta and 3.2% cruise day visitors. These figures describe the historical survey sample only. They support visitor-typology design but must not be treated as the current composition of all Valletta visitors or projected spa customers.
+
+A separate presentation reports that more than 90% of Malta tourists visit Valletta. Because the source year and denominator methodology require confirmation, neither the claim nor the indicative 3.62 million calculation derived from it is used as a final local denominator. Both remain `VALIDATION REQUIRED`.
+
+The controlled local evidence is recorded in `data_processed/thesis_alignment/valletta_local_market_context.csv`. No actual Valletta capture rate will be reported until a comparable unique-customer numerator and defensible addressable unique-visitor denominator are available. After launch, partner-hotel guest conversion, referral-code conversion and direct booking conversion should be measured separately because those denominators are operationally observable.
 
 ## Final Valletta flagship convention
 
@@ -79,7 +89,7 @@ The arithmetic bridge is explicit:
 
 `Break-even revenue = €667,000 ÷ 73.7296% = €904,656.95`
 
-`Visitor arrival-capture proxy = (6,608.97 × 65%) ÷ 4,022,310 = 0.1068%`
+`National inbound-arrival comparison ratio = (6,608.97 × 65%) ÷ 4,022,310 = 0.1068%`
 
 ## Source hierarchy and update rule
 
@@ -98,6 +108,8 @@ If a source is revised, update the relevant CSV first, record the access and rel
 - NSO Malta, *Inbound Tourism: January 2025*: https://nso.gov.mt/wp-content/uploads/NR-047-2025.pdf
 - NSO Malta, *Inbound Tourism: March 2025*: https://nso.gov.mt/wp-content/uploads/NR-078-2025.pdf
 - NSO Malta, *Inbound Tourism: October 2025*: https://nso.gov.mt/wp-content/uploads/NR-223-2025_246.pdf
+- NSO Malta, *Tourism Intensity: 2024*, NR 184/2025: https://nso.gov.mt/tourism-intensity-2024/
+- Malta Tourism Authority Research Unit, *Valletta Locality Survey* (historical 2015 fieldwork): https://www.um.edu.mt/library/oar/bitstream/123456789/42819/1/Locality_survey.pdf
 - Source integrated thesis: `Ana_Mardiana_Valletta_Spa_Complete_Thesis_Finance_Integrated_Final(3).docx`
 - Repository-aligned thesis release: `Ana_Mardiana_Valletta_Spa_Complete_Thesis_Finance_Integrated_Repo_Aligned_Final.docx`
 - Final supporting model: `Valletta_Mediterranean_Wellness_Spa_Financial_Model_Thesis_Aligned_Final.xlsx`
