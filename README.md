@@ -30,12 +30,13 @@ This repo is designed to be understandable in a short screening pass while still
 Reviewers assessing the thesis-aligned flagship case can follow this shorter route:
 
 1. **Business concept** — `docs/valletta_thesis_alignment.md`
-2. **Market context** — `data_processed/thesis_alignment/market_context_2025.csv`
-3. **Operating assumptions** — `data_processed/thesis_alignment/operating_assumptions.csv`
-4. **Treatment costing** — `data_processed/pricing_research/`
-5. **Financial outputs** — `data_processed/thesis_alignment/financial_headlines.csv`
-6. **Scenario and risk analysis** — `data_processed/thesis_alignment/reconciliation_register.csv`
-7. **Sources and QA checks** — `docs/data_sources_and_rights.md` and `scripts/qa/validate_thesis_alignment.py`
+2. **National market context** — `data_processed/thesis_alignment/market_context_2025.csv`
+3. **Local Valletta context** — `data_processed/thesis_alignment/valletta_local_market_context.csv`
+4. **Operating assumptions** — `data_processed/thesis_alignment/operating_assumptions.csv`
+5. **Treatment costing** — `data_processed/pricing_research/`
+6. **Financial outputs** — `data_processed/thesis_alignment/financial_headlines.csv`
+7. **Scenario and risk analysis** — `data_processed/thesis_alignment/reconciliation_register.csv`
+8. **Sources and QA checks** — `docs/data_sources_and_rights.md` and `scripts/qa/validate_thesis_alignment.py`
 
 The complete five-to-ten-minute review route is documented in `docs/reviewer_reading_guide.md`.
 
@@ -85,6 +86,7 @@ This means the project does not treat tourism, mobility, or market context as a 
 The repository now contains a controlled alignment layer for the **Valletta Mediterranean Wellness Spa** thesis and its supporting financial model. This layer is intentionally separate from the repository's synthetic multi-outlet operating demonstration:
 
 - `data_processed/thesis_alignment/market_context_2025.csv` records the official 2025 Malta tourism headline statistics and selected monthly age-profile evidence used in Chapter 4.2.
+- `data_processed/thesis_alignment/valletta_local_market_context.csv` separates official locality intensity, historical visitor-typology evidence, validation-required proxies and unavailable denominator controls.
 - `data_processed/thesis_alignment/operating_assumptions.csv` records the final Valletta flagship staffing, capacity, commercial and tax conventions.
 - `data_processed/thesis_alignment/financial_headlines.csv` records the key Year 1, break-even, return and downside outputs from the thesis-aligned workbook.
 - `docs/valletta_thesis_alignment.md` explains scope, reconciliation logic, sources and interpretation boundaries.
@@ -93,7 +95,7 @@ The repository now contains a controlled alignment layer for the **Valletta Medi
 
 The Valletta layer describes a **controlled-launch business concept**, not an operating company actual. The existing multi-outlet datasets remain author-generated demonstration data and are not overwritten by the thesis assumptions. Where the two layers differ, the scope field determines which convention applies.
 
-Malta recorded 4,022,310 inbound tourists, 25.4 million nights and €3,904.4 million in tourist expenditure in 2025. These figures provide external demand context only. They do not measure Valletta spa demand or prove the thesis revenue forecast. The Year 1 visitor requirement is therefore presented as an arrival-capture proxy rather than market share.
+Malta recorded 4,022,310 inbound tourists, 25.4 million nights and €3,904.4 million in tourist expenditure in 2025. These figures provide external demand context only. They do not measure Valletta spa demand or prove the thesis revenue forecast. The Year 1 visitor requirement is compared with national arrivals only as a national inbound-arrival comparison ratio. It is not presented as a Valletta capture rate or market share.
 
 ![Figure 2 — Malta market context and segmentation](assets/figures/figure_2_market_context_and_segmentation.png)
 
