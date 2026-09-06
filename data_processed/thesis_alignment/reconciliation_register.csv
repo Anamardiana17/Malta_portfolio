@@ -1,6 +1,6 @@
 topic,metric,thesis_value,workbook_value,repository_value,unit,status,source_or_formula,decision_note
 market_context,inbound_tourists,4022310,not_applicable,4022310,persons,OFFICIAL,NSO Inbound Tourism December 2025,External context only
-market_context,visitor_arrival_capture_proxy,0.001068,0.001068,0.001068,ratio,DERIVED,visitor-related occasions divided by 2025 inbound tourists,Not market share
+market_context,national_inbound_arrival_comparison_ratio,0.001068,0.001068,0.001068,ratio,DERIVED,visitor-related occasions divided by 2025 national inbound tourists,National scale comparison only; not Valletta capture rate or market share
 staffing,permanent_employees,15,15,15,employees,PLANNING ASSUMPTION,Final integrated thesis and Finance Assumptions,Controlled-launch plan
 staffing,permanent_therapist_capacity,9,9,9,FTE,PLANNING ASSUMPTION,Final integrated thesis and Capacity Revenue,Relief hours separate
 capacity,operating_days,365,365,365,days/year,PLANNING ASSUMPTION,Final integrated thesis and Finance Assumptions,Single convention
@@ -18,3 +18,6 @@ finance,break_even_total_net_revenue,904656.949508,904656.949508,904656.949508,E
 returns,management_case_payback,2.812331,2.812331,2.812331,years,MODEL OUTPUT,ROI Returns,Execution target
 returns,conservative_case_payback,3.355184,3.355184,3.355184,years,MODEL OUTPUT,Three Case Summary,Preferred investment-discussion range
 returns,severe_case_recovery,5.698195,5.698195,5.698195,years,MODEL OUTPUT,Three Case Summary,Liquidity stress test
+local_context,valletta_tourism_intensity,not_applicable,not_applicable,0.694,tourists per 100 residents per day,OFFICIAL,NSO Tourism Intensity 2024 NR 184/2025,Average tourist presence based on nights; not unique annual visitors
+local_context,valletta_unique_annual_visitors,not_available,not_applicable,not_available,persons,VALIDATION REQUIRED,No defensible current locality series identified,Required local denominator remains unavailable
+local_context,valletta_actual_capture_rate,not_calculated,not_applicable,not_calculated,ratio,VALIDATION REQUIRED,Requires comparable unique-customer numerator and addressable unique-visitor denominator,Do not claim until both measures are available
